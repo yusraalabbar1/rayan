@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "722439138139",
+    "project_id": "rayan-f603b",
+    "storage_bucket": "rayan-f603b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722439138139:android:1a877355969c84a489087e",
+        "android_client_info": {
+          "package_name": "com.aq.developer.rayan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "722439138139-d1n8e63ebk6ksbdk0fih6qfctimmv5o7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQm6zDbQ72Ymi-qTFGL6A6KHItWv3Q3I4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "722439138139-d1n8e63ebk6ksbdk0fih6qfctimmv5o7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "722439138139-u49l1t8o6ihd11mjkflnuh0mdagppmm3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.aq.developer.rayan"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

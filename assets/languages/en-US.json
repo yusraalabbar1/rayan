@@ -1,0 +1,23 @@
+{
+    "sign_in": "Sign in",
+    "forgot_yout_password": "Forgot your password?",
+    "social_login": "Social login",
+    "dont_have_an_account": "You dont have an account ?",
+    "register_now": "Register now",
+    "email_dot": "Email:",
+    "password_dot": "Password:",
+    "new_password_dot": "New Password:",
+    "login": "Login",
+    "forgot_password": "Forgot password",
+    "reset_password": "Reset password",
+    "change_password": "Change password",
+    "sign_up": "Sign up",
+    "name_dot": "Name:",
+    "first_name_dot": "First name:",
+    "last_name_dot": "Last name:",
+    "gender_dot": "Gender:",
+    "male": "Male",
+    "female": "Female",
+    "confirm_password_dot": "Confirm password:",
+    "already_a_member": "Already a member"
+}
