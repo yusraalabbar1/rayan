@@ -139,7 +139,7 @@ Upload(File imageFile, fileName) async {
       getpreflog();
       // controller.SavePathImage(
       //     "http://212.24.108.54/wsaAdmin/images/user/" + fileName);
-      getpreflog();
+      //getpreflog();
     }
 
     print(value);
