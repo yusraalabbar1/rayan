@@ -152,8 +152,14 @@ class _homePageState extends State<homePage> {
         onTap: _onItemTapped,
         letIndexChange: (index) => true,
       ),
-      body: Center(
-        child: widgetOptions.elementAt(_selectedIndex),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          await send_inf_loginupdate(usernamepref, passPref);
+          await getpreflog();
+        },
+        child: Center(
+          child: widgetOptions.elementAt(_selectedIndex),
+        ),
       ),
     );
   }

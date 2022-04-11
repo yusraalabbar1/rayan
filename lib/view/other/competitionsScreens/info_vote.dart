@@ -47,7 +47,10 @@ class _infoVoteState extends State<infoVote> {
         ListView(
           shrinkWrap: true,
           children: [
-            rowAppbar(context),
+            // rowAppbar(context),
+            SizedBox(
+              height: 20,
+            ),
             Padding(
               padding: const EdgeInsets.all(19.0),
               child: Card(

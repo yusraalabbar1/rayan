@@ -49,8 +49,11 @@ Widget part2Agent(context) {
             height: 252,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: NetworkImage(
-                        "http://212.24.108.54/wsaAdmin/images/${allAgent[controller.indexAgent]['imageUrl']}"),
+                    image: allAgent[controller.indexAgent]['imageUrl'] != null
+                        ? NetworkImage(
+                            "http://212.24.108.54/wsaAdmin/images/${allAgent[controller.indexAgent]['imageUrl']}")
+                        : NetworkImage(
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKHGD0_INEcX-OvEp38MI15RuKfYrQElYegQ&usqp=CAU"),
                     fit: BoxFit.cover)),
           ),
         ]),
@@ -84,17 +87,7 @@ Widget part2Agent(context) {
               color: Colors.white, fontSize: 13, fontFamily: 'Almarai'),
         ),
       ),
-      Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-        child: Text(
-          "شحن رصيد :",
-          style: TextStyle(
-              color: Colors.white,
-              fontSize: 17,
-              fontFamily: 'Almarai',
-              fontWeight: FontWeight.bold),
-        ),
-      ),
+
       // ignore: deprecated_member_use
 
       Padding(

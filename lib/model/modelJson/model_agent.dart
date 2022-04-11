@@ -15,21 +15,25 @@ class Agent {
     required this.data,
   });
 
-  bool isSuccess;
-  String message;
-  List<DataAgent> data;
+  bool? isSuccess;
+  String? message;
+  List<DataAgent>? data;
 
   factory Agent.fromJson(Map<String, dynamic> json) => Agent(
         isSuccess: json["isSuccess"],
         message: json["message"],
-        data: List<DataAgent>.from(
-            json["data"].map((x) => DataAgent.fromJson(x))),
+        data: json["data"] != null
+            ? List<DataAgent>.from(
+                json["data"].map((x) => DataAgent.fromJson(x)))
+            : null,
       );
 
   Map<String, dynamic> toJson() => {
         "isSuccess": isSuccess,
         "message": message,
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
+        "data": data != null
+            ? List<dynamic>.from(data!.map((x) => x.toJson()))
+            : null,
       };
 }
 
@@ -47,15 +51,15 @@ class DataAgent {
     required this.id,
   });
 
-  String countryId;
-  String cityId;
-  String name;
-  String description;
-  String locationDesc;
-  String imageUrl;
-  bool active;
-  List<dynamic> agentImages;
-  List<dynamic> agentMedia;
+  String? countryId;
+  String? cityId;
+  String? name;
+  String? description;
+  String? locationDesc;
+  String? imageUrl;
+  bool? active;
+  List<dynamic>? agentImages;
+  List<dynamic>? agentMedia;
   int id;
 
   factory DataAgent.fromJson(Map<String, dynamic> json) => DataAgent(
@@ -79,8 +83,8 @@ class DataAgent {
         "locationDesc": locationDesc,
         "imageUrl": imageUrl,
         "active": active,
-        "agentImages": List<dynamic>.from(agentImages.map((x) => x)),
-        "agentMedia": List<dynamic>.from(agentMedia.map((x) => x)),
+        "agentImages": List<dynamic>.from(agentImages!.map((x) => x)),
+        "agentMedia": List<dynamic>.from(agentMedia!.map((x) => x)),
         "id": id,
       };
 }

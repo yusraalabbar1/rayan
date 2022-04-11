@@ -1,8 +1,10 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/modelsCompt/model_compitition.dart';
+import 'package:rayan/utils/constant/color.dart';
 
 Widget widgetgallary(context) {
   return GetBuilder<homecontroller>(builder: (controller) {
@@ -24,25 +26,42 @@ Widget widgetgallary(context) {
                   child: GetBuilder<homecontroller>(builder: (controller) {
                     return (InkWell(
                       onTap: () {
-                        controller.SavenameComp(
-                            controller.saveMapCompitition[index]['name']);
-                        controller.SavemonyrComp(controller
-                            .saveMapCompitition[index]['awardAmount']);
-                        controller.SavediscrpComp(controller
-                            .saveMapCompitition[index]['description']);
-                        controller.SaveidComp(controller
-                            .saveMapCompitition[index]['competitionsId']);
-                        controller.Saveamount(
-                            controller.saveMapCompitition[index]['amount']);
-                        controller.SaveIsFinishComp(
-                            controller.saveMapCompitition[index]['isFinish']);
-                        controller.SaveImageComp(
-                            foundCompitition[index]['imageUrl']);
-                        controller.SavecurrentTourName(controller
-                            .saveMapCompitition[index]['currentTourName']);
-                        controller.SavecurrentTourTimeLimit(controller
-                            .saveMapCompitition[index]['currentTourTimeLimit']);
-                        Navigator.of(context).pushNamed("infoCompet");
+                        if (foundCompitition[index]['isFinish'] == true) {
+                          AwesomeDialog(
+                                  context: context,
+                                  animType: AnimType.RIGHSLIDE,
+                                  headerAnimationLoop: true,
+                                  btnOkOnPress: () {},
+                                  body: Text("عذرا المسابقة منتهية",
+                                      style: TextStyle(
+                                          color: MyColors.color3,
+                                          fontSize: 14,
+                                          fontFamily: 'Almarai')),
+                                  dialogBackgroundColor: MyColors.color2,
+                                  btnOkColor: MyColors.color1)
+                              .show();
+                        } else {
+                          controller.SavenameComp(
+                              controller.saveMapCompitition[index]['name']);
+                          controller.SavemonyrComp(controller
+                              .saveMapCompitition[index]['awardAmount']);
+                          controller.SavediscrpComp(controller
+                              .saveMapCompitition[index]['description']);
+                          controller.SaveidComp(controller
+                              .saveMapCompitition[index]['competitionsId']);
+                          controller.Saveamount(
+                              controller.saveMapCompitition[index]['amount']);
+                          controller.SaveIsFinishComp(
+                              controller.saveMapCompitition[index]['isFinish']);
+                          controller.SaveImageComp(
+                              foundCompitition[index]['imageUrl']);
+                          controller.SavecurrentTourName(controller
+                              .saveMapCompitition[index]['currentTourName']);
+                          controller.SavecurrentTourTimeLimit(
+                              controller.saveMapCompitition[index]
+                                  ['currentTourTimeLimit']);
+                          Navigator.of(context).pushNamed("infoCompet");
+                        }
                       },
                       child: Container(
                           height: 200,
@@ -115,6 +134,20 @@ Widget widgetgallary(context) {
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 10,
+                                            fontFamily: 'Almarai'),
+                                      ),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      Text(
+                                        controller.saveMapCompitition[index]
+                                                    ['isFinish'] !=
+                                                true
+                                            ? ""
+                                            : "المسابقة منتهية",
+                                        style: TextStyle(
+                                            color: Colors.red,
+                                            fontSize: 7,
                                             fontFamily: 'Almarai'),
                                       ),
                                     ],

@@ -83,7 +83,9 @@ class _sittingSecurityState extends State<sittingSecurity> {
                               IconButton(
                                   onPressed: () {
                                     Navigator.of(context)
-                                        .pushNamed("emailForForgetPassword");
+                                        .pushNamed("passwordNew");
+                                    // Navigator.of(context)
+                                    //     .pushNamed("emailForForgetPassword");
                                   },
                                   icon: Icon(
                                     Icons.navigate_next,

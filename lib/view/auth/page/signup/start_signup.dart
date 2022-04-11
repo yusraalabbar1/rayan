@@ -176,7 +176,6 @@ class _loginState extends State<login> {
                             if (text.length < 9) {
                               return "can not enter less than 9";
                             }
-                            return null;
                           },
                           onSaved: (string) {
                             print("on saved");
@@ -298,7 +297,7 @@ class _loginState extends State<login> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            mediaface("Facebook".tr),
+                            mediatwit("twitter".tr),
                             const SizedBox(
                               width: 5,
                             ),

@@ -34,28 +34,30 @@ Row rowAppbar(context) {
         child: Row(
           children: [
             InkWell(
-              child: GetBuilder<homecontroller>(builder: (controller) {
-                return (Container(
-                  alignment: Alignment.topRight,
-                  width: 44,
-                  height: 44,
-                  child: CircleAvatar(
-                    radius: 50,
-                    backgroundColor: MyColors.color1,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(50),
-                      child: (controller.savePathImage == null)
-                          ? Icon(Icons.image_not_supported)
-                          : Image.network(
-                              controller.savePathImage,
-                              width: 44,
-                              height: 44,
-                              fit: BoxFit.fitHeight,
+              child: Builder(
+                  builder: (context) =>
+                      GetBuilder<homecontroller>(builder: (controller) {
+                        return (Container(
+                          alignment: Alignment.topRight,
+                          width: 44,
+                          height: 44,
+                          child: CircleAvatar(
+                            radius: 50,
+                            backgroundColor: MyColors.color1,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(50),
+                              child: (controller.savePathImage == null)
+                                  ? Icon(Icons.image_not_supported)
+                                  : Image.network(
+                                      controller.savePathImage,
+                                      width: 44,
+                                      height: 44,
+                                      fit: BoxFit.fitHeight,
+                                    ),
                             ),
-                    ),
-                  ),
-                ));
-              }),
+                          ),
+                        ));
+                      })),
               onTap: () {
                 Scaffold.of(context).openDrawer();
               },

@@ -22,9 +22,9 @@ Future getAllAgents(tokenloginresult, countryIdSaveprf, cityIdSavepref) async {
   var res = await http.Response.fromStream(response);
   Agent c = Agent.fromJson(jsonDecode(res.body));
   print("***************************");
-  for (var i = 0; i < c.data.length; i++) {
-    allAgent.add(c.data[i].toJson());
-    print(c.data[i].toJson());
+  for (var i = 0; i < c.data!.length; i++) {
+    allAgent.add(c.data![i].toJson());
+    print(c.data![i].toJson());
   }
   foundAll = allAgent;
 

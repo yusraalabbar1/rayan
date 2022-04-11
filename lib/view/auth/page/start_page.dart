@@ -30,11 +30,12 @@ class _startPageState extends State<startPage> {
     super.initState();
     print("start page:************");
     myJsonCountry = [];
+    getSettingTerms();
     getCoutery();
     getSettingSpictimeOtp();
-    getSettingSpicSocialMediaFacebook();
-    getSettingSpicSocialMediaYouTube();
-    getSettingSpicSocialMediaInstagram();
+    // getSettingSpicSocialMediaFacebook();
+    //getSettingSpicSocialMediaYouTube();
+    //getSettingSpicSocialMediaInstagram();
     getSettingSpicSocialMediaWhatapp();
     getSettingSpicSocialMediaTelgram();
     // getDeviceDetails();
@@ -123,12 +124,18 @@ class _startPageState extends State<startPage> {
             alignment: Alignment.bottomCenter,
             child: Container(
               margin: EdgeInsets.only(bottom: 20),
-              child: Text(
-                "You are agreeing to our terms of service and privacy plicy".tr,
-                style: TextStyle(
-                    fontSize: 11,
-                    color: MyColors.color3,
-                    fontFamily: 'Almarai'),
+              child: InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed("terms");
+                },
+                child: Text(
+                  "You are agreeing to our terms of service and privacy plicy"
+                      .tr,
+                  style: TextStyle(
+                      fontSize: 11,
+                      color: MyColors.color3,
+                      fontFamily: 'Almarai'),
+                ),
               ),
             ),
           ),

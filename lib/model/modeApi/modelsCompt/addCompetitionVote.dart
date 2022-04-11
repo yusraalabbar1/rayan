@@ -121,6 +121,9 @@ Future extraAddCompitationVote(idComp, memberId, userId, context) async {
   if (response.statusCode == 200) {
     memberInCompt = [];
     allMemberCompitition(idComp);
+    print("vvvvvvvvvvvvvvv");
+    print(c.isSuccess);
+    print(c.message);
     if (c.isSuccess == true) {
       AwesomeDialog(
               context: context,
@@ -129,6 +132,21 @@ Future extraAddCompitationVote(idComp, memberId, userId, context) async {
               headerAnimationLoop: true,
               btnOkOnPress: () {},
               body: Text("تم التصويت",
+                  style: TextStyle(
+                      color: MyColors.color3,
+                      fontSize: 14,
+                      fontFamily: 'Almarai')),
+              dialogBackgroundColor: MyColors.color2,
+              btnOkColor: MyColors.color1)
+          .show();
+    } else if (c.message == "User_Not_Have_Balance") {
+      AwesomeDialog(
+              context: context,
+              dialogType: DialogType.SUCCES,
+              animType: AnimType.RIGHSLIDE,
+              headerAnimationLoop: true,
+              btnOkOnPress: () {},
+              body: Text("لا تملك رصيد كاف",
                   style: TextStyle(
                       color: MyColors.color3,
                       fontSize: 14,

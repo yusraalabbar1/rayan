@@ -25,8 +25,8 @@ Future getWinner(tokenloginresult) async {
   print("==============================");
   if (response.statusCode == 200) {
     if (c.isSuccess == true) {
-      for (var i = 0; i < c.data.length; i++) {
-        winner.add(c.data[i].toJson());
+      for (var i = 0; i < c.data!.length; i++) {
+        winner.add(c.data![i].toJson());
       }
       print(winner);
       controller.SaveListWinner(winner);

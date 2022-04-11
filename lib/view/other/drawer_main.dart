@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rayan/view/auth/page/start_page.dart';
 import 'package:share/share.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -292,7 +293,9 @@ Widget drawerMain(context) {
               SharedPreferences presIsLogin =
                   await SharedPreferences.getInstance();
               presIsLogin.setBool("isLogin", false);
-              SystemNavigator.pop();
+              navigator!.pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => startPage()));
+              // SystemNavigator.pop();
             },
             child: Row(
               children: [

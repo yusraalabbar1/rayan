@@ -294,27 +294,27 @@ class _pinPasswordState extends State<pinPassword> {
                   SizedBox(
                     height: 16,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Flexible(
-                          child: TextButton(
-                        child: Text("Clear"),
-                        onPressed: () {
-                          textEditingController.clear();
-                        },
-                      )),
-                      Flexible(
-                          child: TextButton(
-                        child: Text("Set Text"),
-                        onPressed: () {
-                          setState(() {
-                            textEditingController.text = "0000";
-                          });
-                        },
-                      )),
-                    ],
-                  )
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: <Widget>[
+                  //     Flexible(
+                  //         child: TextButton(
+                  //       child: Text("Clear"),
+                  //       onPressed: () {
+                  //         textEditingController.clear();
+                  //       },
+                  //     )),
+                  //     Flexible(
+                  //         child: TextButton(
+                  //       child: Text("Set Text"),
+                  //       onPressed: () {
+                  //         setState(() {
+                  //           textEditingController.text = "0000";
+                  //         });
+                  //       },
+                  //     )),
+                  //   ],
+                  // )
                 ],
               ),
             ))

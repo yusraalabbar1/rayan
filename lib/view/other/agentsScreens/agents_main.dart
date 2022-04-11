@@ -106,11 +106,72 @@ class _agentsMainState extends State<agentsMain> {
                                     height: 128,
                                     width: 147,
                                     decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(30),
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                                "http://212.24.108.54/wsaAdmin/images/${foundAll[index]['imageUrl']}"),
-                                            fit: BoxFit.cover)),
+                                      color: Colors.white,
+                                      border: Border.all(),
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(30),
+                                      child: foundAll[index]['imageUrl'] != null
+                                          ? Image.network(
+                                              'http://212.24.108.54/wsaAdmin/images/${foundAll[index]['imageUrl']}',
+                                              fit: BoxFit.cover,
+                                              loadingBuilder:
+                                                  (BuildContext context,
+                                                      Widget child,
+                                                      ImageChunkEvent?
+                                                          loadingProgress) {
+                                                if (loadingProgress == null) {
+                                                  return child;
+                                                }
+                                                return Center(
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    value: loadingProgress
+                                                                .expectedTotalBytes !=
+                                                            null
+                                                        ? loadingProgress
+                                                                .cumulativeBytesLoaded /
+                                                            loadingProgress
+                                                                .expectedTotalBytes!
+                                                        : null,
+                                                  ),
+                                                );
+                                              },
+                                            )
+                                          : Image.network(
+                                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKHGD0_INEcX-OvEp38MI15RuKfYrQElYegQ&usqp=CAU',
+                                              fit: BoxFit.cover,
+                                              loadingBuilder:
+                                                  (BuildContext context,
+                                                      Widget child,
+                                                      ImageChunkEvent?
+                                                          loadingProgress) {
+                                                if (loadingProgress == null) {
+                                                  return child;
+                                                }
+                                                return Center(
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    value: loadingProgress
+                                                                .expectedTotalBytes !=
+                                                            null
+                                                        ? loadingProgress
+                                                                .cumulativeBytesLoaded /
+                                                            loadingProgress
+                                                                .expectedTotalBytes!
+                                                        : null,
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                    ),
+                                    // decoration: BoxDecoration(
+                                    //     borderRadius: BorderRadius.circular(30),
+                                    //     image: DecorationImage(
+                                    //         image: NetworkImage(
+                                    //             "http://212.24.108.54/wsaAdmin/images/${foundAll[index]['imageUrl']}"),
+                                    //         fit: BoxFit.cover)),
                                   ),
                                   Text("${foundAll[index]['name']}",
                                       style: TextStyle(

@@ -240,7 +240,7 @@ Widget widgetRowForProfil(context) {
                       child: Text(
                           controller.saveMidName == null
                               ? ""
-                              : controller.saveFirstName.toString(),
+                              : controller.saveMidName.toString(),
                           style: TextStyle(
                               color: Color(0xff707070),
                               fontSize: 13,

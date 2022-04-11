@@ -15,6 +15,7 @@ var amountSitting;
 var Privacy = "";
 var term = "";
 var aboutUs = "";
+var twitterSitting = "";
 
 getSettingAbout() async {
   var request = http.Request(
@@ -70,21 +71,38 @@ getSettingAmount() async {
   }
 }
 
-getSettingSpicSocialMediaFacebook() async {
-  var request = http.Request('GET', Uri.parse(url_social_media));
+getSettingSpicSocialMediatwitter() async {
+  var request = http.Request(
+      'GET',
+      Uri.parse(
+          "http://212.24.108.54/wsa/api/setting?settingName=setting.twitter"));
 
   http.StreamedResponse response = await request.send();
 
   if (response.statusCode == 200) {
     var res = await http.Response.fromStream(response);
     setting c = setting.fromJson(jsonDecode(res.body));
-    facebookSitting = c.data[0].toJson()["value"];
-    print(facebookSitting);
+    twitterSitting = c.data[0].toJson()["value"];
+    print(twitterSitting);
   } else {
     print(response.reasonPhrase);
   }
 }
+// getSettingSpicSocialMediaFacebook() async {
+//   var request = http.Request('GET', Uri.parse(url_social_media));
 
+//   http.StreamedResponse response = await request.send();
+
+//   if (response.statusCode == 200) {
+//     var res = await http.Response.fromStream(response);
+//     setting c = setting.fromJson(jsonDecode(res.body));
+//     facebookSitting = c.data[0].toJson()["value"];
+//     print(facebookSitting);
+//   } else {
+//     print(response.reasonPhrase);
+//   }
+// }
+/*
 getSettingSpicSocialMediaYouTube() async {
   var request = http.Request(
       'GET',
@@ -119,7 +137,7 @@ getSettingSpicSocialMediaInstagram() async {
   } else {
     print(response.reasonPhrase);
   }
-}
+}*/
 
 getSettingSpicSocialMediaWhatapp() async {
   var request = http.Request(

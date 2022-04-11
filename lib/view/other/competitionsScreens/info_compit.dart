@@ -7,6 +7,10 @@ import 'package:rayan/model/modeApi/modelsCompt/model_compitition.dart';
 import 'package:rayan/utils/constant/color.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
 import 'package:rayan/view/other/widget/design_appbar.dart';
+import 'dart:async';
+
+import 'package:flutter/services.dart';
+import 'package:flutter_share/flutter_share.dart';
 
 class infoCompet extends StatefulWidget {
   infoCompet({Key? key}) : super(key: key);
@@ -17,6 +21,15 @@ class infoCompet extends StatefulWidget {
 
 class _infoCompetState extends State<infoCompet> {
   homecontroller controller = Get.put(homecontroller());
+
+  Future<void> share() async {
+    await FlutterShare.share(
+        title: 'شارك المسابقة',
+        text: "${controller.nameComp}",
+        linkUrl: 'https://flutter.dev/',
+        chooserTitle: 'شارك ${controller.nameComp}');
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -37,7 +50,10 @@ class _infoCompetState extends State<infoCompet> {
         ListView(
           shrinkWrap: true,
           children: [
-            rowAppbar(context),
+            // rowAppbar(context),
+            SizedBox(
+              height: 20,
+            ),
             Padding(
               padding: const EdgeInsets.all(19.0),
               child: Card(
@@ -110,7 +126,9 @@ class _infoCompetState extends State<infoCompet> {
                                         fontFamily: 'Almarai'),
                                   ),
                                   Text(
-                                    "${controller.savecurrentTourTimeLimit}",
+                                    controller.savecurrentTourName == null
+                                        ? "لم تبدأ الجولة"
+                                        : "${controller.savecurrentTourTimeLimit}",
                                     style: TextStyle(
                                         color: MyColors.color3,
                                         fontSize: 12,
@@ -251,70 +269,95 @@ class _infoCompetState extends State<infoCompet> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 19, right: 19),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 5,
+              child: Container(
+                height: 60,
+                child: RaisedButton(
+                  color: MyColors.color1,
+                  elevation: 10,
+                  splashColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
                   ),
-                  Expanded(
-                    child: RaisedButton(
-                      color: MyColors.color1,
-                      elevation: 10,
-                      splashColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      onPressed: () {},
-                      child: Text("فيسبوك",
-                          style: TextStyle(
-                              color: MyColors.color3,
-                              fontSize: 14,
-                              fontFamily: 'Almarai')),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Expanded(
-                    child: RaisedButton(
-                      color: Color(0xff1FC176),
-                      elevation: 10,
-                      splashColor: MyColors.color3,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      onPressed: () {},
-                      child: Text("واتساب",
-                          style: TextStyle(
-                              color: MyColors.color3,
-                              fontSize: 14,
-                              fontFamily: 'Almarai')),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Expanded(
-                    child: RaisedButton(
-                      color: MyColors.color1,
-                      elevation: 10,
-                      splashColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      onPressed: () {},
-                      child: Text("تلجرام",
-                          style: TextStyle(
-                              color: MyColors.color3,
-                              fontSize: 14,
-                              fontFamily: 'Almarai')),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                ],
+                  onPressed: () {
+                    share();
+                  },
+                  child: Text("شارك المسابقة على السوشال ميديا",
+                      style: TextStyle(
+                          color: MyColors.color3,
+                          fontSize: 14,
+                          fontFamily: 'Almarai')),
+                ),
               ),
+              // child: Row(
+              //   children: [
+              //     SizedBox(
+              //       width: 5,
+              //     ),
+              //     Expanded(
+              //       child: RaisedButton(
+              //         color: MyColors.color1,
+              //         elevation: 10,
+              //         splashColor: Colors.white,
+              //         shape: RoundedRectangleBorder(
+              //           borderRadius: BorderRadius.circular(25),
+              //         ),
+              //         onPressed: () {
+              //           share();
+              //         },
+              //         child: Text("فيسبوك",
+              //             style: TextStyle(
+              //                 color: MyColors.color3,
+              //                 fontSize: 14,
+              //                 fontFamily: 'Almarai')),
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: 5,
+              //     ),
+              //     Expanded(
+              //       child: RaisedButton(
+              //         color: Color(0xff1FC176),
+              //         elevation: 10,
+              //         splashColor: MyColors.color3,
+              //         shape: RoundedRectangleBorder(
+              //           borderRadius: BorderRadius.circular(25),
+              //         ),
+              //         onPressed: () {
+              //           share();
+              //         },
+              //         child: Text("واتساب",
+              //             style: TextStyle(
+              //                 color: MyColors.color3,
+              //                 fontSize: 14,
+              //                 fontFamily: 'Almarai')),
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: 5,
+              //     ),
+              //     Expanded(
+              //       child: RaisedButton(
+              //         color: MyColors.color1,
+              //         elevation: 10,
+              //         splashColor: Colors.white,
+              //         shape: RoundedRectangleBorder(
+              //           borderRadius: BorderRadius.circular(25),
+              //         ),
+              //         onPressed: () {
+              //           share();
+              //         },
+              //         child: Text("تلجرام",
+              //             style: TextStyle(
+              //                 color: MyColors.color3,
+              //                 fontSize: 14,
+              //                 fontFamily: 'Almarai')),
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: 5,
+              //     ),
+              //   ],
+              // ),
             ),
             SizedBox(
               height: 30,

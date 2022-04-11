@@ -36,7 +36,7 @@ class _emailForForgetPasswordState extends State<emailForForgetPassword> {
                     padding:
                         const EdgeInsets.only(left: 30, right: 50, bottom: 10),
                     child: Text(
-                      "Email".tr,
+                      "رقم الموبايل".tr,
                       style: Theme.of(context).textTheme.headline4,
                     ),
                   ),
@@ -47,19 +47,19 @@ class _emailForForgetPasswordState extends State<emailForForgetPassword> {
                       child: GetBuilder<homecontroller>(builder: (controller) {
                         return (TextFormField(
                           style: TextStyle(color: MyColors.color3),
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.number,
                           onSaved: (string) {
                             print("on saved");
                             email = string;
-                            getUserIdFromEmail(email, context);
-                            controller.SaveEmailForNewPassWord(string);
+                            //  getUserIdFromEmail(email, context);
+                            // controller.SaveEmailForNewPassWord(string);
                           },
                           validator: (text) {
-                            if (text!.length > 40) {
-                              return "can not enter bigest than 40";
+                            if (text!.length > 15) {
+                              return "can not enter bigest than 15";
                             }
-                            if (text.length < 2) {
-                              return "can not enter less than 2";
+                            if (text.length < 9) {
+                              return "can not enter less than 9";
                             }
                             return null;
                           },

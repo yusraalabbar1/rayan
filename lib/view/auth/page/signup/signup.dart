@@ -71,7 +71,6 @@ class _signupState extends State<signup> {
                           if (text.length < 2) {
                             return "can not enter less than 2";
                           }
-                          return null;
                         },
                         onChanged: (value) {
                           // do something
@@ -113,7 +112,6 @@ class _signupState extends State<signup> {
                           if (text.length < 2) {
                             return "can not enter less than 2";
                           }
-                          return null;
                         },
                         onSaved: (string) {
                           print("on saved");
@@ -152,7 +150,6 @@ class _signupState extends State<signup> {
                           if (text.length < 2) {
                             return "can not enter less than 2";
                           }
-                          return null;
                         },
                         onSaved: (string) {
                           print("on saved");

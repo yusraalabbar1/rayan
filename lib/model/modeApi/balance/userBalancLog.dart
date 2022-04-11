@@ -28,14 +28,21 @@ Future userBalancLog() async {
   print("==============================");
   if (response.statusCode == 200) {
     if (c.isSuccess == true) {
-      for (var i = 0; i < c.data.length; i++) {
-        if (c.data[i].code == "Recive") {
-          recived.add(c.data[i].toJson());
+      for (var i = 0; i < c.data!.length; i++) {
+        if (c.data![i].code == "Recive") {
+          recived.add(c.data![i].toJson());
         } else {
-          register.add(c.data[i].toJson());
+          register.add(c.data![i].toJson());
         }
       }
-      print(recived);
+      recived.sort((a, b) => DateTime.parse(a["createDate"])
+          .compareTo(DateTime.parse(b["createDate"])));
+      register.sort((a, b) => DateTime.parse(a["createDate"])
+          .compareTo(DateTime.parse(b["createDate"])));
+
+      ///recived.sort((a, b) => a['createDate'].compareTo(b['createDate']));
+      //register.sort((a, b) => a['createDate'].compareTo(b['createDate']));
+      // print(recived);
       print(register);
       print("yesssssssssssssssssssss");
     } else {

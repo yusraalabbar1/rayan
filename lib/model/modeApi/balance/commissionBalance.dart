@@ -27,8 +27,8 @@ Future comissionBalanc() async {
   print("==============================");
   if (response.statusCode == 200) {
     if (c.isSuccess == true) {
-      balancecommission = c.data.commissionBalance;
-      print(c.data.commissionBalance);
+      balancecommission = c.data!.commissionBalance;
+      print(c.data!.commissionBalance);
     } else {}
   } else {
     print(response.reasonPhrase);

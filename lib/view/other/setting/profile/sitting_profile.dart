@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -208,11 +209,22 @@ class _sittingProfileState extends State<sittingProfile> {
                             Expanded(
                                 flex: 1,
                                 child: Text(
-                                    usernamepref == null ? "" : usernamepref,
+                                    usernamepref == null
+                                        ? ""
+                                        : usernamepref.toString().length > 5
+                                            ? '${usernamepref.toString().substring(0, 5)}...'
+                                            : usernamepref.toString(),
                                     style: TextStyle(
-                                        color: Colors.white,
+                                        color: Color(0xff707070),
                                         fontSize: 13,
-                                        fontFamily: 'Almarai'))),
+                                        fontFamily: 'Almarai'))
+                                //  Text(
+                                //     usernamepref == null ? "" : usernamepref,
+                                //     style: TextStyle(
+                                //         color: Colors.white,
+                                //         fontSize: 13,
+                                //         fontFamily: 'Almarai'))
+                                ),
                             Expanded(
                                 flex: 2,
                                 child: Container(
@@ -361,7 +373,7 @@ class _sittingProfileState extends State<sittingProfile> {
                                   child: Text(
                                       controller.saveMidName == null
                                           ? ""
-                                          : controller.saveFirstName.toString(),
+                                          : controller.saveMidName.toString(),
                                       style: TextStyle(
                                           color: Color(0xff707070),
                                           fontSize: 13,
@@ -408,7 +420,13 @@ class _sittingProfileState extends State<sittingProfile> {
                                   child: Text(
                                       controller.saveLastName == null
                                           ? ""
-                                          : controller.saveLastName.toString(),
+                                          : controller.saveLastName
+                                                      .toString()
+                                                      .length >
+                                                  5
+                                              ? '${controller.saveLastName.toString().substring(0, 5)}...'
+                                              : controller.saveLastName
+                                                  .toString(),
                                       style: TextStyle(
                                           color: Color(0xff707070),
                                           fontSize: 13,
@@ -463,9 +481,32 @@ class _sittingProfileState extends State<sittingProfile> {
                                           fontSize: 13,
                                           fontFamily: 'Almarai')),
                                 ),
-                                Container(
-                                  child: Text(""),
-                                )
+                                // Container(
+                                //   child: Text(""),
+                                // )
+                                InkWell(
+                                    onTap: () async {
+                                      // await Clipboard.setData(ClipboardData(
+                                      //   text: controller.savepreuniqueCodepref
+                                      //       .toString(),
+                                      // )
+
+                                      await Clipboard.setData(ClipboardData(
+                                              text: controller
+                                                  .savepreuniqueCodepref
+                                                  .toString()))
+                                          .then((_) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(SnackBar(
+                                                content: Text(
+                                                    "تم نسخ كود التحويل")));
+                                      });
+                                    },
+                                    child: Icon(
+                                      Icons.copy,
+                                      color: Colors.white,
+                                      size: 20,
+                                    ))
                               ],
                             ))
                           ],

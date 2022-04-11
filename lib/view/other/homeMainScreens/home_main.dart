@@ -5,6 +5,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
+import 'package:rayan/model/modeApi/modelSetting/GetNotification.dart';
 import 'package:rayan/model/modeApi/modelSetting/model_numberNoti.dart';
 import 'package:rayan/utils/constant/color.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -183,6 +184,7 @@ class _homeMainState extends State<homeMain> {
                               IconButton(
                                 onPressed: () {
                                   updateNotif();
+                                  // GetNotification();
                                 },
                                 icon: Icon(
                                   Icons.notifications,

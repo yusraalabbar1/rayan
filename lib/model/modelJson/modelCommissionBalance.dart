@@ -11,9 +11,9 @@ class modellComissionBalance {
     required this.data,
   });
 
-  bool isSuccess;
-  String message;
-  Data data;
+  bool? isSuccess;
+  String? message;
+  Data? data;
 
   factory modellComissionBalance.fromJson(Map<String, dynamic> json) =>
       modellComissionBalance(
@@ -25,7 +25,7 @@ class modellComissionBalance {
   Map<String, dynamic> toJson() => {
         "isSuccess": isSuccess,
         "message": message,
-        "data": data.toJson(),
+        "data": data!.toJson(),
       };
 }
 
@@ -34,7 +34,7 @@ class Data {
     required this.commissionBalance,
   });
 
-  double commissionBalance;
+  double? commissionBalance;
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
         commissionBalance: json["commissionBalance"],

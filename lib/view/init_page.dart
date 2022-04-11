@@ -45,7 +45,7 @@ class _initPageState extends State<initPage> {
             child: Container(
               margin: EdgeInsets.only(bottom: 20),
               child: Text(
-                "جميع الحقوق محفوظة لدى التطبيق 2021",
+                "جميع الحقوق محفوظة لدى التطبيق 2022",
                 style: TextStyle(
                     fontSize: 13,
                     color: MyColors.color3,

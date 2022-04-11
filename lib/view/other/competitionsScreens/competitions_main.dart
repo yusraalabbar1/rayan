@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rayan/control/homecontroller.dart';
@@ -101,18 +102,38 @@ class _competitionsMainState extends State<competitionsMain> {
         return GetBuilder<homecontroller>(builder: (controller) {
           return (InkWell(
             onTap: () {
-              controller.SavenameComp(foundCompitition[index]['name']);
-              controller.SavemonyrComp(foundCompitition[index]['awardAmount']);
-              controller.SavediscrpComp(foundCompitition[index]['description']);
-              controller.SaveidComp(foundCompitition[index]['competitionsId']);
-              controller.Saveamount(foundCompitition[index]['amount']);
-              controller.SaveIsFinishComp(foundCompitition[index]['isFinish']);
-              controller.SaveImageComp(foundCompitition[index]['imageUrl']);
-              controller.SavecurrentTourName(
-                  foundCompitition[index]['currentTourName']);
-              controller.SavecurrentTourTimeLimit(
-                  foundCompitition[index]['currentTourTimeLimit']);
-              Navigator.of(context).pushNamed("infoCompet");
+              if (foundCompitition[index]['isFinish'] = true) {
+                AwesomeDialog(
+                        context: context,
+                        animType: AnimType.RIGHSLIDE,
+                        headerAnimationLoop: true,
+                        btnOkOnPress: () {},
+                        body: Text("عذرا المسابقة منتهية",
+                            style: TextStyle(
+                                color: MyColors.color3,
+                                fontSize: 14,
+                                fontFamily: 'Almarai')),
+                        dialogBackgroundColor: MyColors.color2,
+                        btnOkColor: MyColors.color1)
+                    .show();
+              } else {
+                controller.SavenameComp(foundCompitition[index]['name']);
+                controller.SavemonyrComp(
+                    foundCompitition[index]['awardAmount']);
+                controller.SavediscrpComp(
+                    foundCompitition[index]['description']);
+                controller.SaveidComp(
+                    foundCompitition[index]['competitionsId']);
+                controller.Saveamount(foundCompitition[index]['amount']);
+                controller.SaveIsFinishComp(
+                    foundCompitition[index]['isFinish']);
+                controller.SaveImageComp(foundCompitition[index]['imageUrl']);
+                controller.SavecurrentTourName(
+                    foundCompitition[index]['currentTourName']);
+                controller.SavecurrentTourTimeLimit(
+                    foundCompitition[index]['currentTourTimeLimit']);
+                Navigator.of(context).pushNamed("infoCompet");
+              }
             },
             child: Container(
                 height: 218,
@@ -183,6 +204,18 @@ class _competitionsMainState extends State<competitionsMain> {
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 10,
+                                  fontFamily: 'Almarai'),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              foundCompitition[index]['isFinish'] != true
+                                  ? ""
+                                  : "المسابقة منتهية",
+                              style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 7,
                                   fontFamily: 'Almarai'),
                             ),
                           ],
@@ -375,7 +408,40 @@ class _competitionsMainState extends State<competitionsMain> {
                                       color: Colors.white,
                                       fontSize: 14,
                                       fontFamily: 'Almarai'),
-                                )
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "الوقت المتبقي ",
+                                      style: TextStyle(
+                                          color: MyColors.color3,
+                                          fontSize: 11,
+                                          fontFamily: 'Almarai'),
+                                    ),
+                                    Text(
+                                      foundCompitition[index]
+                                                  ['currentTourTimeLimit'] ==
+                                              null
+                                          ? "لم تبدأ الجولة"
+                                          : "${foundCompitition[index]['currentTourTimeLimit']}",
+                                      style: TextStyle(
+                                          color: MyColors.color3,
+                                          fontSize: 11,
+                                          fontFamily: 'Almarai'),
+                                    ),
+                                    Text(
+                                      "دقيقة",
+                                      style: TextStyle(
+                                          color: MyColors.color3,
+                                          fontSize: 11,
+                                          fontFamily: 'Almarai'),
+                                    ),
+                                  ],
+                                ),
                               ],
                             )),
                             Expanded(

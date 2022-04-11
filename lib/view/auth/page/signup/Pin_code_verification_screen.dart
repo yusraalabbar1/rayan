@@ -316,27 +316,27 @@ class _PinCodeVerificationScreenState extends State<PinCodeVerificationScreen>
                     SizedBox(
                       height: 16,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Flexible(
-                            child: TextButton(
-                          child: Text("Clear"),
-                          onPressed: () {
-                            textEditingController.clear();
-                          },
-                        )),
-                        Flexible(
-                            child: TextButton(
-                          child: Text("Set Text"),
-                          onPressed: () {
-                            setState(() {
-                              textEditingController.text = "";
-                            });
-                          },
-                        )),
-                      ],
-                    )
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: <Widget>[
+                    //     Flexible(
+                    //         child: TextButton(
+                    //       child: Text("Clear"),
+                    //       onPressed: () {
+                    //         textEditingController.clear();
+                    //       },
+                    //     )),
+                    //     Flexible(
+                    //         child: TextButton(
+                    //       child: Text("Set Text"),
+                    //       onPressed: () {
+                    //         setState(() {
+                    //           textEditingController.text = "";
+                    //         });
+                    //       },
+                    //     )),
+                    //   ],
+                    // )
                   ],
                 ),
               ),

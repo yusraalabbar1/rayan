@@ -78,17 +78,16 @@ class _completSignUpState extends State<completSignUp> {
                         decoration: InputDecoration(
                           hintText: 'wsl@gmail.com',
                         ),
-                        // validator: (text) {
-                        //   final bool isValid = EmailValidator.validate(text!);
-                        //   if (isValid == false) {
-                        //     return "Email is not valid";
-                        //   }
-                        //   return null;
-                        // },
+                        validator: (text) {
+                          final bool isValid = EmailValidator.validate(text!);
+                          if (isValid == false) {
+                            return "Email is not valid";
+                          }
+                        },
                         onSaved: (string) {
                           print("on saved");
                           email = string;
-                          controller.SaveLastName(string);
+                          controller.SaveEmail(string);
                         },
                       ));
                     })),

@@ -43,7 +43,7 @@ InkWell mediawhat(String name) {
   );
 }
 
-InkWell mediaface(String name) {
+InkWell mediatwit(String name) {
   return InkWell(
     child: Text(
       name,
@@ -57,7 +57,7 @@ InkWell mediaface(String name) {
       // } else {
       //   throw 'could not launch $face';
       // }
-      launch(facebookSitting);
+      launch(twitterSitting);
     },
   );
 }

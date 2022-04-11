@@ -11,9 +11,9 @@ class userBalanceLogModel {
     required this.data,
   });
 
-  bool isSuccess;
-  String message;
-  List<Datum> data;
+  bool? isSuccess;
+  String? message;
+  List<Datum>? data;
 
   factory userBalanceLogModel.fromJson(Map<String, dynamic> json) =>
       userBalanceLogModel(
@@ -25,7 +25,7 @@ class userBalanceLogModel {
   Map<String, dynamic> toJson() => {
         "isSuccess": isSuccess,
         "message": message,
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
+        "data": List<dynamic>.from(data!.map((x) => x.toJson())),
       };
 }
 
@@ -39,12 +39,12 @@ class Datum {
     required this.id,
   });
 
-  int userId;
-  String code;
-  String message;
-  double balance;
-  DateTime createDate;
-  int id;
+  int? userId;
+  String? code;
+  String? message;
+  double? balance;
+  DateTime? createDate;
+  int? id;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         userId: json["userId"],
@@ -60,7 +60,7 @@ class Datum {
         "code": code,
         "message": message,
         "balance": balance,
-        "createDate": createDate.toIso8601String(),
+        "createDate": createDate!.toIso8601String(),
         "id": id,
       };
 }

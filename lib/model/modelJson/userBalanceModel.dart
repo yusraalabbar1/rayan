@@ -11,9 +11,9 @@ class userBalanceModel {
     required this.data,
   });
 
-  bool isSuccess;
-  String message;
-  Data data;
+  bool? isSuccess;
+  String? message;
+  Data? data;
 
   factory userBalanceModel.fromJson(Map<String, dynamic> json) =>
       userBalanceModel(
@@ -25,7 +25,7 @@ class userBalanceModel {
   Map<String, dynamic> toJson() => {
         "isSuccess": isSuccess,
         "message": message,
-        "data": data.toJson(),
+        "data": data!.toJson(),
       };
 }
 
@@ -36,9 +36,9 @@ class Data {
     required this.id,
   });
 
-  int userId;
-  double balances;
-  int id;
+  int? userId;
+  double? balances;
+  int? id;
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
         userId: json["userId"],

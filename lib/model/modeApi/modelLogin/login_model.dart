@@ -93,19 +93,22 @@ getpreflog() async {
   print(fullName);
   getAllAgents(tokenloginresult, countryIdSaveprf, cityIdSavepref);
   getWinner(tokenloginresult);
+  register = [];
+  recived = [];
   userBalanc();
   userBalancLog();
   comissionBalanc();
   getSettingAbout();
   getSettingTerms();
-  getSettingSpicSocialMediaFacebook();
-  getSettingSpicSocialMediaYouTube();
+  // getSettingSpicSocialMediaFacebook();
+  //getSettingSpicSocialMediaYouTube();
   getSettingSpicSocialMediaWhatapp();
-
+  getSettingSpicSocialMediatwitter();
   getSettingSpicSocialMediaTelgram();
   getSettingPrivasyPolicy();
   infoNotification();
   GetNotification();
+  question = [];
   commonQuestionsapi();
   MyCompitition = [];
   allCompititionapi();

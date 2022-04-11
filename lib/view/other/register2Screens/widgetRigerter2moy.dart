@@ -9,6 +9,7 @@ Widget widgetRigerter2moy() {
       padding: const EdgeInsets.all(15.0),
       child: GetBuilder<homecontroller>(builder: (controller) {
         return (ListView.builder(
+            reverse: true,
             itemCount: recived.length,
             itemBuilder: (context, index) {
               return Padding(
