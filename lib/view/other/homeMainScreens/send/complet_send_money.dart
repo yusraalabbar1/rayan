@@ -81,7 +81,7 @@ class _CompletsendMoneyState extends State<CompletsendMoney> {
                                           children: [
                                             Container(
                                               alignment: Alignment.topRight,
-                                              child: Text("المبلغ",
+                                              child: Text("amount".tr,
                                                   style: TextStyle(
                                                       color: MyColors.color3,
                                                       fontSize: 11,
@@ -124,7 +124,7 @@ class _CompletsendMoneyState extends State<CompletsendMoney> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Text("رمز الإرسال :",
+                                            Text("Transmitter Code:".tr,
                                                 style: TextStyle(
                                                     color: MyColors.color3,
                                                     fontSize: 11,
@@ -165,7 +165,7 @@ class _CompletsendMoneyState extends State<CompletsendMoney> {
                                                     width: 5,
                                                   ),
                                                   Text(
-                                                    "مشاركة ",
+                                                    "Sharing".tr,
                                                     style: TextStyle(
                                                         color: MyColors.color3,
                                                         fontSize: 11,

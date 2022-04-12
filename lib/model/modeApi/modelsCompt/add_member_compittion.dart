@@ -46,7 +46,7 @@ Future addMemberCompitition(context, nick) async {
                 animType: AnimType.RIGHSLIDE,
                 headerAnimationLoop: true,
                 btnOkOnPress: () {},
-                body: Text(" أنت شاركت من قبل في هذه المسابقة",
+                body: Text("Already Register".tr,
                     style: TextStyle(
                         color: MyColors.color3,
                         fontSize: 14,
@@ -61,7 +61,7 @@ Future addMemberCompitition(context, nick) async {
                 animType: AnimType.RIGHSLIDE,
                 headerAnimationLoop: true,
                 btnOkOnPress: () {},
-                body: Text("ليس لديك رصيد كافي للمشاركة",
+                body: Text("Not Available Balance".tr,
                     style: TextStyle(
                         color: MyColors.color3,
                         fontSize: 14,

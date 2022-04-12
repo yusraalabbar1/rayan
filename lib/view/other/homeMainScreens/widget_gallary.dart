@@ -32,7 +32,7 @@ Widget widgetgallary(context) {
                                   animType: AnimType.RIGHSLIDE,
                                   headerAnimationLoop: true,
                                   btnOkOnPress: () {},
-                                  body: Text("عذرا المسابقة منتهية",
+                                  body: Text("Sorry,the contest is over".tr,
                                       style: TextStyle(
                                           color: MyColors.color3,
                                           fontSize: 14,
@@ -109,7 +109,7 @@ Widget widgetgallary(context) {
                                         height: 3,
                                       ),
                                       Text(
-                                        "عدد المتسابقين المتبقي",
+                                        "The number of contestants left".tr,
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 9,
@@ -130,7 +130,7 @@ Widget widgetgallary(context) {
                                                     ['currentTourName'] !=
                                                 null
                                             ? "${controller.saveMapCompitition[index]['currentTourName']}"
-                                            : "لم تبدأ الجولة",
+                                            : "Round has not started".tr,
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 10,
@@ -139,16 +139,64 @@ Widget widgetgallary(context) {
                                       SizedBox(
                                         height: 5,
                                       ),
+                                      // Text(
+                                      //   controller.saveMapCompitition[index]
+                                      //               ['isFinish'] !=
+                                      //           true
+                                      //       ? ""
+                                      //       : "Contest is over".tr,
+                                      //   style: TextStyle(
+                                      //       color: Colors.red,
+                                      //       fontSize: 7,
+                                      //       fontFamily: 'Almarai'),
+                                      // ),
                                       Text(
-                                        controller.saveMapCompitition[index]
-                                                    ['isFinish'] !=
-                                                true
-                                            ? ""
-                                            : "المسابقة منتهية",
+                                        foundCompitition[index]['currentTourStartDate'].difference(DateTime.now()).inDays >= 0 &&
+                                                foundCompitition[index]['currentTourStartDate']
+                                                        .difference(
+                                                            DateTime.now())
+                                                        .inHours >=
+                                                    0 &&
+                                                foundCompitition[index]['currentTourStartDate']
+                                                        .difference(
+                                                            DateTime.now())
+                                                        .inMinutes >=
+                                                    0 &&
+                                                foundCompitition[index]['currentTourStartDate']
+                                                        .difference(
+                                                            DateTime.now())
+                                                        .inSeconds >=
+                                                    0 &&
+                                                foundCompitition[index]
+                                                        ['isFinish'] !=
+                                                    true
+                                            ? "تبدأ الجولة في :" +
+                                                "\n${foundCompitition[index]['currentTourStartDate']}"
+                                            : foundCompitition[index]['currentTourStartDate'].difference(DateTime.now()).inDays < 0 &&
+                                                    foundCompitition[index]['currentTourStartDate'].difference(DateTime.now()).inHours <
+                                                        0 &&
+                                                    foundCompitition[index]
+                                                                ['currentTourStartDate']
+                                                            .difference(DateTime.now())
+                                                            .inMinutes <
+                                                        0 &&
+                                                    foundCompitition[index]['currentTourStartDate'].difference(DateTime.now()).inSeconds < 0 &&
+                                                    foundCompitition[index]['isFinish'] != true &&
+                                                    foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inDays < 0 &&
+                                                    foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inHours > 0 &&
+                                                    foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inMinutes > 0 &&
+                                                    foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inSeconds > 0
+                                                ? "تنتهي الجولة في :" "\n${foundCompitition[index]['currentTourEndDate']}"
+                                                : "Contest is over".tr,
                                         style: TextStyle(
-                                            color: Colors.red,
-                                            fontSize: 7,
+                                            color: Color.fromARGB(
+                                                255, 231, 136, 129),
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 10,
                                             fontFamily: 'Almarai'),
+                                      ),
+                                      SizedBox(
+                                        height: 5,
                                       ),
                                     ],
                                   )),
@@ -207,7 +255,7 @@ Widget widgetgallary(context) {
                                                 ),
                                               ),
                                               Text(
-                                                "الإشتراك",
+                                                "Participation".tr,
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 7,
@@ -240,7 +288,7 @@ Widget widgetgallary(context) {
                                                 ),
                                               ),
                                               Text(
-                                                "المتسابقين",
+                                                "constestant".tr,
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 7,

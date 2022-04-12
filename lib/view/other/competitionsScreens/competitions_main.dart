@@ -24,6 +24,26 @@ class _competitionsMainState extends State<competitionsMain> {
     super.initState();
   }
 
+  void daysBetween(from, to) {
+    DateTime dt2 = DateTime.parse(from);
+    DateTime dt1 = DateTime.parse(to);
+
+    Duration diff = dt1.difference(dt2);
+    day = diff.inDays;
+    print(diff.inDays);
+    //output (in days): 1198
+
+    print(diff.inHours);
+    //output (in hours): 28752
+    hour = diff.inHours;
+    print(diff.inMinutes);
+    //output (in minutes): 1725170
+    min = diff.inMinutes;
+    print(diff.inSeconds);
+    //output (in seconds): 103510200
+    sec = diff.inSeconds;
+  }
+
   _onSearchFieldChanged(String value) async {
     // to fill out next!
     var results;
@@ -68,7 +88,7 @@ class _competitionsMainState extends State<competitionsMain> {
                               Icons.search,
                               color: MyColors.color1,
                             ),
-                            hintText: 'ابحث عن مسابقة'),
+                            hintText: 'search compitition'.tr),
                         onChanged: (string) {
                           _onSearchFieldChanged(string);
                         },
@@ -102,13 +122,13 @@ class _competitionsMainState extends State<competitionsMain> {
         return GetBuilder<homecontroller>(builder: (controller) {
           return (InkWell(
             onTap: () {
-              if (foundCompitition[index]['isFinish'] = true) {
+              if (foundCompitition[index]['isFinish'] == true) {
                 AwesomeDialog(
                         context: context,
                         animType: AnimType.RIGHSLIDE,
                         headerAnimationLoop: true,
                         btnOkOnPress: () {},
-                        body: Text("عذرا المسابقة منتهية",
+                        body: Text("Sorry,the contest is over".tr,
                             style: TextStyle(
                                 color: MyColors.color3,
                                 fontSize: 14,
@@ -181,7 +201,7 @@ class _competitionsMainState extends State<competitionsMain> {
                               height: 3,
                             ),
                             Text(
-                              "عدد المتسابقين المتبقي",
+                              "The number of contestants left".tr,
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 9,
@@ -200,7 +220,7 @@ class _competitionsMainState extends State<competitionsMain> {
                             Text(
                               foundCompitition[index]['currentTourName'] != null
                                   ? "${foundCompitition[index]['currentTourName']}"
-                                  : "لم تبدأ الجولة",
+                                  : "Round has not started".tr,
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 10,
@@ -210,13 +230,53 @@ class _competitionsMainState extends State<competitionsMain> {
                               height: 5,
                             ),
                             Text(
-                              foundCompitition[index]['isFinish'] != true
-                                  ? ""
-                                  : "المسابقة منتهية",
+                              foundCompitition[index]['currentTourStartDate'].difference(DateTime.now()).inDays >= 0 &&
+                                      foundCompitition[index]['currentTourStartDate']
+                                              .difference(DateTime.now())
+                                              .inHours >=
+                                          0 &&
+                                      foundCompitition[index]['currentTourStartDate']
+                                              .difference(DateTime.now())
+                                              .inMinutes >=
+                                          0 &&
+                                      foundCompitition[index]['currentTourStartDate']
+                                              .difference(DateTime.now())
+                                              .inSeconds >=
+                                          0 &&
+                                      foundCompitition[index]['isFinish'] !=
+                                          true
+                                  ? "تبدأ الجولة في :" +
+                                      "\n${foundCompitition[index]['currentTourStartDate']}"
+                                  : foundCompitition[index]['currentTourStartDate'].difference(DateTime.now()).inDays < 0 &&
+                                          foundCompitition[index]['currentTourStartDate']
+                                                  .difference(DateTime.now())
+                                                  .inHours <
+                                              0 &&
+                                          foundCompitition[index]
+                                                      ['currentTourStartDate']
+                                                  .difference(DateTime.now())
+                                                  .inMinutes <
+                                              0 &&
+                                          foundCompitition[index]
+                                                      ['currentTourStartDate']
+                                                  .difference(DateTime.now())
+                                                  .inSeconds <
+                                              0 &&
+                                          foundCompitition[index]['isFinish'] != true &&
+                                          foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inDays < 0 &&
+                                          foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inHours > 0 &&
+                                          foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inMinutes > 0 &&
+                                          foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inSeconds > 0
+                                      ? "تنتهي الجولة في :" "\n${foundCompitition[index]['currentTourEndDate']}"
+                                      : "Contest is over".tr,
                               style: TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 7,
+                                  color: Color.fromARGB(255, 231, 136, 129),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 10,
                                   fontFamily: 'Almarai'),
+                            ),
+                            SizedBox(
+                              height: 5,
                             ),
                           ],
                         )),
@@ -255,7 +315,7 @@ class _competitionsMainState extends State<competitionsMain> {
                                   children: [
                                     Container(
                                       height: 22,
-                                      width: 44,
+                                      width: 55,
                                       child: RaisedButton(
                                         color: Colors.black,
                                         shape: RoundedRectangleBorder(
@@ -272,7 +332,7 @@ class _competitionsMainState extends State<competitionsMain> {
                                       ),
                                     ),
                                     Text(
-                                      "الإشتراك",
+                                      "Participation".tr,
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 7,
@@ -287,7 +347,7 @@ class _competitionsMainState extends State<competitionsMain> {
                                   children: [
                                     Container(
                                       height: 22,
-                                      width: 44,
+                                      width: 55,
                                       child: RaisedButton(
                                         color: Colors.black,
                                         shape: RoundedRectangleBorder(
@@ -304,7 +364,7 @@ class _competitionsMainState extends State<competitionsMain> {
                                       ),
                                     ),
                                     Text(
-                                      "المتسابقين",
+                                      "constestant".tr,
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 7,
@@ -403,7 +463,7 @@ class _competitionsMainState extends State<competitionsMain> {
                                   height: 5,
                                 ),
                                 Text(
-                                  "صوت الآن في المسابقة",
+                                  "Vote now for the contest".tr,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 14,
@@ -412,36 +472,84 @@ class _competitionsMainState extends State<competitionsMain> {
                                 SizedBox(
                                   height: 5,
                                 ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "الوقت المتبقي ",
-                                      style: TextStyle(
-                                          color: MyColors.color3,
-                                          fontSize: 11,
-                                          fontFamily: 'Almarai'),
-                                    ),
-                                    Text(
-                                      foundCompitition[index]
-                                                  ['currentTourTimeLimit'] ==
-                                              null
-                                          ? "لم تبدأ الجولة"
-                                          : "${foundCompitition[index]['currentTourTimeLimit']}",
-                                      style: TextStyle(
-                                          color: MyColors.color3,
-                                          fontSize: 11,
-                                          fontFamily: 'Almarai'),
-                                    ),
-                                    Text(
-                                      "دقيقة",
-                                      style: TextStyle(
-                                          color: MyColors.color3,
-                                          fontSize: 11,
-                                          fontFamily: 'Almarai'),
-                                    ),
-                                  ],
+                                Text(
+                                  foundCompitition[index]['currentTourStartDate']
+                                                  .difference(DateTime.now())
+                                                  .inDays >=
+                                              0 &&
+                                          foundCompitition[index]
+                                                      ['currentTourStartDate']
+                                                  .difference(DateTime.now())
+                                                  .inHours >=
+                                              0 &&
+                                          foundCompitition[index]
+                                                      ['currentTourStartDate']
+                                                  .difference(DateTime.now())
+                                                  .inMinutes >=
+                                              0 &&
+                                          foundCompitition[index]
+                                                      ['currentTourStartDate']
+                                                  .difference(DateTime.now())
+                                                  .inSeconds >=
+                                              0 &&
+                                          foundCompitition[index]['isFinish'] !=
+                                              true
+                                      ? "تبدأ الجولة في :" +
+                                          "\n${foundCompitition[index]['currentTourStartDate']}"
+                                      : foundCompitition[index]['currentTourStartDate'].difference(DateTime.now()).inDays < 0 &&
+                                              foundCompitition[index]
+                                                          ['currentTourStartDate']
+                                                      .difference(DateTime.now())
+                                                      .inHours <
+                                                  0 &&
+                                              foundCompitition[index]['currentTourStartDate'].difference(DateTime.now()).inMinutes < 0 &&
+                                              foundCompitition[index]['currentTourStartDate'].difference(DateTime.now()).inSeconds < 0 &&
+                                              foundCompitition[index]['isFinish'] != true &&
+                                              foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inDays < 0 &&
+                                              foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inHours > 0 &&
+                                              foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inMinutes > 0 &&
+                                              foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inSeconds > 0
+                                          ? "تنتهي الجولة في :" "\n${foundCompitition[index]['currentTourEndDate']}"
+                                          : "Contest is over".tr,
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 231, 136, 129),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 10,
+                                      fontFamily: 'Almarai'),
                                 ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                // Row(
+                                //   mainAxisAlignment: MainAxisAlignment.center,
+                                //   children: [
+                                //     Text(
+                                //       "The remaining Time".tr,
+                                //       style: TextStyle(
+                                //           color: MyColors.color3,
+                                //           fontSize: 11,
+                                //           fontFamily: 'Almarai'),
+                                //     ),
+                                //     Text(
+                                //       foundCompitition[index]
+                                //                   ['currentTourTimeLimit'] ==
+                                //               null
+                                //           ? "Round has not started".tr
+                                //           : "${foundCompitition[index]['currentTourTimeLimit']}",
+                                //       style: TextStyle(
+                                //           color: MyColors.color3,
+                                //           fontSize: 11,
+                                //           fontFamily: 'Almarai'),
+                                //     ),
+                                //     Text(
+                                //       "minute".tr,
+                                //       style: TextStyle(
+                                //           color: MyColors.color3,
+                                //           fontSize: 11,
+                                //           fontFamily: 'Almarai'),
+                                //     ),
+                                //   ],
+                                // ),
                               ],
                             )),
                             Expanded(

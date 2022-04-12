@@ -131,7 +131,7 @@ Future extraAddCompitationVote(idComp, memberId, userId, context) async {
               animType: AnimType.RIGHSLIDE,
               headerAnimationLoop: true,
               btnOkOnPress: () {},
-              body: Text("تم التصويت",
+              body: Text("Been voted".tr,
                   style: TextStyle(
                       color: MyColors.color3,
                       fontSize: 14,
@@ -146,7 +146,7 @@ Future extraAddCompitationVote(idComp, memberId, userId, context) async {
               animType: AnimType.RIGHSLIDE,
               headerAnimationLoop: true,
               btnOkOnPress: () {},
-              body: Text("لا تملك رصيد كاف",
+              body: Text("Not Available Balance".tr,
                   style: TextStyle(
                       color: MyColors.color3,
                       fontSize: 14,

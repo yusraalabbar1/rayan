@@ -17,7 +17,7 @@ Container wstContainer(context) {
 
 Container logoContainer(context) {
   return Container(
-      margin: EdgeInsets.only(left: 20),
+      margin: EdgeInsets.only(left: 20, right: 20),
       height: 60,
       width: 60,
       child: Image.asset("assets/images/logo.png"));

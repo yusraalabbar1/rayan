@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:rayan/model/modeApi/modelMedia/setting_social_media.dart';
 import 'package:rayan/utils/constant/color.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
@@ -37,7 +38,7 @@ class _termsState extends State<terms> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("الشروط والاحكام ",
+                  Text("Terms".tr,
                       style: TextStyle(
                           color: MyColors.color1,
                           fontSize: 16,

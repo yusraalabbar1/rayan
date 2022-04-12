@@ -35,7 +35,7 @@ Future postQuistionWiner(compmemId, ans1, ans2, context) async {
               headerAnimationLoop: true,
               desc: c.message,
               btnOkOnPress: () {},
-              body: Text("شكرا لك على الاجابة",
+              body: Text("Thanks for the answer".tr,
                   style: TextStyle(
                       color: MyColors.color3,
                       fontSize: 14,

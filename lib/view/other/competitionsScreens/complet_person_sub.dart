@@ -77,7 +77,7 @@ class completPersonSub extends StatelessWidget {
                                     height: 10,
                                   ),
                                   Text(
-                                      "أهلاً بك" +
+                                      "Welcom".tr +
                                           " " +
                                           "${controller.nameFake}",
                                       style: TextStyle(
@@ -88,7 +88,7 @@ class completPersonSub extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     children: [
-                                      Text(" رقم التصويت الخاص بك هو ",
+                                      Text("Your Voting Number".tr,
                                           style: TextStyle(
                                               color: MyColors.color3,
                                               fontSize: 14,
@@ -113,7 +113,7 @@ class completPersonSub extends StatelessWidget {
                                                 color: MyColors.color1,
                                                 width: 2)),
                                         onPressed: () {},
-                                        child: Text("مشاركة الرابط",
+                                        child: Text("Share link".tr,
                                             style: TextStyle(
                                                 color: MyColors.color3,
                                                 fontSize: 14,
@@ -125,7 +125,7 @@ class completPersonSub extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     children: [
-                                      Text("تم خصم",
+                                      Text("has been discount".tr,
                                           style: TextStyle(
                                               color: MyColors.color3,
                                               fontSize: 14,
@@ -137,7 +137,9 @@ class completPersonSub extends StatelessWidget {
                                             fontSize: 14,
                                             fontFamily: 'Almarai'),
                                       ),
-                                      Text("رسوم الإشتراك من محفظتك",
+                                      Text(
+                                          "Subscription fee from your wallet"
+                                              .tr,
                                           style: TextStyle(
                                               color: MyColors.color3,
                                               fontSize: 14,
@@ -166,8 +168,8 @@ class completPersonSub extends StatelessWidget {
                                         Navigator.of(context)
                                             .pushNamed("homePage");
                                       },
-                                      child: const Text(
-                                        "العودة ",
+                                      child: Text(
+                                        "Back".tr,
                                         style: TextStyle(
                                             fontSize: 13,
                                             color: MyColors.color3,

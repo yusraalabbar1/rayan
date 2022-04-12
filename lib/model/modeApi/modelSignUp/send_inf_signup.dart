@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:rayan/model/modelJson/getDataSignup.dart';
@@ -57,7 +58,7 @@ Future send_inf_signup(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, context) async {
               animType: AnimType.RIGHSLIDE,
               headerAnimationLoop: true,
               btnOkOnPress: () {},
-              body: Text("اسم المستخدم موجود أو رقم الهاتف مستخدم من قبل",
+              body: Text("UserName Or Telephone Aleardy Exist".tr,
                   style: TextStyle(
                       color: MyColors.color3,
                       fontSize: 14,

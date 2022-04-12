@@ -54,7 +54,7 @@ Widget drawerMain(context) {
                           controller.savePathImage,
                           width: 44,
                           height: 44,
-                          fit: BoxFit.fitHeight,
+                          fit: BoxFit.cover,
                         ),
                 ),
               ),
@@ -83,7 +83,7 @@ Widget drawerMain(context) {
                   ),
                 ),
                 Container(
-                    child: Text("الملف الشخصي",
+                    child: Text("Profile".tr,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 14,
@@ -129,7 +129,7 @@ Widget drawerMain(context) {
                   ),
                 ),
                 Container(
-                    child: Text("الأمان والخصوصية",
+                    child: Text("Scurity and Privacy".tr,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 14,
@@ -155,7 +155,7 @@ Widget drawerMain(context) {
                   ),
                 ),
                 Container(
-                    child: Text("الكود التسويقي",
+                    child: Text("Marketing code".tr,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 14,
@@ -178,7 +178,7 @@ Widget drawerMain(context) {
                   ),
                 ),
                 Container(
-                    child: Text("الأسئلة الشائعة",
+                    child: Text("Commen Question".tr,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 14,
@@ -202,7 +202,7 @@ Widget drawerMain(context) {
                   ),
                 ),
                 Container(
-                    child: Text("تواصل معنا ",
+                    child: Text("Connect Us".tr,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 14,
@@ -227,7 +227,7 @@ Widget drawerMain(context) {
                     ),
                   ),
                   Container(
-                      child: Text("مشاركة",
+                      child: Text("Sharing".tr,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 14,
@@ -253,7 +253,7 @@ Widget drawerMain(context) {
                     ),
                   ),
                   Container(
-                      child: Text("الشروط والاحكام",
+                      child: Text("Terms".tr,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 14,
@@ -279,7 +279,7 @@ Widget drawerMain(context) {
                     ),
                   ),
                   Container(
-                      child: Text("من نحن",
+                      child: Text("About Us".tr,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 14,
@@ -308,7 +308,7 @@ Widget drawerMain(context) {
                   ),
                 ),
                 Container(
-                    child: Text("تسجيل الخروج",
+                    child: Text("Log out".tr,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 14,

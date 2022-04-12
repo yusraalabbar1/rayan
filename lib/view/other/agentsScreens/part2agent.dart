@@ -93,7 +93,7 @@ Widget part2Agent(context) {
       Padding(
         padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
         child: Text(
-          "وسائل التواصل الإجتماعي :",
+          "Social Media".tr,
           style: TextStyle(
               color: Colors.white,
               fontSize: 17,

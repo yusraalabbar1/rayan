@@ -200,7 +200,7 @@ class _sittingProfileState extends State<sittingProfile> {
                                                 controller.savePathImage,
                                                 width: 44,
                                                 height: 44,
-                                                fit: BoxFit.fitHeight,
+                                                fit: BoxFit.fill,
                                               ),
                                       ),
                                     ),
@@ -240,7 +240,7 @@ class _sittingProfileState extends State<sittingProfile> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(25.0))),
                                     label: Text(
-                                      "تغيير الصورة الشخصية",
+                                      "Change profile picture".tr,
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 11,
@@ -263,7 +263,7 @@ class _sittingProfileState extends State<sittingProfile> {
                             Expanded(
                                 child: Container(
                               alignment: Alignment.topRight,
-                              child: Text("اسم المستخدم",
+                              child: Text('User Name'.tr,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 13,
@@ -310,7 +310,7 @@ class _sittingProfileState extends State<sittingProfile> {
                             Expanded(
                                 child: Container(
                               alignment: Alignment.topRight,
-                              child: Text("الاسم الأول",
+                              child: Text("First Name".tr,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 13,
@@ -357,7 +357,7 @@ class _sittingProfileState extends State<sittingProfile> {
                             Expanded(
                                 child: Container(
                               alignment: Alignment.topRight,
-                              child: Text("اسم الأب",
+                              child: Text("Name father".tr,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 13,
@@ -404,7 +404,7 @@ class _sittingProfileState extends State<sittingProfile> {
                             Expanded(
                                 child: Container(
                               alignment: Alignment.topRight,
-                              child: Text("الكنية",
+                              child: Text("Last Name".tr,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 13,
@@ -457,7 +457,7 @@ class _sittingProfileState extends State<sittingProfile> {
                             Expanded(
                                 child: Container(
                               alignment: Alignment.topRight,
-                              child: Text("كود التحويل",
+                              child: Text("Transmitter Code:".tr,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 13,
@@ -529,7 +529,7 @@ class _sittingProfileState extends State<sittingProfile> {
                             Expanded(
                                 child: Container(
                               alignment: Alignment.topRight,
-                              child: Text("رقم الهاتف",
+                              child: Text("phone number".tr,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 13,
@@ -635,7 +635,7 @@ class _sittingProfileState extends State<sittingProfile> {
                           height: 30,
                         ),
                         InkWell(
-                          child: Text("تعديل المعلومات",
+                          child: Text("Edit information".tr,
                               style: TextStyle(
                                   color: MyColors.color1,
                                   fontSize: 13,

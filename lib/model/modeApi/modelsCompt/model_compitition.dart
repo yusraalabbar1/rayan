@@ -8,6 +8,7 @@ import 'package:rayan/utils/constant/url.dart';
 
 List<Map> MyCompitition = [];
 List<Map> foundCompitition = [];
+var day, hour, min, sec;
 Future allCompititionapi() async {
   homecontroller controller = Get.put(homecontroller());
   var headers = {

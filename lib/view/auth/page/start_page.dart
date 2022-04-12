@@ -188,7 +188,7 @@ class _startPageState extends State<startPage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
                           side: BorderSide(color: MyColors.color1, width: 2)),
-                      child: Text("موافق",
+                      child: Text("ok".tr,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 13,
@@ -207,7 +207,7 @@ class _startPageState extends State<startPage> {
                           side: BorderSide(
                               color: Color.fromARGB(255, 231, 38, 64),
                               width: 2)),
-                      child: Text("إلغاء",
+                      child: Text("cancle".tr,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 13,

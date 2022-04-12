@@ -52,7 +52,7 @@ Row rowAppbar(context) {
                                       controller.savePathImage,
                                       width: 44,
                                       height: 44,
-                                      fit: BoxFit.fitHeight,
+                                      fit: BoxFit.fill,
                                     ),
                             ),
                           ),

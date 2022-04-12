@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_share/flutter_share.dart';
 import 'package:get/get.dart';
 import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/modelsCompt/addCompetitionVote.dart';
@@ -33,6 +34,14 @@ class _infoVoteState extends State<infoVote> {
 
     getComptWinner(tokenloginresult, controller.saveidComp);
     getWinnerAnswer(controller.saveidComp);
+  }
+
+  Future<void> share() async {
+    await FlutterShare.share(
+        title: 'شارك المسابقة',
+        text: "${controller.nameComp}",
+        linkUrl: 'https://flutter.dev/',
+        chooserTitle: 'شارك ${controller.nameComp}');
   }
 
   @override
@@ -88,8 +97,8 @@ class _infoVoteState extends State<infoVote> {
                               Center(
                                 child: Text(
                                   controller.saveIsFinishComp == true
-                                      ? "المسابقة منتهية "
-                                      : "صوت الآن في المسابقة",
+                                      ? "Contest is over".tr
+                                      : "Vote now for the contest".tr,
                                   style: TextStyle(
                                       color: Colors.red,
                                       fontSize: 14,
@@ -128,7 +137,7 @@ class _infoVoteState extends State<infoVote> {
                   : controller.saveIsFinishComp == true
                       ? Container(
                           margin: EdgeInsets.only(left: 25, right: 25),
-                          child: Text("الفائز هو",
+                          child: Text("Winner is".tr,
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 14,
@@ -139,7 +148,7 @@ class _infoVoteState extends State<infoVote> {
                           margin:
                               EdgeInsets.only(left: 25, right: 25, bottom: 20),
                           child: Text(
-                            "كل المتسابقين",
+                            "All contestants".tr,
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,
@@ -195,7 +204,7 @@ class _infoVoteState extends State<infoVote> {
                           child: Padding(
                             padding: const EdgeInsets.all(19.0),
                             child: Text(
-                              "شارك المسابقة",
+                              "Share the Contest".tr,
                               style: TextStyle(
                                   color: MyColors.color3,
                                   fontSize: 17,
@@ -204,81 +213,38 @@ class _infoVoteState extends State<infoVote> {
                           ),
                         ));
             }),
-            GetBuilder<homecontroller>(builder: (controller) {
-              return (controller.savememberInCompt == null
-                  ? Text("")
-                  : controller.saveIsFinishComp == true
-                      ? Text("")
-                      : Container(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 19, right: 19),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Expanded(
-                                  child: RaisedButton(
-                                    color: MyColors.color1,
-                                    elevation: 10,
-                                    splashColor: MyColors.color3,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                    ),
-                                    onPressed: () {},
-                                    child: Text("فيسبوك",
-                                        style: TextStyle(
-                                            color: MyColors.color3,
-                                            fontSize: 14,
-                                            fontFamily: 'Almarai')),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Expanded(
-                                  child: RaisedButton(
-                                    color: Color(0xff1FC176),
-                                    elevation: 10,
-                                    splashColor: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                    ),
-                                    onPressed: () {},
-                                    child: Text("واتساب",
-                                        style: TextStyle(
-                                            color: MyColors.color3,
-                                            fontSize: 14,
-                                            fontFamily: 'Almarai')),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Expanded(
-                                  child: RaisedButton(
-                                    color: MyColors.color1,
-                                    elevation: 10,
-                                    splashColor: MyColors.color3,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                    ),
-                                    onPressed: () {},
-                                    child: Text("تلجرام",
-                                        style: TextStyle(
-                                            color: MyColors.color3,
-                                            fontSize: 14,
-                                            fontFamily: 'Almarai')),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ));
-            }),
+            Padding(
+              padding: const EdgeInsets.all(19.0),
+              child: Text(
+                "Share the Contest".tr,
+                style: TextStyle(
+                    color: MyColors.color3,
+                    fontSize: 17,
+                    fontFamily: 'Almarai'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 19, right: 19),
+              child: Container(
+                height: 60,
+                child: RaisedButton(
+                  color: MyColors.color1,
+                  elevation: 10,
+                  splashColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  onPressed: () {
+                    share();
+                  },
+                  child: Text("Share link social media".tr,
+                      style: TextStyle(
+                          color: MyColors.color3,
+                          fontSize: 14,
+                          fontFamily: 'Almarai')),
+                ),
+              ),
+            ),
 
             SizedBox(
               height: 30,
@@ -297,7 +263,7 @@ class _infoVoteState extends State<infoVote> {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25),
             side: BorderSide(color: MyColors.color1, width: 2)),
-        child: Text("أجب على الأسئلة",
+        child: Text("Answer the question".tr,
             style: TextStyle(
                 color: Colors.white, fontSize: 13, fontFamily: 'Almarai')),
         onPressed: () {
@@ -381,7 +347,7 @@ class _infoVoteState extends State<infoVote> {
                       height: 15,
                     ),
                     Text(
-                      "عدد الأصوات",
+                      "Number of Votes".tr,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 14,
@@ -475,7 +441,7 @@ class _infoVoteState extends State<infoVote> {
                                       fontFamily: 'Almarai'),
                                 ),
                                 Text(
-                                  "رقم",
+                                  "Number".tr,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 12,
@@ -513,7 +479,7 @@ class _infoVoteState extends State<infoVote> {
                                   height: 5,
                                 ),
                                 Text(
-                                  "عدد الأصوات",
+                                  "Number of Votes".tr,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 12,
@@ -551,7 +517,7 @@ class _infoVoteState extends State<infoVote> {
                                             context);
                                       });
                                     },
-                                    child: Text("صوت",
+                                    child: Text("vote".tr,
                                         style: TextStyle(
                                             color:
                                                 Color.fromARGB(255, 48, 45, 45),
@@ -632,7 +598,7 @@ class _infoVoteState extends State<infoVote> {
                           height: 10,
                         ),
                         Text(
-                            " الفائز هو" +
+                            "Winner is".tr +
                                 " " +
                                 controller.savegetComptWinnerNickName
                                     .toString(),
@@ -674,7 +640,7 @@ class _infoVoteState extends State<infoVote> {
                           height: 10,
                         ),
                         Text(
-                          "عدد الأصوات",
+                          "Number of Votes".tr,
                           style: TextStyle(
                               color: Colors.white,
                               decoration: TextDecoration.none,

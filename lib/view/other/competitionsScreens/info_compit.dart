@@ -2,6 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rayan/control/homecontroller.dart';
+import 'package:rayan/model/modeApi/modelMedia/setting_social_media.dart';
 import 'package:rayan/model/modeApi/modelsCompt/allMemberCompitition.dart';
 import 'package:rayan/model/modeApi/modelsCompt/model_compitition.dart';
 import 'package:rayan/utils/constant/color.dart';
@@ -91,8 +92,8 @@ class _infoCompetState extends State<infoCompet> {
                               Center(
                                 child: Text(
                                   controller.saveIsFinishComp == true
-                                      ? "المسابقة منتهية "
-                                      : "صوت الآن في المسابقة",
+                                      ? "Contest is over".tr
+                                      : "Vote now for the contest".tr,
                                   style: TextStyle(
                                       color: Colors.red,
                                       fontSize: 14,
@@ -106,7 +107,7 @@ class _infoCompetState extends State<infoCompet> {
                               Text(
                                 controller.savecurrentTourName != null
                                     ? "${controller.savecurrentTourName}"
-                                    : "لم تبدأ الجولة",
+                                    : "Round has not started".tr,
                                 style: TextStyle(
                                     color: MyColors.color3,
                                     fontSize: 14,
@@ -115,34 +116,35 @@ class _infoCompetState extends State<infoCompet> {
                               SizedBox(
                                 height: 5,
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "الوقت المتبقي ",
-                                    style: TextStyle(
-                                        color: MyColors.color3,
-                                        fontSize: 14,
-                                        fontFamily: 'Almarai'),
-                                  ),
-                                  Text(
-                                    controller.savecurrentTourName == null
-                                        ? "لم تبدأ الجولة"
-                                        : "${controller.savecurrentTourTimeLimit}",
-                                    style: TextStyle(
-                                        color: MyColors.color3,
-                                        fontSize: 12,
-                                        fontFamily: 'Almarai'),
-                                  ),
-                                  Text(
-                                    "دقيقة",
-                                    style: TextStyle(
-                                        color: MyColors.color3,
-                                        fontSize: 11,
-                                        fontFamily: 'Almarai'),
-                                  ),
-                                ],
-                              ),
+
+                              // Row(
+                              //   mainAxisAlignment: MainAxisAlignment.center,
+                              //   children: [
+                              //     Text(
+                              //       "The remaining Time".tr,
+                              //       style: TextStyle(
+                              //           color: MyColors.color3,
+                              //           fontSize: 14,
+                              //           fontFamily: 'Almarai'),
+                              //     ),
+                              //     Text(
+                              //       controller.savecurrentTourName == null
+                              //           ? "Round has not started".tr
+                              //           : "${controller.savecurrentTourTimeLimit}",
+                              //       style: TextStyle(
+                              //           color: MyColors.color3,
+                              //           fontSize: 12,
+                              //           fontFamily: 'Almarai'),
+                              //     ),
+                              //     Text(
+                              //       "minute".tr,
+                              //       style: TextStyle(
+                              //           color: MyColors.color3,
+                              //           fontSize: 11,
+                              //           fontFamily: 'Almarai'),
+                              //     ),
+                              //   ],
+                              // ),
                               SizedBox(
                                 height: 5,
                               ),
@@ -200,7 +202,7 @@ class _infoCompetState extends State<infoCompet> {
             Padding(
               padding: const EdgeInsets.all(19.0),
               child: Text(
-                "كيف أشحن رصيد داخل التطبيق ؟",
+                "How do I recharge in app credit?".tr,
                 style: TextStyle(
                     color: MyColors.color3,
                     fontSize: 17,
@@ -210,7 +212,7 @@ class _infoCompetState extends State<infoCompet> {
             Padding(
               padding: const EdgeInsets.only(left: 23, right: 23, top: 5),
               child: Text(
-                "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.",
+                recharge,
                 style: TextStyle(
                     color: MyColors.color3,
                     fontSize: 13,
@@ -237,7 +239,8 @@ class _infoCompetState extends State<infoCompet> {
                               headerAnimationLoop: true,
                               title: 'Error',
                               btnOkOnPress: () {},
-                              body: Text('المسابقة منتهية لا يمكن الاشتراك',
+                              body: Text(
+                                  "Contest has expired,Can't participate".tr,
                                   style: TextStyle(
                                       color: MyColors.color3,
                                       fontSize: 14,
@@ -249,7 +252,7 @@ class _infoCompetState extends State<infoCompet> {
                       Navigator.of(context).pushNamed("personSub");
                     }
                   },
-                  child: Text("اشتراك",
+                  child: Text("Particpation".tr,
                       style: TextStyle(
                           color: MyColors.color3,
                           fontSize: 17,
@@ -260,7 +263,7 @@ class _infoCompetState extends State<infoCompet> {
             Padding(
               padding: const EdgeInsets.all(19.0),
               child: Text(
-                "شارك المسابقة",
+                "Share the Contest".tr,
                 style: TextStyle(
                     color: MyColors.color3,
                     fontSize: 17,
@@ -281,7 +284,7 @@ class _infoCompetState extends State<infoCompet> {
                   onPressed: () {
                     share();
                   },
-                  child: Text("شارك المسابقة على السوشال ميديا",
+                  child: Text("Share link social media".tr,
                       style: TextStyle(
                           color: MyColors.color3,
                           fontSize: 14,

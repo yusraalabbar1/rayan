@@ -1,12 +1,4 @@
-// To parse this JSON data, do
-//
-//     final welcome = welcomeFromJson(jsonString);
-
 import 'dart:convert';
-
-// Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
-
-// String welcomeToJson(Welcome data) => json.encode(data.toJson());
 
 class comititionModel {
   comititionModel({
@@ -45,6 +37,8 @@ class Datum {
     required this.currentTourId,
     required this.currentTourName,
     required this.currentTourTimeLimit,
+    required this.currentTourStartDate,
+    required this.currentTourEndDate,
     required this.memberCount,
     required this.maxMember,
     required this.remanningMember,
@@ -61,9 +55,11 @@ class Datum {
   double amount;
   String imageUrl;
   DateTime tourOneDate;
-  var currentTourId;
-  var currentTourName;
-  var currentTourTimeLimit;
+  int? currentTourId;
+  String? currentTourName;
+  int? currentTourTimeLimit;
+  DateTime? currentTourStartDate;
+  DateTime? currentTourEndDate;
   int memberCount;
   int maxMember;
   int remanningMember;
@@ -87,6 +83,8 @@ class Datum {
         currentTourTimeLimit: json["currentTourTimeLimit"] == null
             ? null
             : json["currentTourTimeLimit"],
+        currentTourStartDate: DateTime.parse(json["currentTourStartDate"]),
+        currentTourEndDate: DateTime.parse(json["currentTourEndDate"]),
         memberCount: json["memberCount"],
         maxMember: json["maxMember"],
         remanningMember: json["remanningMember"],
@@ -109,6 +107,8 @@ class Datum {
         "currentTourName": currentTourName == null ? null : currentTourName,
         "currentTourTimeLimit":
             currentTourTimeLimit == null ? null : currentTourTimeLimit,
+        "currentTourStartDate": currentTourStartDate,
+        "currentTourEndDate": currentTourEndDate,
         "memberCount": memberCount,
         "maxMember": maxMember,
         "remanningMember": remanningMember,

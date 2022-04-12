@@ -33,7 +33,7 @@ class detailsWinner extends StatelessWidget {
                         color: Colors.white,
                       )),
                   Text(
-                      "الرابحين" +
+                      "Winners".tr +
                           "/" +
                           " ${controller.saveListWinner[controller.indexWinner]['fullName']}",
                       style: TextStyle(

@@ -9,9 +9,11 @@ Widget widgetRigerter1moy() {
       padding: const EdgeInsets.all(15.0),
       child: GetBuilder<homecontroller>(builder: (controller) {
         return (ListView.builder(
-            reverse: true,
+            // reverse: true,
             itemCount: register.length,
             itemBuilder: (context, index) {
+              int itemCount = register.length;
+              int reversedIndex = itemCount - 1 - index;
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
@@ -26,7 +28,8 @@ Widget widgetRigerter1moy() {
                           children: [
                             Container(
                               alignment: Alignment.topRight,
-                              child: Text("${register[index]['message']}",
+                              child: Text(
+                                  "${register[reversedIndex]['message']}",
                                   style: TextStyle(
                                       color: Colors.white,
                                       height: 1.5,
@@ -36,7 +39,7 @@ Widget widgetRigerter1moy() {
                             Container(
                               alignment: Alignment.topRight,
                               child: Text(
-                                  "تاريخ: ${register[index]['createDate']}",
+                                  "تاريخ: ${register[reversedIndex]['createDate']}",
                                   style: TextStyle(
                                       color: MyColors.color1,
                                       height: 1.5,

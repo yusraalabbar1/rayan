@@ -35,15 +35,9 @@ Future userBalancLog() async {
           register.add(c.data![i].toJson());
         }
       }
-      recived.sort((a, b) => DateTime.parse(a["createDate"])
-          .compareTo(DateTime.parse(b["createDate"])));
-      register.sort((a, b) => DateTime.parse(a["createDate"])
-          .compareTo(DateTime.parse(b["createDate"])));
 
-      ///recived.sort((a, b) => a['createDate'].compareTo(b['createDate']));
-      //register.sort((a, b) => a['createDate'].compareTo(b['createDate']));
-      // print(recived);
-      print(register);
+      // print(register);
+
       print("yesssssssssssssssssssss");
     } else {
       print("noooooooooooooooooooooo");

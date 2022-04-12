@@ -100,6 +100,7 @@ getpreflog() async {
   comissionBalanc();
   getSettingAbout();
   getSettingTerms();
+  getSettingRecharge();
   // getSettingSpicSocialMediaFacebook();
   //getSettingSpicSocialMediaYouTube();
   getSettingSpicSocialMediaWhatapp();

@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
 import 'package:rayan/model/modelJson/rechargeBalanceFromUserToUserModel.dart';
 import 'package:rayan/utils/constant/color.dart';
+import 'dart:async';
 
 Future rechargeBalanceFromUserToUser(context, unique, balanc) async {
   var headers = {
@@ -31,7 +32,7 @@ Future rechargeBalanceFromUserToUser(context, unique, balanc) async {
               dialogType: DialogType.SUCCES,
               animType: AnimType.RIGHSLIDE,
               headerAnimationLoop: true,
-              body: Text("تم الارسال",
+              body: Text("has been sent".tr,
                   style: TextStyle(
                       color: MyColors.color3,
                       fontSize: 14,
@@ -47,7 +48,7 @@ Future rechargeBalanceFromUserToUser(context, unique, balanc) async {
                 animType: AnimType.RIGHSLIDE,
                 headerAnimationLoop: true,
                 btnOkOnPress: () {},
-                body: Text("ليس لديك رصيد كاف",
+                body: Text("you do not have enough balance".tr,
                     style: TextStyle(
                         color: MyColors.color3,
                         fontSize: 14,
@@ -62,7 +63,7 @@ Future rechargeBalanceFromUserToUser(context, unique, balanc) async {
                 animType: AnimType.RIGHSLIDE,
                 headerAnimationLoop: true,
                 btnOkOnPress: () {},
-                body: Text("الكود المدخل غير صحيح",
+                body: Text("The code entered code is incorrect".tr,
                     style: TextStyle(
                         color: MyColors.color3,
                         fontSize: 14,

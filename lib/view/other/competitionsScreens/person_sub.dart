@@ -90,7 +90,7 @@ class personSub extends StatelessWidget {
                                               left: 30, right: 30),
                                           alignment: Alignment.centerRight,
                                           child: Text(
-                                            "الإسم المستعار أو اللقب",
+                                            "Nick name".tr,
                                             style: TextStyle(
                                                 color: MyColors.color3,
                                                 fontSize: 14,
@@ -162,7 +162,7 @@ class personSub extends StatelessWidget {
                                                     ),
                                                   ),
                                                 ),
-                                                Text("عدد المتسابقين",
+                                                Text("Number of contestant".tr,
                                                     style: TextStyle(
                                                         color: MyColors.color3,
                                                         fontSize: 12,
@@ -195,7 +195,7 @@ class personSub extends StatelessWidget {
                                                     ),
                                                   ),
                                                 ),
-                                                Text("الإشتراك",
+                                                Text("Particpation".tr,
                                                     style: TextStyle(
                                                         color: MyColors.color3,
                                                         fontSize: 12,
@@ -235,8 +235,8 @@ class personSub extends StatelessWidget {
                                                     "not validddddddddddddddd");
                                               }
                                             },
-                                            child: const Text(
-                                              "اشتراك",
+                                            child: Text(
+                                              "Particpation".tr,
                                               style: TextStyle(
                                                   fontSize: 13,
                                                   color: MyColors.color3,

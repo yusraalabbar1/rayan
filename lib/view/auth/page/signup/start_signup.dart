@@ -166,7 +166,7 @@ class _loginState extends State<login> {
                           keyboardType: TextInputType.number,
 
                           decoration: InputDecoration(
-                              hintText: "ادخل رقمك",
+                              hintText: "Enter Your Number Phone".tr,
                               suffixText: "${controller.saveCountryCode}+"),
 
                           validator: (text) {

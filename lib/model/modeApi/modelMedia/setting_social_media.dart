@@ -16,6 +16,25 @@ var Privacy = "";
 var term = "";
 var aboutUs = "";
 var twitterSitting = "";
+var recharge = "";
+
+getSettingRecharge() async {
+  var request = http.Request(
+      'GET',
+      Uri.parse(
+          "http://212.24.108.54/wsa/api/setting?settingName=setting.competition.recharge.text"));
+
+  http.StreamedResponse response = await request.send();
+
+  if (response.statusCode == 200) {
+    var res = await http.Response.fromStream(response);
+    setting c = setting.fromJson(jsonDecode(res.body));
+    recharge = c.data[0].toJson()["value"];
+    print(recharge);
+  } else {
+    print(response.reasonPhrase);
+  }
+}
 
 getSettingAbout() async {
   var request = http.Request(

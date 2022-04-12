@@ -6,8 +6,8 @@ const Map<String, String> ar = {
   "Reset": "اعادة التعيين",
   /******************************* */
   "Creat an Account": "سجل الان في التطبيق",
-  "all Rights reserved to the application 2021":
-      "جميع الحقوق محفوظة لدى التطبيق 2021",
+  "all Rights reserved to the application 2022":
+      "جميع الحقوق محفوظة لدى التطبيق 2022",
   /**************************** */
   "phone number": "رقم الهاتف",
   "send a confirmation": "ارسال رسالة التأكيد",
@@ -57,25 +57,73 @@ const Map<String, String> ar = {
   "Your walet balance": "رصيد محفظتك",
   "Marketing Profits": "أرباح التسويق",
   "Vote": "التصويت",
-  "Search for a contest": "",
+  "Search for a contest": "ابحث عن متسابق",
   "search for your favorite agent in your city":
       "ابحث عن وكيلك المفضل أو وكيل في منطقتك",
-
+  "the most popular app in the Middle East":
+      "المحفظة الالكترونية الأشهر في الشرق الأوسط",
+  "Enter Your Number Phone": "ادخل رقمك",
+  "ok": "موافق",
+  "cancle": "الغاء",
   /**************************************** */
-  // "search compitition":'ابحث عن مسابقة',
-  // "The number of contestants left":"عدد المتسابقين المتبقي",
-  // "Participation":"الإشتراك",
-  // "constestant":"المتسابقين",
-  // "Vote now for the contest":"صوت الآن في المسابقة",
-  // "أهلاً بك"
-  // " رقم التصويت الخاص بك هو "
-  // "مشاركة الرابط"
-  // "تم خصم"
-  // "رسوم الإشتراك من محفظتك"
-  // "العودة "
-  // 'المسابقة منتهية لا يمكن الاشتراك'
-  // "اشتراك"
-  // "شارك المسابقة"
-  // "الفائز هو"
-  // "كل المتسابقين"
+  "search compitition": 'ابحث عن مسابقة',
+  "The number of contestants left": "عدد المتسابقين المتبقي",
+  "Participation": "الإشتراك",
+  "constestant": "المتسابقين",
+  "Vote now for the contest": "صوت الآن في المسابقة",
+  "Welcom": "أهلاً بك",
+  "Your Voting Number": " رقم التصويت الخاص بك هو ",
+  "Share link": "مشاركة الرابط",
+  "has been discount": "تم خصم",
+  "Subscription fee from your wallet": "رسوم الإشتراك من محفظتك",
+  "Back": "العودة ",
+  "Contest has expired,Can't participate": 'المسابقة منتهية لا يمكن الاشتراك',
+  "Particpation": "اشتراك",
+  "Share the Contest": "شارك المسابقة",
+  "Winner is": "الفائز هو",
+  "All contestants": "كل المتسابقين",
+  "Social Media": "وسائل التواصل الإجتماعي :",
+  "Sorry,the contest is over": "عذرا المسابقة منتهية",
+  "Round has not started": "لم تبدأ الجولة",
+  "Contest is over": "المسابقة منتهية",
+  "The remaining Time": "الوقت المتبقي ",
+  "minute": "دقيقة",
+  "How do I recharge in app credit?": "كيف أشحن رصيد داخل التطبيق ؟",
+  "Share link social media": "شارك المسابقة على السوشال ميديا",
+  "Answer the question": "أجب على الأسئلة",
+  "Number of Votes": "عدد الأصوات",
+  "Number": "رقم",
+  "vote": "صوت",
+  "Number of contestant": "عدد المتسابقين",
+  "Nick name": "الإسم المستعار أو اللقب",
+  "amount": "المبلغ",
+  "Transmitter Code:": "رمز الإرسال :",
+  "Sharing": "مشاركة ",
+  "The amount you want to transfer": "المبلغ الذي تريد تحويله",
+  "enter the transfer code for the Reciver": "أدخل كود التحويل الخاص بالمستقبل",
+  "The current balance": "رصيدك الحالي",
+  "Dollar": " دولار",
+  "Edit": " إجراء تعديل ",
+  ///////////////////////////////////////
+  "Change profile picture": "تغيير الصورة الشخصية",
+  "Edit information": "تعديل المعلومات",
+  "About Us": "من نحن ",
+  "Terms": "الشروط والاحكام ",
+  "Profile": "الملف الشخصي",
+  "Marketing code": "الكود التسويقي",
+  "Scurity and Privacy": "الأمان والخصوصية",
+  "Commen Question": "الأسئلة الشائعة",
+  "Connect Us": "تواصل معنا ",
+  "Log out": "تسجيل الخروج",
+
+  ///////////////////////////////
+  "has been sent": "تم الارسال",
+  "you do not have enough balance": "ليس لديك رصيد كاف",
+  "The code entered code is incorrect": "الكود المدخل غير صحيح",
+  "Already Register": " أنت شاركت من قبل في هذه المسابقة",
+  "Not Available Balance": "ليس لديك رصيد كافي للمشاركة",
+  "Been voted": "تم التصويت",
+  "Thanks for the answer": "شكرا لك على الاجابة",
+  "UserName Or Telephone Aleardy Exist":
+      "اسم المستخدم موجود أو رقم الهاتف مستخدم من قبل"
 };

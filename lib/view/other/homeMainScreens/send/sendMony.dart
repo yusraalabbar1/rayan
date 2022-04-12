@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rayan/control/homecontroller.dart';
@@ -85,7 +86,8 @@ class _sendMonyState extends State<sendMony> {
                                                   left: 30, right: 30),
                                               alignment: Alignment.centerRight,
                                               child: Text(
-                                                "المبلغ الذي تريد تحويله",
+                                                "The amount you want to transfer"
+                                                    .tr,
                                                 style: TextStyle(
                                                     color: MyColors.color3,
                                                     fontSize: 14,
@@ -128,7 +130,8 @@ class _sendMonyState extends State<sendMony> {
                                                   left: 30, right: 30),
                                               alignment: Alignment.centerRight,
                                               child: Text(
-                                                "أدخل كود التحويل الخاص بالمستقبل",
+                                                "enter the transfer code for the Reciver"
+                                                    .tr,
                                                 style: TextStyle(
                                                     color: MyColors.color3,
                                                     fontSize: 14,
@@ -171,7 +174,7 @@ class _sendMonyState extends State<sendMony> {
                                                   left: 30, right: 30),
                                               child: Row(
                                                 children: [
-                                                  Text("رصيدك الحالي",
+                                                  Text("The current balance".tr,
                                                       style: TextStyle(
                                                           color:
                                                               MyColors.color3,
@@ -186,7 +189,7 @@ class _sendMonyState extends State<sendMony> {
                                                           fontSize: 14,
                                                           fontFamily:
                                                               'Almarai')),
-                                                  Text(" دولار",
+                                                  Text("Dollar".tr,
                                                       style: TextStyle(
                                                           color:
                                                               MyColors.color3,
@@ -220,21 +223,44 @@ class _sendMonyState extends State<sendMony> {
                                                       formstate.currentState;
                                                   if (formdata!.validate()) {
                                                     formdata.save();
-                                                    rechargeBalanceFromUserToUser(
-                                                        context,
-                                                        uniqCode,
-                                                        double.parse(
-                                                            amountSend));
-                                                    // Navigator.of(context)
-                                                    //     .pushNamed(
-                                                    //         "CompletsendMoney");
+                                                    AwesomeDialog(
+                                                            context: context,
+                                                            dialogType:
+                                                                DialogType.INFO,
+                                                            animType: AnimType
+                                                                .RIGHSLIDE,
+                                                            headerAnimationLoop:
+                                                                true,
+                                                            btnOkOnPress: () {
+                                                              rechargeBalanceFromUserToUser(
+                                                                  context,
+                                                                  uniqCode,
+                                                                  double.parse(
+                                                                      amountSend));
+                                                            },
+                                                            body: Text(
+                                                                "هل أنت منأكد أنك تريد التحويل ل ${uniqCode}??",
+                                                                style: TextStyle(
+                                                                    color: MyColors
+                                                                        .color3,
+                                                                    fontSize:
+                                                                        14,
+                                                                    fontFamily:
+                                                                        'Almarai')),
+                                                            dialogBackgroundColor:
+                                                                MyColors.color2,
+                                                            btnCancelColor:
+                                                                Colors.red,
+                                                            btnOkColor:
+                                                                MyColors.color1)
+                                                        .show();
                                                   } else {
                                                     print(
                                                         "not validddddddddddddddd");
                                                   }
                                                 },
-                                                child: const Text(
-                                                  "استمرار",
+                                                child: Text(
+                                                  "continue".tr,
                                                   style: TextStyle(
                                                       fontSize: 13,
                                                       color: MyColors.color3,

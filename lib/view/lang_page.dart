@@ -27,16 +27,6 @@ class _langPageState extends State<langPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 wstContainer1(context),
-                Container(
-                  margin: const EdgeInsets.only(bottom: 60),
-                  child: const Text(
-                    "المحفظة الالكترونية الأشهر في الشرق الأوسط",
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: MyColors.color3,
-                        fontFamily: 'Almarai'),
-                  ),
-                ),
                 Center(
                   child: Text("اختر لغة التطبيق",
                       style: TextStyle(
@@ -137,7 +127,7 @@ class _langPageState extends State<langPage> {
             child: Container(
               margin: EdgeInsets.only(bottom: 20),
               child: Text(
-                "جميع الحقوق محفوظة لدى التطبيق 2021",
+                "جميع الحقوق محفوظة لدى التطبيق 2022",
                 style: TextStyle(
                     fontSize: 13,
                     color: MyColors.color3,

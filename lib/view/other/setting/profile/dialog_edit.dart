@@ -23,7 +23,7 @@ showLoading(context) {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(" إجراء تعديل ",
+                  Text("Edit".tr,
                       style: TextStyle(
                           color: MyColors.color2,
                           fontSize: 13,
@@ -39,7 +39,7 @@ showLoading(context) {
                           fontSize: 10),
                       textInputAction: TextInputAction.next,
                       decoration: InputDecoration(
-                        hintText: 'الاسم الأول',
+                        hintText: "First Name".tr,
                       ),
                       validator: (text) {
                         if (text!.length > 15) {
@@ -68,7 +68,7 @@ showLoading(context) {
                           fontSize: 10),
                       textInputAction: TextInputAction.next,
                       decoration: InputDecoration(
-                        hintText: 'اسم الأب',
+                        hintText: "Name father".tr,
                       ),
                       validator: (text) {
                         if (text!.length > 15) {
@@ -100,7 +100,7 @@ showLoading(context) {
                           fontSize: 10),
                       textInputAction: TextInputAction.next,
                       decoration: InputDecoration(
-                        hintText: 'الكنية',
+                        hintText: "Last Name".tr,
                       ),
                       validator: (text) {
                         if (text!.length > 15) {
@@ -132,7 +132,7 @@ showLoading(context) {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(25),
                             side: BorderSide(color: MyColors.color1, width: 2)),
-                        child: Text("موافق",
+                        child: Text("ok".tr,
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 13,
@@ -157,7 +157,7 @@ showLoading(context) {
                             side: BorderSide(
                                 color: Color.fromARGB(255, 231, 38, 64),
                                 width: 2)),
-                        child: Text("إلغاء",
+                        child: Text("cancle".tr,
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 13,

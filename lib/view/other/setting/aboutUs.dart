@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:rayan/model/modeApi/modelMedia/setting_social_media.dart';
 import 'package:rayan/utils/constant/color.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
@@ -37,7 +38,7 @@ class _aboutState extends State<about> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("من نحن ",
+                  Text("About Us".tr,
                       style: TextStyle(
                           color: MyColors.color1,
                           fontSize: 16,
