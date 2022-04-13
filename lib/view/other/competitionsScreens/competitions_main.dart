@@ -64,326 +64,330 @@ class _competitionsMainState extends State<competitionsMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Stack(
-      children: [
-        containerMaine(),
-        Container(
-          decoration: boxDecorationMain(),
-        ),
-        controller.saveMapCompitition == null
-            ? Text("loading...")
-            : ListView(
-                // shrinkWrap: true,
-                children: [
-                  rowAppbar(context),
-                  widgetTowButtonCompitition(),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Center(
-                      child: TextField(
-                        style: TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(15.0),
-                            prefixIcon: Icon(
-                              Icons.search,
-                              color: MyColors.color1,
-                            ),
-                            hintText: 'search compitition'.tr),
-                        onChanged: (string) {
-                          _onSearchFieldChanged(string);
-                        },
+          children: [
+            containerMaine(),
+            Container(
+              decoration: boxDecorationMain(),
+            ),
+            controller.saveMapCompitition == null
+                ? Text("loading...")
+                : ListView(
+                    // shrinkWrap: true,
+                    children: [
+                      rowAppbar(context),
+                      widgetTowButtonCompitition(),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Center(
+                          child: TextField(
+                            style: TextStyle(color: Colors.white),
+                            decoration: InputDecoration(
+                                contentPadding: EdgeInsets.all(15.0),
+                                prefixIcon: Icon(
+                                  Icons.search,
+                                  color: MyColors.color1,
+                                ),
+                                hintText: 'search compitition'.tr),
+                            onChanged: (string) {
+                              _onSearchFieldChanged(string);
+                            },
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  GetBuilder<homecontroller>(builder: (controller) {
-                    return (controller.i == 0
-                        ? pageCompit()
-                        : pageVote(context));
-                  }),
-                  const SizedBox(
-                    height: 100,
+                      GetBuilder<homecontroller>(builder: (controller) {
+                        return (controller.i == 0
+                            ? pageCompit()
+                            : pageVote(context));
+                      }),
+                      const SizedBox(
+                        height: 100,
+                      )
+                    ],
                   )
-                ],
-              )
-      ],
-    ));
+          ],
+        ));
   }
 
   Widget pageCompit() {
-    return GridView.builder(
-      shrinkWrap: true,
-      scrollDirection: Axis.vertical,
-      physics: ScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-      ),
-      itemCount: foundCompitition.length,
-      itemBuilder: (BuildContext context, int index) {
-        return GetBuilder<homecontroller>(builder: (controller) {
-          return (InkWell(
-            onTap: () {
-              if (foundCompitition[index]['isFinish'] == true) {
-                AwesomeDialog(
-                        context: context,
-                        animType: AnimType.RIGHSLIDE,
-                        headerAnimationLoop: true,
-                        btnOkOnPress: () {},
-                        body: Text("Sorry,the contest is over".tr,
-                            style: TextStyle(
-                                color: MyColors.color3,
-                                fontSize: 14,
-                                fontFamily: 'Almarai')),
-                        dialogBackgroundColor: MyColors.color2,
-                        btnOkColor: MyColors.color1)
-                    .show();
-              } else {
-                controller.SavenameComp(foundCompitition[index]['name']);
-                controller.SavemonyrComp(
-                    foundCompitition[index]['awardAmount']);
-                controller.SavediscrpComp(
-                    foundCompitition[index]['description']);
-                controller.SaveidComp(
-                    foundCompitition[index]['competitionsId']);
-                controller.Saveamount(foundCompitition[index]['amount']);
-                controller.SaveIsFinishComp(
-                    foundCompitition[index]['isFinish']);
-                controller.SaveImageComp(foundCompitition[index]['imageUrl']);
-                controller.SavecurrentTourName(
-                    foundCompitition[index]['currentTourName']);
-                controller.SavecurrentTourTimeLimit(
-                    foundCompitition[index]['currentTourTimeLimit']);
-                Navigator.of(context).pushNamed("infoCompet");
-              }
-            },
-            child: Container(
-                height: 218,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                        image: NetworkImage(
-                            "http://212.24.108.54/wsaAdmin/images/${foundCompitition[index]['imageUrl']}"),
-                        fit: BoxFit.cover)),
+    return Container(
+      height: 320,
+      child: GridView.builder(
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        physics: ScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+        ),
+        itemCount: foundCompitition.length,
+        itemBuilder: (BuildContext context, int index) {
+          return GetBuilder<homecontroller>(builder: (controller) {
+            return (InkWell(
+              onTap: () {
+                if (foundCompitition[index]['isFinish'] == true) {
+                  AwesomeDialog(
+                          context: context,
+                          animType: AnimType.RIGHSLIDE,
+                          headerAnimationLoop: true,
+                          btnOkOnPress: () {},
+                          body: Text("Sorry,the contest is over".tr,
+                              style: TextStyle(
+                                  color: MyColors.color3,
+                                  fontSize: 14,
+                                  fontFamily: 'Almarai')),
+                          dialogBackgroundColor: MyColors.color2,
+                          btnOkColor: MyColors.color1)
+                      .show();
+                } else {
+                  controller.SavenameComp(foundCompitition[index]['name']);
+                  controller.SavemonyrComp(
+                      foundCompitition[index]['awardAmount']);
+                  controller.SavediscrpComp(
+                      foundCompitition[index]['description']);
+                  controller.SaveidComp(
+                      foundCompitition[index]['competitionsId']);
+                  controller.Saveamount(foundCompitition[index]['amount']);
+                  controller.SaveIsFinishComp(
+                      foundCompitition[index]['isFinish']);
+                  controller.SaveImageComp(foundCompitition[index]['imageUrl']);
+                  controller.SavecurrentTourName(
+                      foundCompitition[index]['currentTourName']);
+                  controller.SavecurrentTourTimeLimit(
+                      foundCompitition[index]['currentTourTimeLimit']);
+                  Navigator.of(context).pushNamed("infoCompet");
+                }
+              },
+              child: Container(
+                  height: 220,
+                  width: 190,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                          image: NetworkImage(
+                              "http://212.24.108.54/wsaAdmin/images/${foundCompitition[index]['imageUrl']}"),
+                          fit: BoxFit.cover)),
 
-                //width: 500,
-                // width: 80,
-                // height: 218,
-                margin: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Container(
-                        color: Color(0xff141E34).withOpacity(0.6),
-                        // width: MediaQuery.of(context).size.width,
-                        height: 96,
-                        width: 180,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              height: 22,
-                              width: 44,
-                              child: RaisedButton(
-                                color: Colors.black,
-                                shape: RoundedRectangleBorder(
-                                    side: BorderSide(
-                                        color: Colors.pink, width: 2)),
-                                onPressed: () {},
-                                child: Text(
-                                  "${foundCompitition[index]['remanningMember']}",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 9,
-                                      fontFamily: 'Almarai'),
+                  //width: 500,
+                  // width: 80,
+                  // height: 218,
+                  margin: EdgeInsets.all(10),
+                  child: Column(
+                    children: [
+                      Container(
+                          color: Color(0xff141E34).withOpacity(0.6),
+                          // width: MediaQuery.of(context).size.width,
+                          height: 180,
+                          width: 190,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: 22,
+                                width: 44,
+                                child: RaisedButton(
+                                  color: Colors.black,
+                                  shape: RoundedRectangleBorder(
+                                      side: BorderSide(
+                                          color: Colors.pink, width: 2)),
+                                  onPressed: () {},
+                                  child: Text(
+                                    "${foundCompitition[index]['remanningMember']}",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 9,
+                                        fontFamily: 'Almarai'),
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 3,
-                            ),
-                            Text(
-                              "The number of contestants left".tr,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 9,
-                                  fontFamily: 'Almarai'),
-                            ),
-                            SizedBox(
-                              height: 3,
-                            ),
-                            Text(
-                              "${foundCompitition[index]['name']}",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                  fontFamily: 'Almarai'),
-                            ),
-                            Text(
-                              foundCompitition[index]['currentTourName'] != null
-                                  ? "${foundCompitition[index]['currentTourName']}"
-                                  : "Round has not started".tr,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 10,
-                                  fontFamily: 'Almarai'),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              foundCompitition[index]['currentTourStartDate'].difference(DateTime.now()).inDays >= 0 &&
-                                      foundCompitition[index]['currentTourStartDate']
-                                              .difference(DateTime.now())
-                                              .inHours >=
-                                          0 &&
-                                      foundCompitition[index]['currentTourStartDate']
-                                              .difference(DateTime.now())
-                                              .inMinutes >=
-                                          0 &&
-                                      foundCompitition[index]['currentTourStartDate']
-                                              .difference(DateTime.now())
-                                              .inSeconds >=
-                                          0 &&
-                                      foundCompitition[index]['isFinish'] !=
-                                          true
-                                  ? "تبدأ الجولة في :" +
-                                      "\n${foundCompitition[index]['currentTourStartDate']}"
-                                  : foundCompitition[index]['currentTourStartDate'].difference(DateTime.now()).inDays < 0 &&
-                                          foundCompitition[index]['currentTourStartDate']
-                                                  .difference(DateTime.now())
-                                                  .inHours <
-                                              0 &&
-                                          foundCompitition[index]
-                                                      ['currentTourStartDate']
-                                                  .difference(DateTime.now())
-                                                  .inMinutes <
-                                              0 &&
-                                          foundCompitition[index]
-                                                      ['currentTourStartDate']
-                                                  .difference(DateTime.now())
-                                                  .inSeconds <
-                                              0 &&
-                                          foundCompitition[index]['isFinish'] != true &&
-                                          foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inDays < 0 &&
-                                          foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inHours > 0 &&
-                                          foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inMinutes > 0 &&
-                                          foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inSeconds > 0
-                                      ? "تنتهي الجولة في :" "\n${foundCompitition[index]['currentTourEndDate']}"
-                                      : "Contest is over".tr,
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 231, 136, 129),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                  fontFamily: 'Almarai'),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                          ],
-                        )),
-                    Container(
-                        height: 80,
-                        width: 180,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(10),
-                                bottomRight: Radius.circular(10)),
-                            image: DecorationImage(
-                                image:
-                                    AssetImage("assets/images/backCopit.PNG"),
-                                fit: BoxFit.cover)),
-                        // width: MediaQuery.of(context).size.width,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/images/trophy.png",
-                              width: 31,
-                              height: 31,
-                            ),
-                            Text("${foundCompitition[index]['awardAmount']}\$",
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "The number of contestants left".tr,
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 9,
-                                    fontFamily: 'Almarai')),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      height: 22,
-                                      width: 55,
-                                      child: RaisedButton(
-                                        color: Colors.black,
-                                        shape: RoundedRectangleBorder(
-                                            side: BorderSide(
-                                                color: Colors.pink, width: 2)),
-                                        onPressed: () {},
-                                        child: Text(
-                                          "${foundCompitition[index]['amount']}\$",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 9,
-                                              fontFamily: 'Almarai'),
+                                    fontFamily: 'Almarai'),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "${foundCompitition[index]['name']}",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontFamily: 'Almarai'),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                foundCompitition[index]['currentTourName'] !=
+                                        null
+                                    ? "${foundCompitition[index]['currentTourName']}"
+                                    : "Round has not started".tr,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 10,
+                                    fontFamily: 'Almarai'),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              controller.saveMapCompitition[index]
+                                          ['isFinish'] !=
+                                      true
+                                  ? timeDate(
+                                      foundCompitition[index]
+                                          ['currentTourStartDate'],
+                                      foundCompitition[index]
+                                          ['currentTourEndDate'])
+                                  : Text(""),
+                              controller.saveMapCompitition[index]
+                                          ['isFinish'] !=
+                                      true
+                                  ? styleTimeDate(
+                                      foundCompitition[index]
+                                          ['currentTourStartDate'],
+                                      foundCompitition[index]
+                                          ['currentTourEndDate'])
+                                  : Text(""),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              controller.saveMapCompitition[index]
+                                          ['isFinish'] !=
+                                      true
+                                  ? StyDate(
+                                      foundCompitition[index]
+                                          ['currentTourStartDate'],
+                                      foundCompitition[index]
+                                          ['currentTourEndDate'])
+                                  : Text(""),
+                              controller.saveMapCompitition[index]
+                                          ['isFinish'] !=
+                                      true
+                                  ? styleDate(
+                                      foundCompitition[index]
+                                          ['currentTourStartDate'],
+                                      foundCompitition[index]
+                                          ['currentTourEndDate'])
+                                  : Text(""),
+                              SizedBox(
+                                height: 5,
+                              ),
+                            ],
+                          )),
+                      Container(
+                          height: 100,
+                          width: 190,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  bottomRight: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage("assets/images/backCopit.PNG"),
+                                  fit: BoxFit.cover)),
+                          // width: MediaQuery.of(context).size.width,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/images/trophy.png",
+                                width: 31,
+                                height: 31,
+                              ),
+                              Text(
+                                  "${foundCompitition[index]['awardAmount']}\$",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 9,
+                                      fontFamily: 'Almarai')),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Column(
+                                    children: [
+                                      Container(
+                                        height: 22,
+                                        width: 55,
+                                        child: RaisedButton(
+                                          color: Colors.black,
+                                          shape: RoundedRectangleBorder(
+                                              side: BorderSide(
+                                                  color: Colors.pink,
+                                                  width: 2)),
+                                          onPressed: () {},
+                                          child: Text(
+                                            "${foundCompitition[index]['amount']}\$",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 9,
+                                                fontFamily: 'Almarai'),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Text(
-                                      "Participation".tr,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 7,
-                                          fontFamily: 'Almarai'),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      height: 22,
-                                      width: 55,
-                                      child: RaisedButton(
-                                        color: Colors.black,
-                                        shape: RoundedRectangleBorder(
-                                            side: BorderSide(
-                                                color: Colors.pink, width: 2)),
-                                        onPressed: () {},
-                                        child: Text(
-                                          "${foundCompitition[index]['memberCount']}",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 9,
-                                              fontFamily: 'Almarai'),
+                                      Text(
+                                        "Participation".tr,
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 7,
+                                            fontFamily: 'Almarai'),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Column(
+                                    children: [
+                                      Container(
+                                        height: 22,
+                                        width: 55,
+                                        child: RaisedButton(
+                                          color: Colors.black,
+                                          shape: RoundedRectangleBorder(
+                                              side: BorderSide(
+                                                  color: Colors.pink,
+                                                  width: 2)),
+                                          onPressed: () {},
+                                          child: Text(
+                                            "${foundCompitition[index]['memberCount']}",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 9,
+                                                fontFamily: 'Almarai'),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Text(
-                                      "constestant".tr,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 7,
-                                          fontFamily: 'Almarai'),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                              ],
-                            )
-                          ],
-                        ))
-                  ],
-                )),
-          ));
-        });
-      },
+                                      Text(
+                                        "constestant".tr,
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 7,
+                                            fontFamily: 'Almarai'),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                ],
+                              )
+                            ],
+                          ))
+                    ],
+                  )),
+            ));
+          });
+        },
+      ),
     );
   }
 
@@ -430,7 +434,7 @@ class _competitionsMainState extends State<competitionsMain> {
                 child: Card(
                   child: Stack(children: [
                     Container(
-                      height: 123,
+                      height: 180,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                           border: Border.all(
@@ -444,7 +448,7 @@ class _competitionsMainState extends State<competitionsMain> {
                     ),
                     Container(
                         width: MediaQuery.of(context).size.width,
-                        height: 123,
+                        height: 180,
                         color: Color(0xff141E34).withOpacity(0.6),
                         child: Row(
                           children: [
@@ -466,56 +470,67 @@ class _competitionsMainState extends State<competitionsMain> {
                                   "Vote now for the contest".tr,
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 14,
+                                      fontSize: 11,
                                       fontFamily: 'Almarai'),
                                 ),
                                 SizedBox(
                                   height: 5,
                                 ),
+
                                 Text(
-                                  foundCompitition[index]['currentTourStartDate']
-                                                  .difference(DateTime.now())
-                                                  .inDays >=
-                                              0 &&
-                                          foundCompitition[index]
-                                                      ['currentTourStartDate']
-                                                  .difference(DateTime.now())
-                                                  .inHours >=
-                                              0 &&
-                                          foundCompitition[index]
-                                                      ['currentTourStartDate']
-                                                  .difference(DateTime.now())
-                                                  .inMinutes >=
-                                              0 &&
-                                          foundCompitition[index]
-                                                      ['currentTourStartDate']
-                                                  .difference(DateTime.now())
-                                                  .inSeconds >=
-                                              0 &&
-                                          foundCompitition[index]['isFinish'] !=
-                                              true
-                                      ? "تبدأ الجولة في :" +
-                                          "\n${foundCompitition[index]['currentTourStartDate']}"
-                                      : foundCompitition[index]['currentTourStartDate'].difference(DateTime.now()).inDays < 0 &&
-                                              foundCompitition[index]
-                                                          ['currentTourStartDate']
-                                                      .difference(DateTime.now())
-                                                      .inHours <
-                                                  0 &&
-                                              foundCompitition[index]['currentTourStartDate'].difference(DateTime.now()).inMinutes < 0 &&
-                                              foundCompitition[index]['currentTourStartDate'].difference(DateTime.now()).inSeconds < 0 &&
-                                              foundCompitition[index]['isFinish'] != true &&
-                                              foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inDays < 0 &&
-                                              foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inHours > 0 &&
-                                              foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inMinutes > 0 &&
-                                              foundCompitition[index]['currentTourEndDate'].difference(DateTime.now()).inSeconds > 0
-                                          ? "تنتهي الجولة في :" "\n${foundCompitition[index]['currentTourEndDate']}"
-                                          : "Contest is over".tr,
+                                  foundCompitition[index]['currentTourName'] !=
+                                          null
+                                      ? "${foundCompitition[index]['currentTourName']}"
+                                      : "Round has not started".tr,
                                   style: TextStyle(
-                                      color: Color.fromARGB(255, 231, 136, 129),
-                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
                                       fontSize: 10,
                                       fontFamily: 'Almarai'),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                controller.saveMapCompitition[index]
+                                            ['isFinish'] !=
+                                        true
+                                    ? timeDate(
+                                        foundCompitition[index]
+                                            ['currentTourStartDate'],
+                                        foundCompitition[index]
+                                            ['currentTourEndDate'])
+                                    : Text(""),
+                                controller.saveMapCompitition[index]
+                                            ['isFinish'] !=
+                                        true
+                                    ? styleTimeDate(
+                                        foundCompitition[index]
+                                            ['currentTourStartDate'],
+                                        foundCompitition[index]
+                                            ['currentTourEndDate'])
+                                    : Text(""),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                controller.saveMapCompitition[index]
+                                            ['isFinish'] !=
+                                        true
+                                    ? StyDate(
+                                        foundCompitition[index]
+                                            ['currentTourStartDate'],
+                                        foundCompitition[index]
+                                            ['currentTourEndDate'])
+                                    : Text(""),
+                                controller.saveMapCompitition[index]
+                                            ['isFinish'] !=
+                                        true
+                                    ? styleDate(
+                                        foundCompitition[index]
+                                            ['currentTourStartDate'],
+                                        foundCompitition[index]
+                                            ['currentTourEndDate'])
+                                    : Text(""),
+                                SizedBox(
+                                  height: 5,
                                 ),
                                 SizedBox(
                                   height: 5,
@@ -578,4 +593,157 @@ class _competitionsMainState extends State<competitionsMain> {
       );
     });
   }
+}
+
+Widget timeDate(dt1, dt2) {
+  var now = new DateTime.now();
+  // DateTime dt1 = DateTime.parse("2022-06-12T21:30:00");
+  // DateTime dt2 = DateTime.parse("2022-06-12T21:30:00");
+  return Text(
+      dt1.compareTo(now) > 0
+          ? "تبدأ الجولة في الساعة "
+          : "تنتهي الجولة في الساعة",
+      //dt1.compareTo(now) < 0 && dt2.compareTo(now) > 0
+      // ? "تنتهي الجولة في الساعة"
+      // : "Contest is over".tr,
+      style: TextStyle(
+          color: Color.fromARGB(255, 231, 136, 129),
+          fontWeight: FontWeight.bold,
+          fontSize: 10,
+          fontFamily: 'Almarai'));
+}
+
+Widget StyDate(dt1, dt2) {
+  var now = new DateTime.now();
+  // DateTime dt1 = DateTime.parse("2022-06-12T21:30:00");
+  // DateTime dt2 = DateTime.parse("2022-06-12T21:30:00");
+  return Text(dt1.compareTo(now) > 0 ? "بتاريخ" : "بتاريخ",
+      //dt1.compareTo(now) < 0 && dt2.compareTo(now) > 0
+      // ? "بتاريخ"
+      // : "Contest is over".tr,
+      style: TextStyle(
+          color: Color.fromARGB(255, 231, 136, 129),
+          fontWeight: FontWeight.bold,
+          fontSize: 10,
+          fontFamily: 'Almarai'));
+}
+
+Widget styleTimeDate(dt1, dt2) {
+  var now = new DateTime.now();
+  String str = dt1.compareTo(now) > 0 ? dt1.toString() : dt1.toString();
+
+  //find substring
+  String result = str.substring(0, 4);
+  String result1 = str.substring(5, 7);
+  String result2 = str.substring(8, 10);
+  String result3 = str.substring(11, 13);
+  String result4 = str.substring(14, 16);
+  String result5 = str.substring(17, 19);
+  print(result);
+  print(result1);
+  print(result2);
+  print(result3);
+  print(result4);
+  print(result5);
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+        margin: EdgeInsets.all(5),
+        height: 15,
+        width: 30,
+        alignment: Alignment.center,
+        color: MyColors.color1,
+        child: Text(result5.toString() + "s",
+            style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 10,
+                fontFamily: 'Almarai')),
+      ),
+      Container(
+        margin: EdgeInsets.all(5),
+        height: 15,
+        width: 30,
+        alignment: Alignment.center,
+        color: MyColors.color1,
+        child: Text(result4.toString() + "m",
+            style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 10,
+                fontFamily: 'Almarai')),
+      ),
+      Container(
+        margin: EdgeInsets.all(5),
+        height: 15,
+        width: 30,
+        alignment: Alignment.center,
+        color: MyColors.color1,
+        child: Text(result3.toString() + "h",
+            style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 10,
+                fontFamily: 'Almarai')),
+      ),
+    ],
+  );
+}
+
+Widget styleDate(dt1, dt2) {
+  var now = new DateTime.now();
+  String str = dt1.compareTo(now) > 0 ? dt1.toString() : dt1.toString();
+
+  //find substring
+  String result = str.substring(0, 4);
+  String result1 = str.substring(5, 7);
+  String result2 = str.substring(8, 10);
+  String result3 = str.substring(11, 13);
+  String result4 = str.substring(14, 16);
+  String result5 = str.substring(17, 19);
+  print(result);
+  print(result1);
+  print(result2);
+  print(result3);
+  print(result4);
+  print(result5);
+
+  return Container(
+      margin: EdgeInsets.all(5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(result.toString(),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 10,
+                  fontFamily: 'Almarai')),
+          Text("/",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 10,
+                  fontFamily: 'Almarai')),
+          Text(result1.toString(),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 10,
+                  fontFamily: 'Almarai')),
+          Text("/",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 10,
+                  fontFamily: 'Almarai')),
+          Text(result2.toString(),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 10,
+                  fontFamily: 'Almarai')),
+        ],
+      ));
 }

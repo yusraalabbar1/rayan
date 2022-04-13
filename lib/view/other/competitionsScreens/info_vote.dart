@@ -213,16 +213,7 @@ class _infoVoteState extends State<infoVote> {
                           ),
                         ));
             }),
-            Padding(
-              padding: const EdgeInsets.all(19.0),
-              child: Text(
-                "Share the Contest".tr,
-                style: TextStyle(
-                    color: MyColors.color3,
-                    fontSize: 17,
-                    fontFamily: 'Almarai'),
-              ),
-            ),
+
             Padding(
               padding: const EdgeInsets.only(left: 19, right: 19),
               child: Container(

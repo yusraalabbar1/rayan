@@ -7,7 +7,7 @@ class comititionModel {
     required this.data,
   });
 
-  bool isSuccess;
+  bool? isSuccess;
   String message;
   List<Datum> data;
 
