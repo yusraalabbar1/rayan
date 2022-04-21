@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/modelsCompt/model_compitition.dart';
 import 'package:rayan/utils/constant/color.dart';
+import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 
 Widget widgetgallary(context) {
   return GetBuilder<homecontroller>(builder: (controller) {
@@ -80,13 +81,13 @@ Widget widgetgallary(context) {
                               Container(
                                   color: Color(0xff141E34).withOpacity(0.6),
                                   // width: MediaQuery.of(context).size.width,
-                                  height: 165,
+                                  height: 186,
                                   width: 190,
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Container(
-                                        height: 22,
+                                        height: 30,
                                         width: 44,
                                         child: RaisedButton(
                                           color: Colors.black,
@@ -127,74 +128,78 @@ Widget widgetgallary(context) {
                                       SizedBox(
                                         height: 5,
                                       ),
-                                      Text(
-                                        controller.saveMapCompitition[index]
-                                                    ['currentTourName'] !=
-                                                null
-                                            ? "${controller.saveMapCompitition[index]['currentTourName']}"
-                                            : "Round has not started".tr,
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 10,
-                                            fontFamily: 'Almarai'),
+                                      Container(
+                                        margin: EdgeInsets.only(
+                                            left: 10, right: 10),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Color(0xff1A1E2B)
+                                              .withOpacity(0.7),
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              controller.saveMapCompitition[
+                                                              index]
+                                                          ['currentTourName'] !=
+                                                      null
+                                                  ? "${controller.saveMapCompitition[index]['currentTourName']}"
+                                                  : "Round has not started".tr,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 10,
+                                                  fontFamily: 'Almarai'),
+                                            ),
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            controller.saveMapCompitition[index]
+                                                        ['isFinish'] !=
+                                                    true
+                                                ? timeDate(
+                                                    foundCompitition[index][
+                                                        'currentTourStartDate'],
+                                                    foundCompitition[index]
+                                                        ['currentTourEndDate'])
+                                                : Container(),
+                                            controller.saveMapCompitition[index]
+                                                        ['isFinish'] !=
+                                                    true
+                                                ? styleTimeDate(
+                                                    foundCompitition[index][
+                                                        'currentTourStartDate'],
+                                                    foundCompitition[index]
+                                                        ['currentTourEndDate'])
+                                                : Container(),
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            controller.saveMapCompitition[index]
+                                                        ['isFinish'] !=
+                                                    true
+                                                ? StyDate(
+                                                    foundCompitition[index][
+                                                        'currentTourStartDate'],
+                                                    foundCompitition[index]
+                                                        ['currentTourEndDate'])
+                                                : Text(""),
+                                            controller.saveMapCompitition[index]
+                                                        ['isFinish'] !=
+                                                    true
+                                                ? styleDate(
+                                                    foundCompitition[index][
+                                                        'currentTourStartDate'],
+                                                    foundCompitition[index]
+                                                        ['currentTourEndDate'])
+                                                : Container(),
+                                          ],
+                                        ),
                                       ),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      // Text(
-                                      //   controller.saveMapCompitition[index]
-                                      //               ['isFinish'] !=
-                                      //           true
-                                      //       ? ""
-                                      //       : "Contest is over".tr,
-                                      //   style: TextStyle(
-                                      //       color: Colors.red,
-                                      //       fontSize: 7,
-                                      //       fontFamily: 'Almarai'),
-                                      // ),
-                                      controller.saveMapCompitition[index]
-                                                  ['isFinish'] !=
-                                              true
-                                          ? timeDate(
-                                              foundCompitition[index]
-                                                  ['currentTourStartDate'],
-                                              foundCompitition[index]
-                                                  ['currentTourEndDate'])
-                                          : Text(""),
-                                      controller.saveMapCompitition[index]
-                                                  ['isFinish'] !=
-                                              true
-                                          ? styleTimeDate(
-                                              foundCompitition[index]
-                                                  ['currentTourStartDate'],
-                                              foundCompitition[index]
-                                                  ['currentTourEndDate'])
-                                          : Text(""),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      controller.saveMapCompitition[index]
-                                                  ['isFinish'] !=
-                                              true
-                                          ? StyDate(
-                                              foundCompitition[index]
-                                                  ['currentTourStartDate'],
-                                              foundCompitition[index]
-                                                  ['currentTourEndDate'])
-                                          : Text(""),
-                                      controller.saveMapCompitition[index]
-                                                  ['isFinish'] !=
-                                              true
-                                          ? styleDate(
-                                              foundCompitition[index]
-                                                  ['currentTourStartDate'],
-                                              foundCompitition[index]
-                                                  ['currentTourEndDate'])
-                                          : Text(""),
                                     ],
                                   )),
                               Container(
-                                  height: 110,
+                                  height: 90,
                                   width: 190,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
@@ -230,7 +235,7 @@ Widget widgetgallary(context) {
                                             children: [
                                               Container(
                                                 height: 22,
-                                                width: 44,
+                                                width: 55,
                                                 child: RaisedButton(
                                                   color: Colors.black,
                                                   shape: RoundedRectangleBorder(
@@ -263,7 +268,7 @@ Widget widgetgallary(context) {
                                             children: [
                                               Container(
                                                 height: 22,
-                                                width: 44,
+                                                width: 55,
                                                 child: RaisedButton(
                                                   color: Colors.black,
                                                   shape: RoundedRectangleBorder(
@@ -310,13 +315,7 @@ Widget timeDate(dt1, dt2) {
   var now = new DateTime.now();
   // DateTime dt1 = DateTime.parse("2022-06-12T21:30:00");
   // DateTime dt2 = DateTime.parse("2022-06-12T21:30:00");
-  return Text(
-      dt1.compareTo(now) > 0
-          ? "تبدأ الجولة في الساعة "
-          : "تنتهي الجولة في الساعة",
-      //dt1.compareTo(now) < 0 && dt2.compareTo(now) > 0
-      // ? "تنتهي الجولة في الساعة"
-      // : "Contest is over".tr,
+  return Text(dt1.compareTo(now) > 0 ? "تبدأ الجولة في" : "تنتهي الجولة في ",
       style: TextStyle(
           color: Color.fromARGB(255, 231, 136, 129),
           fontWeight: FontWeight.bold,
@@ -326,12 +325,7 @@ Widget timeDate(dt1, dt2) {
 
 Widget StyDate(dt1, dt2) {
   var now = new DateTime.now();
-  // DateTime dt1 = DateTime.parse("2022-06-12T21:30:00");
-  // DateTime dt2 = DateTime.parse("2022-06-12T21:30:00");
   return Text(dt1.compareTo(now) > 0 ? "بتاريخ" : "بتاريخ",
-      //dt1.compareTo(now) < 0 && dt2.compareTo(now) > 0
-      // ? "بتاريخ"
-      // : "Contest is over".tr,
       style: TextStyle(
           color: Color.fromARGB(255, 231, 136, 129),
           fontWeight: FontWeight.bold,
@@ -360,43 +354,100 @@ Widget styleTimeDate(dt1, dt2) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
-        margin: EdgeInsets.all(5),
-        height: 15,
+        height: 30,
         width: 30,
         alignment: Alignment.center,
+        margin: EdgeInsets.all(5),
         color: MyColors.color1,
-        child: Text(result5.toString() + "s",
-            style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 10,
-                fontFamily: 'Almarai')),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(result5.toString(),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                    fontFamily: 'Almarai')),
+            Text("ثانية",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 5,
+                    fontFamily: 'Almarai'))
+          ],
+        ),
       ),
       Container(
-        margin: EdgeInsets.all(5),
-        height: 15,
+        height: 30,
         width: 30,
         alignment: Alignment.center,
+        margin: EdgeInsets.all(5),
         color: MyColors.color1,
-        child: Text(result4.toString() + "m",
-            style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 10,
-                fontFamily: 'Almarai')),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(result4.toString(),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                    fontFamily: 'Almarai')),
+            Text("دقيقة",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 5,
+                    fontFamily: 'Almarai'))
+          ],
+        ),
       ),
       Container(
-        margin: EdgeInsets.all(5),
-        height: 15,
+        height: 30,
         width: 30,
+        margin: EdgeInsets.all(5),
         alignment: Alignment.center,
         color: MyColors.color1,
-        child: Text(result3.toString() + "h",
-            style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 10,
-                fontFamily: 'Almarai')),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(result3.toString(),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                    fontFamily: 'Almarai')),
+            Text("ساعة",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 5,
+                    fontFamily: 'Almarai'))
+          ],
+        ),
+      ),
+      Container(
+        height: 30,
+        width: 30,
+        alignment: Alignment.center,
+        margin: EdgeInsets.all(5),
+        color: MyColors.color1,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text((int.parse(result3) / 24).toInt().toString(),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                    fontFamily: 'Almarai')),
+            Text("يوم",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 5,
+                    fontFamily: 'Almarai'))
+          ],
+        ),
       ),
     ],
   );
@@ -457,4 +508,84 @@ Widget styleDate(dt1, dt2) {
                   fontFamily: 'Almarai')),
         ],
       ));
+}
+
+Widget styleTimeDateNew(v1, v2, v3) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+        height: 30,
+        width: 30,
+        alignment: Alignment.center,
+        margin: EdgeInsets.all(5),
+        color: MyColors.color1,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(v1.toString(),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                    fontFamily: 'Almarai')),
+            Text("دقيقة",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 5,
+                    fontFamily: 'Almarai'))
+          ],
+        ),
+      ),
+      Container(
+        height: 30,
+        width: 30,
+        margin: EdgeInsets.all(5),
+        alignment: Alignment.center,
+        color: MyColors.color1,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(v2.toString(),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                    fontFamily: 'Almarai')),
+            Text("ساعة",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 5,
+                    fontFamily: 'Almarai'))
+          ],
+        ),
+      ),
+      Container(
+        height: 30,
+        width: 30,
+        alignment: Alignment.center,
+        margin: EdgeInsets.all(5),
+        color: MyColors.color1,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(v3,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                    fontFamily: 'Almarai')),
+            Text("يوم",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 5,
+                    fontFamily: 'Almarai'))
+          ],
+        ),
+      ),
+    ],
+  );
 }

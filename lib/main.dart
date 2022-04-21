@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:http/http.dart';
 import 'dart:io';
 
@@ -40,6 +41,7 @@ class MyHttpOverrides extends HttpOverrides {
 }
 
 Future<void> main() async {
+  CachedNetworkImage.logLevel = CacheManagerLogLevel.debug;
   HttpOverrides.global = MyHttpOverrides();
   GetStorage.init();
   WidgetsFlutterBinding.ensureInitialized();

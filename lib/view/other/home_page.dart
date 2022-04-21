@@ -4,8 +4,10 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rayan/model/modeApi/modelAgent/api_all_agents.dart';
 import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
 import 'package:rayan/model/modeApi/modelSetting/model_numberNoti.dart';
+import 'package:rayan/model/modeApi/modelsCompt/getWinner.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/modelsCompt/allMemberCompitition.dart';
@@ -41,7 +43,10 @@ final List<Widget> widgetOptions = <Widget>[
   homeMain(),
 ];
 
-class _homePageState extends State<homePage> {
+class _homePageState extends State<homePage>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   int _page = 0;
   int numberOfNotification = 0;
   late String identifier;
@@ -66,21 +71,23 @@ class _homePageState extends State<homePage> {
     }
   }
 
+  Future sta() async {
+    allAgent = [];
+    winner = [];
+    await send_inf_loginupdate(usernamepref, passPref);
+    await getpreflog();
+    await getAllAgents(tokenloginresult, countryIdSaveprf, cityIdSavepref);
+    await getWinner(tokenloginresult);
+
+    await userBalanc();
+    await userBalancLog();
+    await comissionBalanc();
+  }
+
   @override
   void initState() {
     super.initState();
-    getpreflog();
-    // infoNotification();
-    // GetNotification();
-    // commonQuestionsapi();
-    // MyCompitition = [];
-    // allCompititionapi();
-
-    // userBalanc();
-    // userBalancLog();
-    // comissionBalanc();
-    //getUserProfilWithMedia("dd", 9);
-    // allMemberCompitition(controller.saveidComp);
+    sta();
   }
 
 ///////////////////////////////////
@@ -122,14 +129,6 @@ class _homePageState extends State<homePage> {
               height: 28,
             ),
           ),
-
-          // InkWell(
-          //   child: Image.asset(
-          //     "assets/images/register2.png",
-          //     width: 28,
-          //     height: 28,
-          //   ),
-          // ),
           InkWell(
             child: Image.asset(
               "assets/images/register1.png",
@@ -154,8 +153,17 @@ class _homePageState extends State<homePage> {
       ),
       body: RefreshIndicator(
         onRefresh: () async {
+          allAgent = [];
+          winner = [];
           await send_inf_loginupdate(usernamepref, passPref);
           await getpreflog();
+          await getAllAgents(
+              tokenloginresult, countryIdSaveprf, cityIdSavepref);
+          await getWinner(tokenloginresult);
+
+          await userBalanc();
+          await userBalancLog();
+          await comissionBalanc();
         },
         child: Center(
           child: widgetOptions.elementAt(_selectedIndex),

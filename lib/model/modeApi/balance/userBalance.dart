@@ -19,17 +19,41 @@ Future userBalanc() async {
   request.headers.addAll(headers);
   http.StreamedResponse response = await request.send();
   var res = await http.Response.fromStream(response);
-  userBalanceModel c = userBalanceModel.fromJson(jsonDecode(res.body));
-  print("==============================");
-  print(c.isSuccess);
-  print("==============================");
-  if (response.statusCode == 200) {
-    if (c.isSuccess == true) {
-      balanceForUser = c.data!.balances;
-      controller.SavebalanceForUser(balanceForUser);
-      print(c.data!.balances);
-    } else {}
+  if (res.body.isNotEmpty) {
+    userBalanceModel c = userBalanceModel.fromJson(jsonDecode(res.body));
+    print("==============================");
+    print(c.isSuccess);
+    print("==============================");
+    if (response.statusCode == 200) {
+      if (c.isSuccess == true) {
+        balanceForUser = c.data!.balances;
+
+        controller.SavebalanceForUser(balanceForUser);
+        print(c.data!.balances);
+      } else {}
+    } else {
+      print(response.reasonPhrase);
+    }
   } else {
-    print(response.reasonPhrase);
+    print("obj empty");
   }
 }
+
+
+/*
+
+class BalanceBloc {
+  StreamController<userBalanceModel> streamresponse =
+      StreamController<userBalanceModel>();
+  userBalanc() async {
+    final res = await HttpRequest().callRequest(
+        requestType: REQUEST_TYPE.get,
+        methodName: "/user/userBalances?UserId=${idSaveprefpref}");
+    streamresponse.sink.add(userBalanceModel.fromJson(res));
+  }
+}
+
+
+/
+
+*/

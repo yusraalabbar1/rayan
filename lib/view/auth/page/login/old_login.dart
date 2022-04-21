@@ -14,7 +14,10 @@ class oldLogin extends StatefulWidget {
   State<oldLogin> createState() => _oldLoginState();
 }
 
-class _oldLoginState extends State<oldLogin> {
+class _oldLoginState extends State<oldLogin>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   GlobalKey<ScaffoldState> scaffoldkey = new GlobalKey<ScaffoldState>();
   GlobalKey<FormState> formstate = new GlobalKey<FormState>();
 

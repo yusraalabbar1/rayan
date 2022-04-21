@@ -1,8 +1,11 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rayan/model/modeApi/modelAgent/agent_info.dart';
 import 'package:rayan/model/pref/prefLog.dart';
 import 'package:rayan/view/auth/page/welcom.dart';
+import 'package:rayan/view/other/agentsScreens/part2agent.dart';
+import 'package:rayan/view/other/homeMainScreens/notification_page.dart';
 import 'package:rayan/view/other/homeMainScreens/question_winer.dart';
 import 'package:rayan/view/other/setting/aboutUs.dart';
 import 'package:rayan/view/other/setting/terms.dart';
@@ -58,6 +61,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      //isStart == true ? welcom() : initPage(),
       home: isStart == true ? welcom() : initPage(),
       theme: CustomTheme.lightTheme,
       routes: {
@@ -98,7 +102,9 @@ class MyApp extends StatelessWidget {
         "question": ((context) => const questionComm()),
         "gaust": ((context) => gaust()),
         "terms": ((context) => terms()),
+        "notificationPage": ((context) => notificationPage()),
         "about": ((context) => about()),
+        "agentDet": ((context) => agentDet()),
         // "UploadImageScreen": ((context) => UploadImageScreen()),
         "quistWinner": ((context) => quistWinner()),
       },

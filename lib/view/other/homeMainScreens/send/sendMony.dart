@@ -285,18 +285,32 @@ class _sendMonyState extends State<sendMony> {
 
                           // (background container size) - (circle height / 2)
                           child: Center(
-                            child: Container(
-                              height: 84.0,
-                              width: 84.0,
-                              child: Icon(
-                                Icons.money_rounded,
-                                size: 40,
-                                color: Colors.white,
+                            child: CircleAvatar(
+                              radius: 50,
+                              backgroundColor: MyColors.color1,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(50),
+                                child: Image.asset(
+                                  "assets/images/logo.png",
+                                  width: 60,
+                                  height: 40,
+                                  fit: BoxFit.fill,
+                                ),
                               ),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Color.fromARGB(255, 201, 75, 134)),
                             ),
+                            // Container(
+                            //   height: 84.0,
+                            //   width: 84.0,
+
+                            //   child: Icon(
+                            //     Icons.money_rounded,
+                            //     size: 40,
+                            //     color: Colors.white,
+                            //   ),
+                            //   decoration: BoxDecoration(
+                            //       shape: BoxShape.circle,
+                            //       color: Color.fromARGB(255, 201, 75, 134)),
+                            // ),
                           ),
                         )
                       ],

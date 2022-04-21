@@ -38,13 +38,38 @@ Widget widgetRigerter2moy() {
                             ),
                             Container(
                               alignment: Alignment.topRight,
-                              child: Text(
-                                  "تاريخ: ${recived[reversedIndex]['createDate']}",
-                                  style: TextStyle(
-                                      color: MyColors.color1,
-                                      height: 1.5,
-                                      fontSize: 12,
-                                      fontFamily: 'Almarai')),
+                              child: Row(
+                                children: [
+                                  Text("التاريخ:",
+                                      style: TextStyle(
+                                          color: MyColors.color1,
+                                          height: 1.5,
+                                          fontSize: 12,
+                                          fontFamily: 'Almarai')),
+                                  Text(
+                                      " ${recived[reversedIndex]['createDate']}"
+                                          .substring(0, 10),
+                                      style: TextStyle(
+                                          color: MyColors.color1,
+                                          height: 1.5,
+                                          fontSize: 12,
+                                          fontFamily: 'Almarai')),
+                                  Text("  الوقت:",
+                                      style: TextStyle(
+                                          color: MyColors.color1,
+                                          height: 1.5,
+                                          fontSize: 12,
+                                          fontFamily: 'Almarai')),
+                                  Text(
+                                      " ${recived[reversedIndex]['createDate']}"
+                                          .substring(12, 20),
+                                      style: TextStyle(
+                                          color: MyColors.color1,
+                                          height: 1.5,
+                                          fontSize: 12,
+                                          fontFamily: 'Almarai')),
+                                ],
+                              ),
                             ),
                           ],
                         )),

@@ -37,15 +37,15 @@ Widget widgetBalance(context) {
               children: [
                 Container(
                   child: GetBuilder<homecontroller>(builder: (controller) {
-                    return (Text(
-                      controller.savebalanceForUser == null
-                          ? ""
-                          : controller.savebalanceForUser.toString(),
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontFamily: 'BAHNSCHRIFT'),
-                    ));
+                    return controller.savebalanceForUser == null
+                        ? Text("يرجى تحديث الصفحة")
+                        : (Text(
+                            controller.savebalanceForUser.toString(),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 30,
+                                fontFamily: 'BAHNSCHRIFT'),
+                          ));
                   }),
                 ),
                 Container(
@@ -76,3 +76,91 @@ Widget widgetBalance(context) {
     ),
   );
 }
+
+
+/*
+
+
+Widget widgetBalance(context) {
+  var bloc = BalanceBloc();
+  return StreamBuilder<userBalanceModel>(
+      stream: bloc.streamresponse.stream,
+      builder: (ctx, snapshot) {
+        if (snapshot.hasData && snapshot.data!.isSuccess == true) {
+          return Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Color(0xff414D72), Color(0xff121E39)]),
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            margin: EdgeInsets.all(20),
+            height: 191, //(MediaQuery.of(context).size.height) / 4,
+            width: MediaQuery.of(context).size.width,
+            child: Row(
+              children: [
+                Expanded(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      child: Text(
+                        "Total available balance".tr,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontFamily: 'Almarai'),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          child:
+                              GetBuilder<homecontroller>(builder: (controller) {
+                            return (Text(
+                              snapshot.data!.data!.balances.toString(),
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30,
+                                  fontFamily: 'BAHNSCHRIFT'),
+                            ));
+                          }),
+                        ),
+                        Container(
+                          child: Text(
+                            "USD",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontFamily: 'BAHNSCHRIFT'),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                )),
+                Expanded(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    buttonsend("send".tr, Icons.call_made, context),
+                  ],
+                )),
+              ],
+            ),
+          );
+        } else {
+          return Container(
+            child: Text("gggggggg"),
+          );
+        }
+      });
+}
+
+
+
+*/

@@ -11,8 +11,8 @@ Widget widetWinner(context) {
   return GetBuilder<homecontroller>(builder: (controller) {
     return (Container(
       // color: Colors.white,
-      margin: EdgeInsets.only(left: 20, right: 20),
-      height: 193,
+      margin: EdgeInsets.only(left: 30, right: 30),
+      height: 230,
       width: MediaQuery.of(context).size.width,
 
       child: controller.saveListWinner == null
@@ -55,6 +55,8 @@ Widget widetWinner(context) {
                                           .nextInt(Colors.primaries.length)],
                                     ),
                                     child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           "${controller.saveListWinner[index]['fullName']}",

@@ -7,6 +7,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:rayan/model/modeApi/modelAgent/agents_details.dart';
 import 'package:rayan/model/modeApi/modelMedia/setting_social_media.dart';
 import 'package:rayan/model/modeApi/modelSetting/GetNotification.dart';
 import 'package:rayan/model/modeApi/modelsCompt/getWinnerQuestion.dart';
@@ -19,6 +20,7 @@ import 'package:rayan/model/modeApi/balance/userBalancLog.dart';
 import 'package:rayan/model/modeApi/balance/userBalance.dart';
 import 'package:rayan/model/modelJson/model_all_notifications.dart';
 import 'package:rayan/utils/constant/color.dart';
+import 'package:rayan/view/auth/page/welcom.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:rayan/control/homecontroller.dart';
@@ -44,23 +46,39 @@ var preuniqueCodepref;
 var token;
 var fullName;
 getpreflog() async {
+  register = [];
+  recived = [];
+  notifmap = [];
+  question = [];
+  MyCompitition = [];
+  allAgent = [];
+  winner = [];
+  winnerQustion = [];
+  mediaAgents = [];
   SharedPreferences pres = await SharedPreferences.getInstance();
   idSaveprefpref = pres.getInt('id');
   print(idSaveprefpref);
   controller.SaveUserId(idSaveprefpref);
   usernamepref = pres.getString('userName');
+  print(usernamepref);
   controller.SaveUserName(usernamepref);
   passPref = pres.getString('password');
+  print(passPref);
   controller.SaveNewPassword(passPref);
   firstNamepref = pres.getString('firstName');
+  print(firstNamepref);
   controller.SaveFirstName(firstNamepref);
   midNamepref = pres.getString('midName');
+  print(midNamepref);
   controller.SaveMidName(midNamepref);
   lastNamepref = pres.getString('lastName');
+  print(lastNamepref);
   controller.SaveLastName(lastNamepref);
   countryIdSaveprf = pres.getInt('countryId');
+  print(countryIdSaveprf);
   controller.SaveCountryid(countryIdSaveprf);
   cityIdSavepref = pres.getInt('cityId');
+  print(cityIdSavepref);
   controller.SavecityId(cityIdSavepref);
   imageProfileSavepref = pres.getString('imageProfile');
   if (imageProfileSavepref == null ||
@@ -78,12 +96,36 @@ getpreflog() async {
     controller.SavePathImage(
         "http://212.24.108.54/wsaAdmin/images/" + imageProfileSavepref);
   }
-
+  var identifier;
+  final DeviceInfoPlugin deviceInfoPlugin = new DeviceInfoPlugin();
+  try {
+    if (Platform.isAndroid) {
+      var build = await deviceInfoPlugin.androidInfo;
+      identifier = build.androidId!; //UUID for Android
+      controller.SaveDeviceId(identifier);
+      print("*********androidId********");
+      print(identifier);
+      print("*********identifier********");
+    } else if (Platform.isIOS) {
+      var data = await deviceInfoPlugin.iosInfo;
+      identifier = data.identifierForVendor!; //UUID for iOS
+      controller.SaveDeviceId(identifier);
+      print("*********isIOS********");
+      print(identifier);
+      print("*********identifier********");
+    }
+  } on PlatformException {
+    print('Failed to get platform version');
+  }
   marketingCodeeSavepref = pres.getString('marketingCode');
+  print(marketingCodeeSavepref);
   controller.SavemarketingCodeeSavepref(marketingCodeeSavepref);
+
   phonepref = pres.getString('telephoneNumber');
+  print(phonepref);
   controller.SaveNumberPhone(phonepref);
   preuniqueCodepref = pres.getString('uniqueCode');
+  print(preuniqueCodepref);
   controller.SavepreuniqueCodepref(preuniqueCodepref);
   tokenloginresult = pres.getString('token');
   print(tokenloginresult);
@@ -91,34 +133,31 @@ getpreflog() async {
   fullName = firstNamepref + " " + midNamepref + " " + lastNamepref;
   //fullName = "gad man hadi";
   print(fullName);
-  getAllAgents(tokenloginresult, countryIdSaveprf, cityIdSavepref);
-  getWinner(tokenloginresult);
-  register = [];
-  recived = [];
-  userBalanc();
-  userBalancLog();
-  comissionBalanc();
+  // await getAllAgents(tokenloginresult, countryIdSaveprf, cityIdSavepref);
+  // await getWinner(tokenloginresult);
+
+  // await userBalanc();
+  // await userBalancLog();
+  // await comissionBalanc();
+
   getSettingAbout();
   getSettingTerms();
   getSettingRecharge();
-  // getSettingSpicSocialMediaFacebook();
-  //getSettingSpicSocialMediaYouTube();
   getSettingSpicSocialMediaWhatapp();
   getSettingSpicSocialMediatwitter();
   getSettingSpicSocialMediaTelgram();
   getSettingPrivasyPolicy();
   infoNotification();
-  GetNotification();
-  question = [];
+
+  GetNotification(identifier);
+
   commonQuestionsapi();
-  MyCompitition = [];
+
   allCompititionapi();
   getSettingAmount();
-  allAgent = [];
-  winner = [];
-  winnerQustion = [];
+
   getWinnerQustion();
-  // getAllAgents(tokenloginresult, countryIdSaveprf, cityIdSavepref);
+
   // getWinner(tokenloginresult);
   // userBalanc();
   // userBalancLog();
@@ -299,7 +338,7 @@ Future send_inf_login(email, password, context) async {
       // Navigator.of(context).pushReplacementNamed("homePage");
       Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (BuildContext context) => new homePage()),
+          MaterialPageRoute(builder: (BuildContext context) => new welcom()),
           (Route<dynamic> route) => false);
     } else {
       AwesomeDialog(

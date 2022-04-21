@@ -19,13 +19,17 @@ class userBalanceLogModel {
       userBalanceLogModel(
         isSuccess: json["isSuccess"],
         message: json["message"],
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+        data: json["data"] != null
+            ? List<Datum>.from(json["data"].map((x) => Datum.fromJson(x)))
+            : null,
       );
 
   Map<String, dynamic> toJson() => {
         "isSuccess": isSuccess,
         "message": message,
-        "data": List<dynamic>.from(data!.map((x) => x.toJson())),
+        "data": data != null
+            ? List<dynamic>.from(data!.map((x) => x.toJson()))
+            : null,
       };
 }
 

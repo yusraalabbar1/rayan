@@ -125,5 +125,8 @@ const Map<String, String> ar = {
   "Been voted": "تم التصويت",
   "Thanks for the answer": "شكرا لك على الاجابة",
   "UserName Or Telephone Aleardy Exist":
-      "اسم المستخدم موجود أو رقم الهاتف مستخدم من قبل"
+      "اسم المستخدم موجود أو رقم الهاتف مستخدم من قبل",
+
+////////////////////////////
+  "Notifiction": "الاشعارات"
 };

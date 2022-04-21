@@ -12,7 +12,10 @@ class langPage extends StatefulWidget {
   State<langPage> createState() => _langPageState();
 }
 
-class _langPageState extends State<langPage> {
+class _langPageState extends State<langPage>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   // AppLanguage langControl = Get.put(AppLanguage());
   @override
   Widget build(BuildContext context) {

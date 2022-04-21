@@ -19,19 +19,23 @@ Future getWinner(tokenloginresult) async {
   request.headers.addAll(headers);
   http.StreamedResponse response = await request.send();
   var res = await http.Response.fromStream(response);
-  modelGetWin c = modelGetWin.fromJson(jsonDecode(res.body));
+  if (res.body.isNotEmpty) {
+    modelGetWin c = modelGetWin.fromJson(jsonDecode(res.body));
 
-  print(c.isSuccess);
-  print("==============================");
-  if (response.statusCode == 200) {
-    if (c.isSuccess == true) {
-      for (var i = 0; i < c.data!.length; i++) {
-        winner.add(c.data![i].toJson());
+    print(c.isSuccess);
+    print("==============================");
+    if (response.statusCode == 200) {
+      if (c.isSuccess == true) {
+        for (var i = 0; i < c.data!.length; i++) {
+          winner.add(c.data![i].toJson());
+        }
+        print(winner);
+        controller.SaveListWinner(winner);
+      } else {
+        print(response.reasonPhrase);
       }
-      print(winner);
-      controller.SaveListWinner(winner);
-    } else {
-      print(response.reasonPhrase);
     }
+  } else {
+    print("obj empty");
   }
 }

@@ -80,7 +80,14 @@ class homecontroller extends GetxController {
   var savegetComptWinnerNickName;
   var savegetComptWinnerNumbeVote;
   var savegetComptWinnerid;
+  var savememberImageUrl;
   /********************************************* */
+  void SavememberImageUrl(string) {
+    print("control value savememberImageUrl is:");
+    savememberImageUrl = string;
+    update();
+  }
+
   void incremental(count) {
     count = count++;
     update();
@@ -166,7 +173,11 @@ class homecontroller extends GetxController {
 
   void SavebalanceForUser(string) {
     print("control value savebalanceForUser is:");
-    savebalanceForUser = string;
+    if (string == null) {
+      savebalanceForUser = "";
+    } else {
+      savebalanceForUser = string;
+    }
     update();
   }
 

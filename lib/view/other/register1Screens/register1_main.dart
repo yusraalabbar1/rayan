@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/balance/commissionBalance.dart';
+import 'package:rayan/model/modeApi/balance/userBalancLog.dart';
 import 'package:rayan/model/modeApi/balance/userBalance.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
 import 'package:rayan/view/other/register1Screens/towButtonRegister1.dart';
@@ -18,19 +19,39 @@ class register1Main extends StatefulWidget {
 
 class _register1Main extends State<register1Main> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Stack(
-      children: [
-        containerMaine(),
-        Container(
-          decoration: boxDecorationMain(),
-        ),
-        GetBuilder<homecontroller>(builder: (controller) {
-          return (controller.i == 0 ? register1(context) : register2(context));
-        }),
-      ],
-    ));
+    return WillPopScope(
+        onWillPop: () {
+          print(
+              'Backbutton pressed (device or appbar button), do whatever you want.');
+
+          //trigger leaving and use own data
+          // Navigator.pop(context, false);
+          Navigator.pushReplacementNamed(context, 'homePage');
+
+          //we need to return a future
+          return Future.value(false);
+        },
+        child: Scaffold(
+            body: Stack(
+          children: [
+            containerMaine(),
+            Container(
+              decoration: boxDecorationMain(),
+            ),
+            GetBuilder<homecontroller>(builder: (controller) {
+              return (controller.i == 0
+                  ? register1(context)
+                  : register2(context));
+            }),
+          ],
+        )));
   }
 }
 

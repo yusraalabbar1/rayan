@@ -59,7 +59,7 @@ class Data {
         cityId: json["cityId"],
         name: json["name"],
         description: json["description"],
-        locationDesc: json["locationDesc"],
+        locationDesc: json["locationDesc"] != null ? json["locationDesc"] : "",
         imageUrl: json["imageUrl"],
         active: json["active"],
         agentImages: List<AgentImage>.from(

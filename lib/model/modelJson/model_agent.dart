@@ -88,3 +88,27 @@ class DataAgent {
         "id": id,
       };
 }
+
+class Welcome {
+  Welcome({
+    required this.isSuccess,
+    required this.message,
+    required this.data,
+  });
+
+  bool isSuccess;
+  String message;
+  List<dynamic> data;
+
+  factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
+        isSuccess: json["isSuccess"],
+        message: json["message"],
+        data: List<dynamic>.from(json["data"].map((x) => x)),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "isSuccess": isSuccess,
+        "message": message,
+        "data": List<dynamic>.from(data.map((x) => x)),
+      };
+}

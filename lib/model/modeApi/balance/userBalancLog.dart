@@ -22,28 +22,32 @@ Future userBalancLog() async {
   request.headers.addAll(headers);
   http.StreamedResponse response = await request.send();
   var res = await http.Response.fromStream(response);
-  userBalanceLogModel c = userBalanceLogModel.fromJson(jsonDecode(res.body));
-  print("==============================");
-  print(c.isSuccess);
-  print("==============================");
-  if (response.statusCode == 200) {
-    if (c.isSuccess == true) {
-      for (var i = 0; i < c.data!.length; i++) {
-        if (c.data![i].code == "Recive") {
-          recived.add(c.data![i].toJson());
-        } else {
-          register.add(c.data![i].toJson());
+  if (res.body.isNotEmpty) {
+    userBalanceLogModel c = userBalanceLogModel.fromJson(jsonDecode(res.body));
+    print("==============================");
+    print(c.isSuccess);
+    print("==============================");
+    if (response.statusCode == 200) {
+      if (c.isSuccess == true) {
+        for (var i = 0; i < c.data!.length; i++) {
+          if (c.data![i].code == "Recive") {
+            recived.add(c.data![i].toJson());
+          } else {
+            register.add(c.data![i].toJson());
+          }
         }
+
+        // print(register);
+
+        print("yesssssssssssssssssssss");
+      } else {
+        print("noooooooooooooooooooooo");
       }
-
-      // print(register);
-
-      print("yesssssssssssssssssssss");
     } else {
-      print("noooooooooooooooooooooo");
+      print("falseeeeeeeeeeeeeeeeee");
+      print(response.reasonPhrase);
     }
   } else {
-    print("falseeeeeeeeeeeeeeeeee");
-    print(response.reasonPhrase);
+    print("obj empty");
   }
 }

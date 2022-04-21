@@ -21,7 +21,10 @@ class startPage extends StatefulWidget {
   State<startPage> createState() => _startPageState();
 }
 
-class _startPageState extends State<startPage> {
+class _startPageState extends State<startPage>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   homecontroller controller = Get.put(homecontroller());
 
   @override

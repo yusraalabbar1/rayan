@@ -142,7 +142,7 @@ Future extraAddCompitationVote(idComp, memberId, userId, context) async {
     } else if (c.message == "User_Not_Have_Balance") {
       AwesomeDialog(
               context: context,
-              dialogType: DialogType.SUCCES,
+              dialogType: DialogType.ERROR,
               animType: AnimType.RIGHSLIDE,
               headerAnimationLoop: true,
               btnOkOnPress: () {},

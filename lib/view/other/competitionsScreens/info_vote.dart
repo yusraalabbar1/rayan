@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:get/get.dart';
@@ -65,7 +66,7 @@ class _infoVoteState extends State<infoVote> {
               child: Card(
                 child: Stack(children: [
                   Container(
-                    width: 352,
+                    width: MediaQuery.of(context).size.width,
                     height: 123,
                     decoration: BoxDecoration(
                         image: DecorationImage(
@@ -133,7 +134,7 @@ class _infoVoteState extends State<infoVote> {
 
             GetBuilder<homecontroller>(builder: (controller) {
               return (controller.savememberInCompt == null
-                  ? Text("")
+                  ? Container()
                   : controller.saveIsFinishComp == true
                       ? Container(
                           margin: EdgeInsets.only(left: 25, right: 25),
@@ -170,7 +171,7 @@ class _infoVoteState extends State<infoVote> {
               return (controller.saveIsFinishComp == true &&
                       controller.savegetComptWinnerid == idSaveprefpref
                   ? widgQues()
-                  : Text(""));
+                  : Container());
             }),
             Padding(
               padding: const EdgeInsets.all(19.0),
@@ -185,7 +186,8 @@ class _infoVoteState extends State<infoVote> {
             ),
 
             Padding(
-              padding: const EdgeInsets.only(left: 23, right: 23, top: 5),
+              padding: const EdgeInsets.only(
+                  left: 23, right: 23, top: 5, bottom: 20),
               child: Text(
                 "${controller.discrpComp}",
                 style: TextStyle(
@@ -197,9 +199,9 @@ class _infoVoteState extends State<infoVote> {
 
             GetBuilder<homecontroller>(builder: (controller) {
               return (controller.savememberInCompt == null
-                  ? Text("")
+                  ? Container()
                   : controller.saveIsFinishComp == true
-                      ? Text("")
+                      ? Container()
                       : Container(
                           child: Padding(
                             padding: const EdgeInsets.all(19.0),
@@ -226,7 +228,23 @@ class _infoVoteState extends State<infoVote> {
                     borderRadius: BorderRadius.circular(25),
                   ),
                   onPressed: () {
-                    share();
+                    if (controller.saveIsFinishComp == true) {
+                      AwesomeDialog(
+                              context: context,
+                              animType: AnimType.RIGHSLIDE,
+                              headerAnimationLoop: true,
+                              btnOkOnPress: () {},
+                              body: Text("Sorry,the contest is over".tr,
+                                  style: TextStyle(
+                                      color: MyColors.color3,
+                                      fontSize: 14,
+                                      fontFamily: 'Almarai')),
+                              dialogBackgroundColor: MyColors.color2,
+                              btnOkColor: MyColors.color1)
+                          .show();
+                    } else {
+                      share();
+                    }
                   },
                   child: Text("Share link social media".tr,
                       style: TextStyle(
@@ -533,8 +551,13 @@ class _infoVoteState extends State<infoVote> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
                               image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://media.istockphoto.com/vectors/avatar-person-user-icon-blue-color-vector-id1216255389?k=20&m=1216255389&s=170667a&w=0&h=uklU-WnkSAvUCtqrB4vxbga1hfYfBWRcQQlEYKhhrdQ="),
+                                image: controller.savememberInCompt[index]
+                                            ['memberImageUrl'] ==
+                                        null
+                                    ? NetworkImage(
+                                        "https://media.istockphoto.com/vectors/avatar-person-user-icon-blue-color-vector-id1216255389?k=20&m=1216255389&s=170667a&w=0&h=uklU-WnkSAvUCtqrB4vxbga1hfYfBWRcQQlEYKhhrdQ=")
+                                    : NetworkImage(
+                                        "http://212.24.108.54/wsaAdmin/images/${controller.savememberInCompt[index]['memberImageUrl']}"),
                                 fit: BoxFit.cover,
                               )),
                         ),

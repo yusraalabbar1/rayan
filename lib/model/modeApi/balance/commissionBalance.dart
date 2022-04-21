@@ -20,17 +20,21 @@ Future comissionBalanc() async {
   request.headers.addAll(headers);
   http.StreamedResponse response = await request.send();
   var res = await http.Response.fromStream(response);
-  modellComissionBalance c =
-      modellComissionBalance.fromJson(jsonDecode(res.body));
-  print("==============================");
-  print(c.isSuccess);
-  print("==============================");
-  if (response.statusCode == 200) {
-    if (c.isSuccess == true) {
-      balancecommission = c.data!.commissionBalance;
-      print(c.data!.commissionBalance);
-    } else {}
+  if (res.body.isNotEmpty) {
+    modellComissionBalance c =
+        modellComissionBalance.fromJson(jsonDecode(res.body));
+    print("==============================");
+    print(c.isSuccess);
+    print("==============================");
+    if (response.statusCode == 200) {
+      if (c.isSuccess == true) {
+        balancecommission = c.data!.commissionBalance;
+        print(c.data!.commissionBalance);
+      } else {}
+    } else {
+      print(response.reasonPhrase);
+    }
   } else {
-    print(response.reasonPhrase);
+    print("obj empty");
   }
 }

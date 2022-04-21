@@ -38,6 +38,7 @@ class Datum {
     required this.memberNo,
     required this.memberLink,
     required this.voteNumber,
+    required this.memberImageUrl,
   });
 
   int id;
@@ -47,7 +48,7 @@ class Datum {
   int memberNo;
   dynamic memberLink;
   int voteNumber;
-
+  String? memberImageUrl;
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
         competitionId: json["competitionId"],
@@ -56,6 +57,7 @@ class Datum {
         memberNo: json["memberNo"],
         memberLink: json["memberLink"],
         voteNumber: json["voteNumber"],
+        memberImageUrl: json["memberImageUrl"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -66,5 +68,6 @@ class Datum {
         "memberNo": memberNo,
         "memberLink": memberLink,
         "voteNumber": voteNumber,
+        "memberImageUrl": memberImageUrl
       };
 }

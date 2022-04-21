@@ -19,13 +19,13 @@ class modellComissionBalance {
       modellComissionBalance(
         isSuccess: json["isSuccess"],
         message: json["message"],
-        data: Data.fromJson(json["data"]),
+        data: json["data"] != null ? Data.fromJson(json["data"]) : null,
       );
 
   Map<String, dynamic> toJson() => {
         "isSuccess": isSuccess,
         "message": message,
-        "data": data!.toJson(),
+        "data": data!.toJson() != null ? data!.toJson() : null,
       };
 }
 

@@ -10,7 +10,11 @@ List<Map> allAgent = [];
 
 List<Map> foundAll = [];
 Future getAllAgents(tokenloginresult, countryIdSaveprf, cityIdSavepref) async {
-  var headers = {'Authorization': "Bearer $tokenloginresult"};
+  var headers = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Authorization': "Bearer $tokenloginresult"
+  };
   var request = http.Request(
       'GET',
       Uri.parse(
@@ -20,19 +24,26 @@ Future getAllAgents(tokenloginresult, countryIdSaveprf, cityIdSavepref) async {
 
   http.StreamedResponse response = await request.send();
   var res = await http.Response.fromStream(response);
-  Agent c = Agent.fromJson(jsonDecode(res.body));
-  print("***************************");
-  for (var i = 0; i < c.data!.length; i++) {
-    allAgent.add(c.data![i].toJson());
-    print(c.data![i].toJson());
-  }
-  foundAll = allAgent;
-
-  print("*************allAgent**************");
-  print(allAgent);
-  if (response.statusCode == 200) {
-    //print(await response.stream.bytesToString());
+  if (res.body.isNotEmpty) {
+    Agent c = await Agent.fromJson(jsonDecode(res.body));
+    print("***************************");
+    if (c.data != null) {
+      for (var i = 0; i < c.data!.length; i++) {
+        allAgent.add(c.data![i].toJson());
+        print(c.data![i].toJson());
+      }
+      foundAll = allAgent;
+    } else {
+      print("not agents");
+    }
+    print("*************allAgent**************");
+    print(allAgent);
+    if (response.statusCode == 200) {
+      //print(await response.stream.bytesToString());
+    } else {
+      print(response.reasonPhrase);
+    }
   } else {
-    print(response.reasonPhrase);
+    print("obj empty");
   }
 }

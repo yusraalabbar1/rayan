@@ -9,7 +9,10 @@ class initPage extends StatefulWidget {
   State<initPage> createState() => _initPageState();
 }
 
-class _initPageState extends State<initPage> {
+class _initPageState extends State<initPage>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

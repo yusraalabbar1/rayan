@@ -13,7 +13,7 @@ import 'package:rayan/utils/constant/url.dart';
 import 'package:rayan/view/other/agentsScreens/agents_main.dart';
 
 List<Map> notifmap = [];
-Future GetNotification() async {
+Future GetNotification(idDevice) async {
   homecontroller controller = Get.put(homecontroller());
   var identifier;
   final DeviceInfoPlugin deviceInfoPlugin = new DeviceInfoPlugin();
@@ -36,16 +36,16 @@ Future GetNotification() async {
   } on PlatformException {
     print('Failed to get platform version');
   }
-  var headers = {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    'Authorization': "Bearer $tokenloginresult"
-  };
-
-  String url =
-      'http://212.24.108.54/wsa/api/notification/GetNotification?deviceId=${identifier}';
-  final response = await http.get(Uri.parse(url));
-  allNotificaion c = allNotificaion.fromJson(jsonDecode(response.body));
+  var headers = {'Authorization': "Bearer $tokenloginresult"};
+  var request = http.Request(
+      'GET',
+      Uri.parse(
+          'http://212.24.108.54/wsa/api/notification/GetNotification?deviceId=${idDevice}'));
+  request.body = '''''';
+  request.headers.addAll(headers);
+  http.StreamedResponse response = await request.send();
+  var res = await http.Response.fromStream(response);
+  allNotificaion c = allNotificaion.fromJson(jsonDecode(res.body));
 
   if (response.statusCode == 200) {
     for (var i = 0; i < c.data!.length; i++) {
