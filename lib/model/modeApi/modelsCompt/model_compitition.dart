@@ -10,6 +10,7 @@ List<Map> MyCompitition = [];
 List<Map> foundCompitition = [];
 var day, hour, min, sec;
 Future allCompititionapi() async {
+  List<Map> MyCompitition = [];
   homecontroller controller = Get.put(homecontroller());
   var headers = {
     'Content-Type': 'application/json',

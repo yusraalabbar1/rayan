@@ -104,7 +104,7 @@ class _passwordNewState extends State<passwordNew> {
                           var formdata = formstate.currentState;
                           if (formdata!.validate()) {
                             formdata.save();
-                            generate();
+                            // generate();
                             Navigator.of(context).pushNamed("pinPassword");
                           }
                         },

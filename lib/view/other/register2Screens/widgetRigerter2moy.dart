@@ -10,9 +10,9 @@ Widget widgetRigerter2moy() {
       child: GetBuilder<homecontroller>(builder: (controller) {
         return (ListView.builder(
             // reverse: true,
-            itemCount: recived.length,
+            itemCount: controller.saverecivedLog.length,
             itemBuilder: (context, index) {
-              int itemCount = recived.length;
+              int itemCount = controller.saverecivedLog.length;
               int reversedIndex = itemCount - 1 - index;
               return Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -29,7 +29,7 @@ Widget widgetRigerter2moy() {
                             Container(
                               alignment: Alignment.topRight,
                               child: Text(
-                                  "${recived[reversedIndex]['message']}",
+                                  "${controller.saverecivedLog[reversedIndex]['message']}",
                                   style: TextStyle(
                                       color: Colors.white,
                                       height: 1.5,
@@ -47,7 +47,7 @@ Widget widgetRigerter2moy() {
                                           fontSize: 12,
                                           fontFamily: 'Almarai')),
                                   Text(
-                                      " ${recived[reversedIndex]['createDate']}"
+                                      " ${controller.saverecivedLog[reversedIndex]['createDate']}"
                                           .substring(0, 10),
                                       style: TextStyle(
                                           color: MyColors.color1,
@@ -61,7 +61,7 @@ Widget widgetRigerter2moy() {
                                           fontSize: 12,
                                           fontFamily: 'Almarai')),
                                   Text(
-                                      " ${recived[reversedIndex]['createDate']}"
+                                      " ${controller.saverecivedLog[reversedIndex]['createDate']}"
                                           .substring(12, 20),
                                       style: TextStyle(
                                           color: MyColors.color1,

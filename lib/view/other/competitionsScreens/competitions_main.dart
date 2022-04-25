@@ -120,244 +120,289 @@ class _competitionsMainState extends State<competitionsMain> {
   }
 
   Widget pageCompit() {
-    return GridView.builder(
-      shrinkWrap: true,
-      scrollDirection: Axis.vertical,
-      physics: ScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-      ),
-      itemCount: foundCompitition.length,
-      itemBuilder: (BuildContext context, int index) {
-        return GetBuilder<homecontroller>(builder: (controller) {
-          return (InkWell(
-            onTap: () {
-              if (foundCompitition[index]['isFinish'] == true) {
-                AwesomeDialog(
-                        context: context,
-                        animType: AnimType.RIGHSLIDE,
-                        headerAnimationLoop: true,
-                        btnOkOnPress: () {},
-                        body: Text("Sorry,the contest is over".tr,
-                            style: TextStyle(
-                                color: MyColors.color3,
-                                fontSize: 14,
-                                fontFamily: 'Almarai')),
-                        dialogBackgroundColor: MyColors.color2,
-                        btnOkColor: MyColors.color1)
-                    .show();
-              } else {
-                controller.SavenameComp(foundCompitition[index]['name']);
-                controller.SavemonyrComp(
-                    foundCompitition[index]['awardAmount']);
-                controller.SavediscrpComp(
-                    foundCompitition[index]['description']);
-                controller.SaveidComp(
-                    foundCompitition[index]['competitionsId']);
-                controller.Saveamount(foundCompitition[index]['amount']);
-                controller.SaveIsFinishComp(
-                    foundCompitition[index]['isFinish']);
-                controller.SaveImageComp(foundCompitition[index]['imageUrl']);
-                controller.SavecurrentTourName(
-                    foundCompitition[index]['currentTourName']);
-                controller.SavecurrentTourTimeLimit(
-                    foundCompitition[index]['currentTourTimeLimit']);
-                Navigator.of(context).pushNamed("infoCompet");
-              }
-            },
-            child: Container(
-                height: 220,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                        image: NetworkImage(
-                            "http://212.24.108.54/wsaAdmin/images/${foundCompitition[index]['imageUrl']}"),
-                        fit: BoxFit.cover)),
-
-                //width: 500,
-                // width: 80,
-                // height: 218,
-                margin: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Container(
-                        color: Color(0xff141E34).withOpacity(0.6),
-                        // width: MediaQuery.of(context).size.width,
-                        height: 98,
-                        width: MediaQuery.of(context).size.width,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              height: 22,
-                              width: 44,
-                              child: RaisedButton(
-                                color: Colors.black,
-                                shape: RoundedRectangleBorder(
-                                    side: BorderSide(
-                                        color: Colors.pink, width: 2)),
-                                onPressed: () {},
-                                child: Text(
-                                  "${foundCompitition[index]['remanningMember']}",
+    return Container(
+      margin: EdgeInsets.only(left: 20, right: 20),
+      height: 300,
+      child: ListView.builder(
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        physics: ScrollPhysics(),
+        itemCount: foundCompitition.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: GetBuilder<homecontroller>(builder: (controller) {
+              return (InkWell(
+                onTap: () {
+                  if (foundCompitition[index]['isFinish'] == true) {
+                    AwesomeDialog(
+                            context: context,
+                            animType: AnimType.RIGHSLIDE,
+                            headerAnimationLoop: true,
+                            btnOkOnPress: () {},
+                            body: Text("Sorry,the contest is over".tr,
+                                style: TextStyle(
+                                    color: MyColors.color3,
+                                    fontSize: 14,
+                                    fontFamily: 'Almarai')),
+                            dialogBackgroundColor: MyColors.color2,
+                            btnOkColor: MyColors.color1)
+                        .show();
+                  } else {
+                    controller.SavenameComp(foundCompitition[index]['name']);
+                    controller.SavemonyrComp(
+                        foundCompitition[index]['awardAmount']);
+                    controller.SavediscrpComp(
+                        foundCompitition[index]['description']);
+                    controller.SaveidComp(
+                        foundCompitition[index]['competitionsId']);
+                    controller.Saveamount(foundCompitition[index]['amount']);
+                    controller.SaveIsFinishComp(
+                        foundCompitition[index]['isFinish']);
+                    controller.SaveImageComp(
+                        foundCompitition[index]['imageUrl']);
+                    controller.SavecurrentTourName(
+                        foundCompitition[index]['currentTourName']);
+                    controller.SavecurrentTourTimeLimit(
+                        foundCompitition[index]['currentTourTimeLimit']);
+                    Navigator.of(context).pushNamed("infoCompet");
+                  }
+                },
+                child: Container(
+                    height: 200,
+                    width: 190,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                "http://212.24.108.54/wsaAdmin/images/${foundCompitition[index]['imageUrl']}"),
+                            fit: BoxFit.cover)),
+                    //width: 500,
+                    // width: 80,
+                    // height: 218,
+                    margin: EdgeInsets.all(10),
+                    child: Column(
+                      children: [
+                        Container(
+                            color: Color(0xff141E34).withOpacity(0.6),
+                            // width: MediaQuery.of(context).size.width,
+                            height: 186,
+                            width: 190,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  height: 30,
+                                  width: 44,
+                                  child: RaisedButton(
+                                    color: Colors.black,
+                                    shape: RoundedRectangleBorder(
+                                        side: BorderSide(
+                                            color: Colors.pink, width: 2)),
+                                    onPressed: () {},
+                                    child: Text(
+                                      "${foundCompitition[index]['remanningMember']}",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 9,
+                                          fontFamily: 'Almarai'),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  "The number of contestants left".tr,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 9,
                                       fontFamily: 'Almarai'),
                                 ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 3,
-                            ),
-                            Text(
-                              "عدد المتسابقين المتبقي",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 9,
-                                  fontFamily: 'Almarai'),
-                            ),
-                            SizedBox(
-                              height: 3,
-                            ),
-                            Text(
-                              "${foundCompitition[index]['name']}",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                  fontFamily: 'Almarai'),
-                            ),
-                            Text(
-                              foundCompitition[index]['currentTourName'] != null
-                                  ? "${foundCompitition[index]['currentTourName']}"
-                                  : "لم تبدأ الجولة",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 10,
-                                  fontFamily: 'Almarai'),
-                            ),
-                            controller.saveMapCompitition[index]['isFinish'] !=
-                                    true
-                                ? timeDate(
-                                    foundCompitition[index]
-                                        ['currentTourStartDate'],
-                                    foundCompitition[index]
-                                        ['currentTourEndDate'])
-                                : Container(),
-                            controller.saveMapCompitition[index]['isFinish'] !=
-                                    true
-                                ? styleTimeDate(
-                                    foundCompitition[index]
-                                        ['currentTourStartDate'],
-                                    foundCompitition[index]
-                                        ['currentTourEndDate'])
-                                : Container(),
-                          ],
-                        )),
-                    Container(
-                        height: 78,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(10),
-                                bottomRight: Radius.circular(10)),
-                            image: DecorationImage(
-                                image:
-                                    AssetImage("assets/images/backCopit.PNG"),
-                                fit: BoxFit.cover)),
-                        // width: MediaQuery.of(context).size.width,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/images/trophy.png",
-                              width: 31,
-                              height: 31,
-                            ),
-                            Text("${foundCompitition[index]['awardAmount']}\$",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 9,
-                                    fontFamily: 'Almarai')),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
                                 SizedBox(
-                                  width: 5,
+                                  height: 5,
                                 ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      height: 22,
-                                      width: 44,
-                                      child: RaisedButton(
-                                        color: Colors.black,
-                                        shape: RoundedRectangleBorder(
-                                            side: BorderSide(
-                                                color: Colors.pink, width: 2)),
-                                        onPressed: () {},
-                                        child: Text(
-                                          "${foundCompitition[index]['amount']}\$",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 9,
-                                              fontFamily: 'Almarai'),
-                                        ),
+                                Text(
+                                  "${foundCompitition[index]['name']}",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14,
+                                      fontFamily: 'Almarai'),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 10, right: 10),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Color(0xff1A1E2B).withOpacity(0.7),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        foundCompitition[index]
+                                                    ['currentTourName'] !=
+                                                null
+                                            ? "${foundCompitition[index]['currentTourName']}"
+                                            : "Round has not started".tr,
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 10,
+                                            fontFamily: 'Almarai'),
                                       ),
-                                    ),
-                                    Text(
-                                      "الإشتراك",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 7,
-                                          fontFamily: 'Almarai'),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      height: 22,
-                                      width: 44,
-                                      child: RaisedButton(
-                                        color: Colors.black,
-                                        shape: RoundedRectangleBorder(
-                                            side: BorderSide(
-                                                color: Colors.pink, width: 2)),
-                                        onPressed: () {},
-                                        child: Text(
-                                          "${foundCompitition[index]['memberCount']}",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 9,
-                                              fontFamily: 'Almarai'),
-                                        ),
+                                      SizedBox(
+                                        height: 5,
                                       ),
-                                    ),
-                                    Text(
-                                      "المتسابقين",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 7,
-                                          fontFamily: 'Almarai'),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 5,
+                                      foundCompitition[index]['isFinish'] !=
+                                              true
+                                          ? timeDate(
+                                              foundCompitition[index]
+                                                  ['currentTourStartDate'],
+                                              foundCompitition[index]
+                                                  ['currentTourEndDate'])
+                                          : Container(),
+                                      foundCompitition[index]['isFinish'] !=
+                                              true
+                                          ? styleTimeDate(
+                                              foundCompitition[index]
+                                                  ['currentTourStartDate'],
+                                              foundCompitition[index]
+                                                  ['currentTourEndDate'])
+                                          : Container(),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      foundCompitition[index]['isFinish'] !=
+                                              true
+                                          ? StyDate(
+                                              foundCompitition[index]
+                                                  ['currentTourStartDate'],
+                                              foundCompitition[index]
+                                                  ['currentTourEndDate'])
+                                          : Text(""),
+                                      foundCompitition[index]['isFinish'] !=
+                                              true
+                                          ? styleDate(
+                                              foundCompitition[index]
+                                                  ['currentTourStartDate'],
+                                              foundCompitition[index]
+                                                  ['currentTourEndDate'])
+                                          : Container(),
+                                    ],
+                                  ),
                                 ),
                               ],
-                            )
-                          ],
-                        ))
-                  ],
-                )),
-          ));
-        });
-      },
+                            )),
+                        Container(
+                            height: 90,
+                            width: 190,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(10),
+                                    bottomRight: Radius.circular(10)),
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                        "assets/images/backCopit.PNG"),
+                                    fit: BoxFit.cover)),
+                            // width: MediaQuery.of(context).size.width,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  "assets/images/trophy.png",
+                                  width: 31,
+                                  height: 31,
+                                ),
+                                Text(
+                                    "${foundCompitition[index]['awardAmount']}\$",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 9,
+                                        fontFamily: 'Almarai')),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Column(
+                                      children: [
+                                        Container(
+                                          height: 22,
+                                          width: 55,
+                                          child: RaisedButton(
+                                            color: Colors.black,
+                                            shape: RoundedRectangleBorder(
+                                                side: BorderSide(
+                                                    color: Colors.pink,
+                                                    width: 2)),
+                                            onPressed: () {},
+                                            child: Text(
+                                              "${foundCompitition[index]['amount']}\$",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 9,
+                                                  fontFamily: 'Almarai'),
+                                            ),
+                                          ),
+                                        ),
+                                        Text(
+                                          "Participation".tr,
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 7,
+                                              fontFamily: 'Almarai'),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Column(
+                                      children: [
+                                        Container(
+                                          height: 22,
+                                          width: 55,
+                                          child: RaisedButton(
+                                            color: Colors.black,
+                                            shape: RoundedRectangleBorder(
+                                                side: BorderSide(
+                                                    color: Colors.pink,
+                                                    width: 2)),
+                                            onPressed: () {},
+                                            child: Text(
+                                              "${foundCompitition[index]['memberCount']}",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 9,
+                                                  fontFamily: 'Almarai'),
+                                            ),
+                                          ),
+                                        ),
+                                        Text(
+                                          "constestant".tr,
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 7,
+                                              fontFamily: 'Almarai'),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ))
+                      ],
+                    )),
+              ));
+            }),
+          );
+        },
+      ),
     );
   }
 
@@ -375,33 +420,49 @@ class _competitionsMainState extends State<competitionsMain> {
                 onTap: (() {
                   // controller.SaveindexCopititon(
                   //     foundCompitition[index]['competitionsId']);
+                  if (foundCompitition[index]['currentTourName'] == null) {
+                    AwesomeDialog(
+                            context: context,
+                            animType: AnimType.RIGHSLIDE,
+                            headerAnimationLoop: true,
+                            btnOkOnPress: () {},
+                            body: Text("Round has not started".tr,
+                                style: TextStyle(
+                                    color: MyColors.color3,
+                                    fontSize: 14,
+                                    fontFamily: 'Almarai')),
+                            dialogBackgroundColor: MyColors.color2,
+                            btnOkColor: MyColors.color1)
+                        .show();
+                  } else {
+                    controller.SavenameComp(foundCompitition[index]['name']);
+                    controller.SavemonyrComp(
+                        foundCompitition[index]['awardAmount']);
+                    controller.SavediscrpComp(
+                        foundCompitition[index]['description']);
+                    controller.SaveidComp(
+                        foundCompitition[index]['competitionsId']);
+                    controller.Saveamount(foundCompitition[index]['amount']);
+                    controller.SaveIsFinishComp(
+                        foundCompitition[index]['isFinish']);
+                    controller.SaveImageComp(
+                        foundCompitition[index]['imageUrl']);
+                    controller.SavecurrentTourName(
+                        foundCompitition[index]['currentTourName']);
+                    controller.SavecurrentTourTimeLimit(
+                        foundCompitition[index]['currentTourTimeLimit']);
+                    controller.SavememberImageUrl(
+                        foundCompitition[index]['memberImageUrl']);
 
+                    /******************************** */
+                    print(index);
+                    memberInCompt = [];
+
+                    allMemberCompitition(
+                        foundCompitition[index]['competitionsId']);
+                    Navigator.of(context).pushNamed("infoVote");
+                  }
                   /**************************** */
-                  controller.SavenameComp(foundCompitition[index]['name']);
-                  controller.SavemonyrComp(
-                      foundCompitition[index]['awardAmount']);
-                  controller.SavediscrpComp(
-                      foundCompitition[index]['description']);
-                  controller.SaveidComp(
-                      foundCompitition[index]['competitionsId']);
-                  controller.Saveamount(foundCompitition[index]['amount']);
-                  controller.SaveIsFinishComp(
-                      foundCompitition[index]['isFinish']);
-                  controller.SaveImageComp(foundCompitition[index]['imageUrl']);
-                  controller.SavecurrentTourName(
-                      foundCompitition[index]['currentTourName']);
-                  controller.SavecurrentTourTimeLimit(
-                      foundCompitition[index]['currentTourTimeLimit']);
-                  controller.SavememberImageUrl(
-                      foundCompitition[index]['memberImageUrl']);
-
-                  /******************************** */
-                  print(index);
-                  memberInCompt = [];
-
-                  allMemberCompitition(
-                      foundCompitition[index]['competitionsId']);
-                  Navigator.of(context).pushNamed("infoVote");
                 }),
                 child: Card(
                   child: Stack(children: [

@@ -116,5 +116,6 @@ const Map<String, String> en = {
   "Commen Question": "Commen Question",
   "Connect Us": "Connect Us",
   "Log out": "Log out",
-  "Notifiction": "Notifiction"
+  "Notifiction": "Notifiction",
+  "This is a trial version": "This is a trial version"
 };

@@ -10,9 +10,9 @@ Widget widgetRigerter1moy() {
       child: GetBuilder<homecontroller>(builder: (controller) {
         return (ListView.builder(
             // reverse: true,
-            itemCount: register.length,
+            itemCount: controller.saveregisterLog.length,
             itemBuilder: (context, index) {
-              int itemCount = register.length;
+              int itemCount = controller.saveregisterLog.length;
               int reversedIndex = itemCount - 1 - index;
               return Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -29,7 +29,7 @@ Widget widgetRigerter1moy() {
                             Container(
                               alignment: Alignment.topRight,
                               child: Text(
-                                  "${register[reversedIndex]['message']}",
+                                  "${controller.saveregisterLog[reversedIndex]['message']}",
                                   style: TextStyle(
                                       color: Colors.white,
                                       height: 1.5,
@@ -47,7 +47,7 @@ Widget widgetRigerter1moy() {
                                           fontSize: 12,
                                           fontFamily: 'Almarai')),
                                   Text(
-                                      " ${register[reversedIndex]['createDate']}"
+                                      " ${controller.saveregisterLog[reversedIndex]['createDate']}"
                                           .substring(0, 10),
                                       style: TextStyle(
                                           color: MyColors.color1,
@@ -61,7 +61,7 @@ Widget widgetRigerter1moy() {
                                           fontSize: 12,
                                           fontFamily: 'Almarai')),
                                   Text(
-                                      " ${register[reversedIndex]['createDate']}"
+                                      " ${controller.saveregisterLog[reversedIndex]['createDate']}"
                                           .substring(12, 20),
                                       style: TextStyle(
                                           color: MyColors.color1,

@@ -24,7 +24,7 @@ class _welcomState extends State<welcom> with AutomaticKeepAliveClientMixin {
     await send_inf_loginupdate(usernamepref, passPref);
     await getpreflog();
     await getAllAgents(tokenloginresult, countryIdSaveprf, cityIdSavepref);
-    await getWinner(tokenloginresult);
+    //await getWinner(tokenloginresult);
 
     await userBalanc();
     await userBalancLog();

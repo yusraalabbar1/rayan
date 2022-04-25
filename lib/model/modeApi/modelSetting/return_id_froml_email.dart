@@ -25,38 +25,40 @@ Future getUserIdFromEmail(email, context) async {
   if (response.statusCode == 200) {
     idUserFromEmail = c.data.userId;
     print(idUserFromEmail);
-    // if (c.isSuccess == true) {
-    //   AwesomeDialog(
-    //           context: context,
-    //           dialogType: DialogType.SUCCES,
-    //           animType: AnimType.RIGHSLIDE,
-    //           btnOkOnPress: () {},
-    //           body: Text(
-    //               'البريد الالكتروني صحيح حاليا ادخل كلمة المرور الجديدة',
-    //               style: TextStyle(
-    //                   color: MyColors.color3,
-    //                   fontSize: 14,
-    //                   fontFamily: 'Almarai')),
-    //           dialogBackgroundColor: MyColors.color2,
-    //           btnOkColor: MyColors.color1)
-    //       .show();
-    // } else {
-    //   AwesomeDialog(
-    //           context: context,
-    //           dialogType: DialogType.ERROR,
-    //           animType: AnimType.RIGHSLIDE,
-    //           headerAnimationLoop: true,
-    //           title: 'خطأ',
-    //           btnOkOnPress: () {},
-    //           body: Text("البريد الالكتروني خاطئ!!",
-    //               style: TextStyle(
-    //                   color: MyColors.color3,
-    //                   fontSize: 14,
-    //                   fontFamily: 'Almarai')),
-    //           dialogBackgroundColor: MyColors.color2,
-    //           btnOkColor: MyColors.color1)
-    //       .show();
-    // }
+    if (c.isSuccess == true) {
+      AwesomeDialog(
+              context: context,
+              dialogType: DialogType.SUCCES,
+              animType: AnimType.RIGHSLIDE,
+              btnOkOnPress: () {
+                Navigator.of(context).pushNamed("passwordNew");
+              },
+              body: Text(
+                  'اسم المستخدم صحيح حاليا ادخل كلمة المرور الجديدة.. حاليا اضغط على موافق للاستمرار',
+                  style: TextStyle(
+                      color: MyColors.color3,
+                      fontSize: 14,
+                      fontFamily: 'Almarai')),
+              dialogBackgroundColor: MyColors.color2,
+              btnOkColor: MyColors.color1)
+          .show();
+    } else {
+      AwesomeDialog(
+              context: context,
+              dialogType: DialogType.ERROR,
+              animType: AnimType.RIGHSLIDE,
+              headerAnimationLoop: true,
+              title: 'خطأ',
+              btnOkOnPress: () {},
+              body: Text(" خطأ في اسم المستخدم!! ",
+                  style: TextStyle(
+                      color: MyColors.color3,
+                      fontSize: 14,
+                      fontFamily: 'Almarai')),
+              dialogBackgroundColor: MyColors.color2,
+              btnOkColor: MyColors.color1)
+          .show();
+    }
   } else {
     print(response.reasonPhrase);
   }

@@ -46,35 +46,6 @@ dialogForMediae(context) async {
                   color: MyColors.color1,
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: 127,
-                height: 50,
-                child: RaisedButton.icon(
-                  onPressed: () {
-                    print('Button Clicked.');
-                    launch("mailto:$email");
-                  },
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(25.0))),
-                  label: Text(
-                    "Email",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontFamily: 'Almarai'),
-                  ),
-                  icon: Icon(
-                    Icons.message,
-                    color: Colors.white,
-                  ),
-                  textColor: Colors.white,
-                  splashColor: Colors.white,
-                  color: MyColors.color1,
-                ),
-              )
             ],
           ),
         ));

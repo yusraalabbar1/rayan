@@ -66,7 +66,7 @@ Widget drawerMain(context) {
                 style: TextStyle(
                     color: Colors.white, fontSize: 14, fontFamily: 'Almarai')),
           ),
-          Text(usernamepref == null ? "users@gmail" : usernamepref,
+          Text(usernamepref == null ? " " : usernamepref,
               style: TextStyle(
                   color: Color(0xff707070),
                   fontSize: 10,
@@ -315,7 +315,28 @@ Widget drawerMain(context) {
                             fontFamily: 'Almarai')))
               ],
             ),
-          )
+          ),
+          InkWell(
+            onTap: () async {},
+            child: Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: Icon(
+                    Icons.info,
+                    size: 20,
+                    color: MyColors.color1,
+                  ),
+                ),
+                Container(
+                    child: Text("This is a trial version".tr,
+                        style: TextStyle(
+                            color: MyColors.color1,
+                            fontSize: 14,
+                            fontFamily: 'Almarai')))
+              ],
+            ),
+          ),
         ],
       ),
     ),

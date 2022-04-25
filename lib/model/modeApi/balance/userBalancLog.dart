@@ -10,9 +10,9 @@ import 'package:rayan/model/modelJson/userBalancmodelLog.dart';
 List<Map> register = [];
 List<Map> recived = [];
 Future userBalancLog() async {
+  homecontroller controller = Get.put(homecontroller());
   print("##########################################");
   print(idSaveprefpref);
-  homecontroller controller = Get.put(homecontroller());
   var headers = {'Authorization': "Bearer $tokenloginresult"};
   var request = http.Request(
       'GET',
@@ -38,7 +38,8 @@ Future userBalancLog() async {
         }
 
         // print(register);
-
+        controller.SaverecivedLog(recived);
+        controller.SaveregisterLog(register);
         print("yesssssssssssssssssssss");
       } else {
         print("noooooooooooooooooooooo");

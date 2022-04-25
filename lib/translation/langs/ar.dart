@@ -128,5 +128,6 @@ const Map<String, String> ar = {
       "اسم المستخدم موجود أو رقم الهاتف مستخدم من قبل",
 
 ////////////////////////////
-  "Notifiction": "الاشعارات"
+  "Notifiction": "الاشعارات",
+  "This is a trial version": "هذا الاصدار تجريبي"
 };
