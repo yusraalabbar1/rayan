@@ -69,6 +69,21 @@ Future addMemberCompitition(context, nick) async {
                 dialogBackgroundColor: MyColors.color2,
                 btnOkColor: MyColors.color1)
             .show();
+      } else if (c.message == "Max_Member_Of_Competition") {
+        AwesomeDialog(
+                context: context,
+                dialogType: DialogType.INFO,
+                animType: AnimType.RIGHSLIDE,
+                headerAnimationLoop: true,
+                btnOkOnPress: () {},
+                body: Text("تم الوصول للحد الأقصى للعدد",
+                    style: TextStyle(
+                        color: MyColors.color3,
+                        fontSize: 14,
+                        fontFamily: 'Almarai')),
+                dialogBackgroundColor: MyColors.color2,
+                btnOkColor: MyColors.color1)
+            .show();
       } else {
         AwesomeDialog(
                 context: context,

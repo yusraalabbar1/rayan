@@ -22,6 +22,8 @@ class _competitionsMainState extends State<competitionsMain> {
   @override
   void initState() {
     super.initState();
+    //timeDate("2022-05-04T16:24:00", "2022-05-04T21:50:00");
+    //styleTimeDate("2022-05-04T16:24:00", "2022-05-04T21:50:00");
   }
 
   void daysBetween(from, to) {
@@ -261,7 +263,16 @@ class _competitionsMainState extends State<competitionsMain> {
                                                   ['currentTourStartDate'],
                                               foundCompitition[index]
                                                   ['currentTourEndDate'])
-                                          : Container(),
+                                          : Container(
+                                              child: Text(
+                                                "المسابقة منتهبة",
+                                                style: TextStyle(
+                                                    color: Color.fromARGB(
+                                                        255, 222, 132, 147),
+                                                    fontSize: 11,
+                                                    fontFamily: 'Almarai'),
+                                              ),
+                                            ),
                                       foundCompitition[index]['isFinish'] !=
                                               true
                                           ? styleTimeDate(
@@ -270,9 +281,6 @@ class _competitionsMainState extends State<competitionsMain> {
                                               foundCompitition[index]
                                                   ['currentTourEndDate'])
                                           : Container(),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
                                       foundCompitition[index]['isFinish'] !=
                                               true
                                           ? StyDate(
@@ -531,7 +539,16 @@ class _competitionsMainState extends State<competitionsMain> {
                                             ['currentTourStartDate'],
                                         foundCompitition[index]
                                             ['currentTourEndDate'])
-                                    : Container(),
+                                    : Container(
+                                        child: Text(
+                                          "المسابقة منتهبة",
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 222, 132, 147),
+                                              fontSize: 11,
+                                              fontFamily: 'Almarai'),
+                                        ),
+                                      ),
                                 controller.saveMapCompitition[index]
                                             ['isFinish'] !=
                                         true
@@ -629,8 +646,11 @@ Widget timeDate(dt1, dt2) {
   var now = new DateTime.now();
   // DateTime dt1 = DateTime.parse("2022-06-12T21:30:00");
   // DateTime dt2 = DateTime.parse("2022-06-12T21:30:00");
+  print(DateTime.parse(dt1).compareTo(now) > 0
+      ? "تبدأ الجولة في الساعة "
+      : "تنتهي الجولة في الساعة");
   return Text(
-      dt1.compareTo(now) > 0
+      DateTime.parse(dt1).compareTo(now) > 0
           ? "تبدأ الجولة في الساعة "
           : "تنتهي الجولة في الساعة",
       //dt1.compareTo(now) < 0 && dt2.compareTo(now) > 0
@@ -660,7 +680,8 @@ Widget StyDate(dt1, dt2) {
 
 Widget styleTimeDate(dt1, dt2) {
   var now = new DateTime.now();
-  String str = dt1.compareTo(now) > 0 ? dt1.toString() : dt1.toString();
+  String str =
+      DateTime.parse(dt1).compareTo(now) > 0 ? dt1.toString() : dt2.toString();
 
   //find substring
   String result = str.substring(0, 4);
@@ -675,48 +696,80 @@ Widget styleTimeDate(dt1, dt2) {
   print(result3);
   print(result4);
   print(result5);
+  print("===============================");
+  print(dt1);
+  print(dt2);
+  print(result4.toString() + "دقيقة" + ":" + result3.toString() + "الساعة");
+  print(int.parse(result3) > 12 ? "PM" : "AM");
+//int.parse(result3) > 12 ? "PM" : "AM",
+  print("===============================");
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
-        margin: EdgeInsets.all(5),
-        height: 15,
+        height: 30,
         width: 30,
         alignment: Alignment.center,
-        color: MyColors.color1,
-        child: Text(result5.toString() + "s",
-            style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 10,
-                fontFamily: 'Almarai')),
+        margin: EdgeInsets.all(5),
+        // color: MyColors.color1,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(result4.toString(),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                    fontFamily: 'Almarai')),
+            Text("دقيقة",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 5,
+                    fontFamily: 'Almarai'))
+          ],
+        ),
       ),
       Container(
-        margin: EdgeInsets.all(5),
-        height: 15,
+          alignment: Alignment.center,
+          //color: MyColors.color1,
+          child: Text(":",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                  fontFamily: 'Almarai'))),
+      Container(
+        height: 30,
         width: 30,
+        margin: EdgeInsets.all(5),
         alignment: Alignment.center,
-        color: MyColors.color1,
-        child: Text(result4.toString() + "m",
-            style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 10,
-                fontFamily: 'Almarai')),
+        // color: MyColors.color1,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(result3.toString(),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                    fontFamily: 'Almarai')),
+            Text("الساعة",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 5,
+                    fontFamily: 'Almarai'))
+          ],
+        ),
       ),
       Container(
-        margin: EdgeInsets.all(5),
-        height: 15,
-        width: 30,
-        alignment: Alignment.center,
-        color: MyColors.color1,
-        child: Text(result3.toString() + "h",
-            style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 10,
-                fontFamily: 'Almarai')),
-      ),
+          child: Text(int.parse(result3) > 12 ? "PM" : "AM",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                  fontFamily: 'Almarai'))),
     ],
   );
 }

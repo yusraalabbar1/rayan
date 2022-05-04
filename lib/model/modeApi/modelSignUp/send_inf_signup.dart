@@ -24,16 +24,16 @@ Future send_inf_signup(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, context) async {
   var headers = {'Content-Type': 'application/json'};
   var url = url_signu;
   var data = {
-    "UserName": t1,
-    "Password": t2,
-    "FirstName": t3,
-    "MidName": t4,
-    "LastName": t5,
-    "CountryId": t6,
+    "UserName": t1.toString(),
+    "Password": t2.toString(),
+    "FirstName": t3.toString(),
+    "MidName": t4.toString(),
+    "LastName": t5.toString(),
+    "CountryId": int.parse(t6),
     "CityId": t7,
-    "TelephoneNumber": t8,
-    "UserMarketingCode": t9,
-    "DeciveId": t10
+    "TelephoneNumber": t8.toString(),
+    "UserMarketingCode": t9.toString(),
+    "DeciveId": t10.toString()
   };
   var request = http.Request('POST', Uri.parse(url));
   request.body = json.encode(data);

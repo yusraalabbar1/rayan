@@ -23,6 +23,7 @@ class _pinPasswordState extends State<pinPassword> {
   // ..text = "123456";
 
   // ignore: close_sinks
+  var re = RegExp(r'\d(?!\d{0,2}$)');
   StreamController<ErrorAnimationType>? errorController;
 
   bool hasError = false;
@@ -98,8 +99,10 @@ class _pinPasswordState extends State<pinPassword> {
                         text: TextSpan(
                             text: "Enter the code sent to ",
                             children: [
+                              // ${controller.saveNumberPhone}
                               TextSpan(
-                                  text: " ${controller.saveNumberPhone}",
+                                  text: "${controller.saveNumberPhone}"
+                                      .replaceAll(re, '*'),
                                   style: TextStyle(
                                       color: Color.fromARGB(255, 93, 120, 179),
                                       fontWeight: FontWeight.bold,

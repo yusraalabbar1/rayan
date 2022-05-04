@@ -83,6 +83,15 @@ class homecontroller extends GetxController {
   var savememberImageUrl;
   var saverecivedLog;
   var saveregisterLog;
+
+  var saveCountryCodeSignUp;
+
+  void SaveCountryCodeSignUp(string) {
+    print("control value SaveCountryCodeSignUp is:");
+    saveCountryCodeSignUp = string;
+    update();
+  }
+
   void SaverecivedLog(string) {
     print("control value SaverecivedLog is:");
     saverecivedLog = string;

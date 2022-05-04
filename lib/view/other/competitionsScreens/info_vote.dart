@@ -118,7 +118,7 @@ class _infoVoteState extends State<infoVote> {
                                 height: 5,
                               ),
                               Text(
-                                "${controller.saveamount}",
+                                "${controller.monyrComp}",
                                 style: TextStyle(
                                     color: MyColors.color3,
                                     fontSize: 14,
@@ -343,7 +343,7 @@ class _infoVoteState extends State<infoVote> {
                             height: 5,
                           ),
                           Text(
-                            controller.saveamount.toString(),
+                            controller.monyrComp.toString(),
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,

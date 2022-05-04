@@ -25,6 +25,7 @@ class _loginState extends State<login> {
   var _selected;
   var codeotp;
   var countryname;
+  var index;
   @override
   void initState() {
     super.initState();
@@ -95,21 +96,49 @@ class _loginState extends State<login> {
                                       onChanged: (newValue) {
                                         setState(() {
                                           _selected = newValue!;
+                                          print(_selected);
+                                          // print(myJsonCountry[
+                                          //         int.parse(_selected)]
+                                          //     ["countryCode"]);
+                                          for (var i = 0;
+                                              i < myJsonCountry.length;
+                                              i++) {
+                                            if (myJsonCountry[i]["id"] ==
+                                                int.parse(_selected)) {
+                                              codeotp = myJsonCountry[i]
+                                                  ["countryCode"];
+                                              print('==================');
+                                              print(codeotp);
+                                              controller.SaveCountryCode(
+                                                  int.parse(codeotp));
+                                              controller.SaveCountryCodeSignUp(
+                                                  _selected);
+                                              print(controller.saveCountryCode);
+                                              countryname = myJsonCountry
+                                                  .map((Map map) =>
+                                                      map["countryDescAr"])
+                                                  .toList();
+                                              controller.SaveCountryName(
+                                                  countryname[i]);
+                                              //print(i);
+                                              //print(int.parse(_selected) - 1);
+                                              print(countryname[i]);
+                                              controller.SaveCountryid(i);
+
+                                              break;
+                                            } else {
+                                              print('==================');
+                                              print("not found");
+                                            }
+                                          }
                                         });
-                                        controller.SaveCountryid(
-                                            int.parse(_selected));
-                                        codeotp = myJsonCountry
-                                            .map(
-                                                (Map map) => map["countryCode"])
-                                            .toList();
-                                        controller.SaveCountryCode(int.parse(
-                                            codeotp[int.parse(_selected) - 1]));
-                                        countryname = myJsonCountry
+
+                                        /* countryname = myJsonCountry
                                             .map((Map map) =>
                                                 map["countryDescAr"])
                                             .toList();
                                         controller.SaveCountryName(countryname[
-                                            int.parse(_selected) - 1]);
+                                            int.parse(_selected) - 1]);*/
                                       },
                                       items: myJsonCountry.map((Map map) {
                                         return DropdownMenuItem<dynamic>(
@@ -161,7 +190,7 @@ class _loginState extends State<login> {
                       child: GetBuilder<homecontroller>(builder: (controller) {
                         return (TextFormField(
                           enabled:
-                              controller.saveCountryName == "" ? false : true,
+                              controller.saveCountryCode == "" ? false : true,
                           style: TextStyle(color: MyColors.color3),
                           keyboardType: TextInputType.number,
 

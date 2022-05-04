@@ -20,9 +20,8 @@ class _signupState extends State<signup> {
     // TODO: implement initState
     super.initState();
     print("signup:************");
-
     myJsonCity = [];
-    getCity(controller.saveCountryid - 1);
+    getCity(controller.saveCountryid);
   }
 
   GlobalKey<FormState> formstate = new GlobalKey<FormState>();

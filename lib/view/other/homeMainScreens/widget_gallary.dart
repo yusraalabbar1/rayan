@@ -171,10 +171,20 @@ Widget widgetgallary(context) {
                                                         'currentTourStartDate'],
                                                     foundCompitition[index]
                                                         ['currentTourEndDate'])
-                                                : Container(),
-                                            SizedBox(
-                                              height: 5,
-                                            ),
+                                                : Container(
+                                                    child: Text(
+                                                      "المسابقة منتهبة",
+                                                      style: TextStyle(
+                                                          color: Color.fromARGB(
+                                                              255,
+                                                              222,
+                                                              132,
+                                                              147),
+                                                          fontSize: 11,
+                                                          fontFamily:
+                                                              'Almarai'),
+                                                    ),
+                                                  ),
                                             controller.saveMapCompitition[index]
                                                         ['isFinish'] !=
                                                     true
@@ -235,7 +245,7 @@ Widget widgetgallary(context) {
                                             children: [
                                               Container(
                                                 height: 22,
-                                                width: 55,
+                                                width: 60,
                                                 child: RaisedButton(
                                                   color: Colors.black,
                                                   shape: RoundedRectangleBorder(
@@ -268,7 +278,7 @@ Widget widgetgallary(context) {
                                             children: [
                                               Container(
                                                 height: 22,
-                                                width: 55,
+                                                width: 60,
                                                 child: RaisedButton(
                                                   color: Colors.black,
                                                   shape: RoundedRectangleBorder(
@@ -315,7 +325,10 @@ Widget timeDate(dt1, dt2) {
   var now = new DateTime.now();
   // DateTime dt1 = DateTime.parse("2022-06-12T21:30:00");
   // DateTime dt2 = DateTime.parse("2022-06-12T21:30:00");
-  return Text(dt1.compareTo(now) > 0 ? "تبدأ الجولة في" : "تنتهي الجولة في ",
+  return Text(
+      dt1.compareTo(now) > 0
+          ? "تبدأ الجولة في الساعة"
+          : "تنتهي الجولة في الساعة",
       style: TextStyle(
           color: Color.fromARGB(255, 231, 136, 129),
           fontWeight: FontWeight.bold,
@@ -335,7 +348,7 @@ Widget StyDate(dt1, dt2) {
 
 Widget styleTimeDate(dt1, dt2) {
   var now = new DateTime.now();
-  String str = dt1.compareTo(now) > 0 ? dt1.toString() : dt1.toString();
+  String str = dt1.compareTo(now) > 0 ? dt1.toString() : dt2.toString();
 
   //find substring
   String result = str.substring(0, 4);
@@ -358,31 +371,7 @@ Widget styleTimeDate(dt1, dt2) {
         width: 30,
         alignment: Alignment.center,
         margin: EdgeInsets.all(5),
-        color: MyColors.color1,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(result5.toString(),
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
-                    fontFamily: 'Almarai')),
-            Text("ثانية",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 5,
-                    fontFamily: 'Almarai'))
-          ],
-        ),
-      ),
-      Container(
-        height: 30,
-        width: 30,
-        alignment: Alignment.center,
-        margin: EdgeInsets.all(5),
-        color: MyColors.color1,
+        // color: MyColors.color1,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -402,11 +391,20 @@ Widget styleTimeDate(dt1, dt2) {
         ),
       ),
       Container(
+          alignment: Alignment.center,
+          //color: MyColors.color1,
+          child: Text(":",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                  fontFamily: 'Almarai'))),
+      Container(
         height: 30,
         width: 30,
         margin: EdgeInsets.all(5),
         alignment: Alignment.center,
-        color: MyColors.color1,
+        // color: MyColors.color1,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -416,7 +414,7 @@ Widget styleTimeDate(dt1, dt2) {
                     fontWeight: FontWeight.bold,
                     fontSize: 10,
                     fontFamily: 'Almarai')),
-            Text("ساعة",
+            Text("الساعة",
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -426,29 +424,12 @@ Widget styleTimeDate(dt1, dt2) {
         ),
       ),
       Container(
-        height: 30,
-        width: 30,
-        alignment: Alignment.center,
-        margin: EdgeInsets.all(5),
-        color: MyColors.color1,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text((int.parse(result3) / 24).toInt().toString(),
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
-                    fontFamily: 'Almarai')),
-            Text("يوم",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 5,
-                    fontFamily: 'Almarai'))
-          ],
-        ),
-      ),
+          child: Text(int.parse(result3) > 12 ? "PM" : "AM",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                  fontFamily: 'Almarai'))),
     ],
   );
 }
