@@ -313,71 +313,84 @@ class _infoVoteState extends State<infoVote> {
                           Color(0xff121E39)
                         ]),
                     borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: Column(
-                  children: [
-                    Text(
-                      controller.savegetComptWinnerNickName.toString(),
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 13,
-                          fontFamily: 'Almarai'),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      width: 105,
-                      height: 74,
-                      padding: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Color(0xff1A1E2B).withOpacity(0.5),
-                      ),
-                      child: Column(
+                child: controller.savegetComptWinnerNickName != null
+                    ? Column(
                         children: [
-                          Image.asset("assets/images/trophy.png"),
+                          Text(
+                            controller.savegetComptWinnerNickName.toString(),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 13,
+                                fontFamily: 'Almarai'),
+                          ),
                           SizedBox(
                             height: 5,
                           ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            width: 105,
+                            height: 74,
+                            padding: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color(0xff1A1E2B).withOpacity(0.5),
+                            ),
+                            child: Column(
+                              children: [
+                                Image.asset("assets/images/trophy.png"),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  controller.monyrComp.toString(),
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontFamily: 'Almarai'),
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
                           Text(
-                            controller.monyrComp.toString(),
+                            "Number of Votes".tr,
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 18,
+                                fontSize: 14,
                                 fontFamily: 'Almarai'),
-                          )
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          GetBuilder<homecontroller>(builder: (controller) {
+                            return (Text(
+                              "(" +
+                                  controller.savegetComptWinnerNumbeVote
+                                      .toString() +
+                                  ")",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontFamily: 'Almarai'),
+                            ));
+                          })
                         ],
+                      )
+                    : Container(
+                        child: Center(
+                          child: Text(
+                            "لم يشارك أحد",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontFamily: 'Almarai'),
+                          ),
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      "Number of Votes".tr,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontFamily: 'Almarai'),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    GetBuilder<homecontroller>(builder: (controller) {
-                      return (Text(
-                        "(" +
-                            controller.savegetComptWinnerNumbeVote.toString() +
-                            ")",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontFamily: 'Almarai'),
-                      ));
-                    })
-                  ],
-                ),
               ),
             ),
           )

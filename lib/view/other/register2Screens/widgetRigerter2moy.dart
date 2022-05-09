@@ -10,7 +10,9 @@ Widget widgetRigerter2moy() {
       child: GetBuilder<homecontroller>(builder: (controller) {
         return (ListView.builder(
             // reverse: true,
-            itemCount: controller.saverecivedLog.length,
+            itemCount: controller.saverecivedLog.length != null
+                ? controller.saverecivedLog.length
+                : 0,
             itemBuilder: (context, index) {
               int itemCount = controller.saverecivedLog.length;
               int reversedIndex = itemCount - 1 - index;

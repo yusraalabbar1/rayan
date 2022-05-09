@@ -84,7 +84,7 @@ const Map<String, String> ar = {
   "All contestants": "كل المتسابقين",
   "Social Media": "وسائل التواصل الإجتماعي :",
   "Sorry,the contest is over": "عذرا المسابقة منتهية",
-  "Round has not started": "لم تبدأ الجولة",
+  "Round has not started": " الجولة الأولى",
   "Contest is over": "المسابقة منتهية",
   "The remaining Time": "الوقت المتبقي ",
   "minute": "دقيقة",
@@ -104,6 +104,7 @@ const Map<String, String> ar = {
   "The current balance": "رصيدك الحالي",
   "Dollar": " دولار",
   "Edit": " إجراء تعديل ",
+  "Round has not started..": "لم تبدأ الجولة",
   ///////////////////////////////////////
   "Change profile picture": "تغيير الصورة الشخصية",
   "Edit information": "تعديل المعلومات",
@@ -129,5 +130,7 @@ const Map<String, String> ar = {
 
 ////////////////////////////
   "Notifiction": "الاشعارات",
-  "This is a trial version": "هذا الاصدار تجريبي"
+  "This is a trial version": "هذا الاصدار تجريبي",
+  "AM": "صباحا",
+  "PM": "مساء"
 };

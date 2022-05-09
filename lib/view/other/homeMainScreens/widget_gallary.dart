@@ -408,7 +408,10 @@ Widget styleTimeDate(dt1, dt2) {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(result3.toString(),
+            Text(
+                (int.parse(result3)) > 12
+                    ? ((int.parse(result3)) - 12).toString()
+                    : (int.parse(result3)).toString(),
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -424,11 +427,11 @@ Widget styleTimeDate(dt1, dt2) {
         ),
       ),
       Container(
-          child: Text(int.parse(result3) > 12 ? "PM" : "AM",
+          child: Text(int.parse(result3) > 12 ? "PM".tr : "AM".tr,
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 12,
+                  fontSize: 8,
                   fontFamily: 'Almarai'))),
     ],
   );

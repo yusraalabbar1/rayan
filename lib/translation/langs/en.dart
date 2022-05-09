@@ -105,6 +105,7 @@ const Map<String, String> en = {
   "The current balance": "The current balance",
   "Dollar": " Dollar",
   "Edit": "Edit",
+  "Round has not started..": "Round has not started..",
   ///////////////////////////////////////
   "Change profile picture": "Change profile picture",
   "Edit information": "Edit information",
@@ -117,5 +118,7 @@ const Map<String, String> en = {
   "Connect Us": "Connect Us",
   "Log out": "Log out",
   "Notifiction": "Notifiction",
-  "This is a trial version": "This is a trial version"
+  "This is a trial version": "This is a trial version",
+  "AM": "AM",
+  "PM": "PM"
 };

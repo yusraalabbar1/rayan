@@ -12,7 +12,9 @@ Widget widgetRigerter1moy() {
             // reverse: true,
             itemCount: controller.saveregisterLog.length,
             itemBuilder: (context, index) {
-              int itemCount = controller.saveregisterLog.length;
+              int itemCount = controller.saveregisterLog.length != null
+                  ? controller.saveregisterLog.length
+                  : 0;
               int reversedIndex = itemCount - 1 - index;
               return Padding(
                 padding: const EdgeInsets.all(8.0),

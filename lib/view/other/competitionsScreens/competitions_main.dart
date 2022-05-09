@@ -434,7 +434,7 @@ class _competitionsMainState extends State<competitionsMain> {
                             animType: AnimType.RIGHSLIDE,
                             headerAnimationLoop: true,
                             btnOkOnPress: () {},
-                            body: Text("Round has not started".tr,
+                            body: Text("Round has not started..".tr,
                                 style: TextStyle(
                                     color: MyColors.color3,
                                     fontSize: 14,
@@ -646,11 +646,9 @@ Widget timeDate(dt1, dt2) {
   var now = new DateTime.now();
   // DateTime dt1 = DateTime.parse("2022-06-12T21:30:00");
   // DateTime dt2 = DateTime.parse("2022-06-12T21:30:00");
-  print(DateTime.parse(dt1).compareTo(now) > 0
-      ? "تبدأ الجولة في الساعة "
-      : "تنتهي الجولة في الساعة");
+
   return Text(
-      DateTime.parse(dt1).compareTo(now) > 0
+      dt1.compareTo(now) > 0
           ? "تبدأ الجولة في الساعة "
           : "تنتهي الجولة في الساعة",
       //dt1.compareTo(now) < 0 && dt2.compareTo(now) > 0
@@ -680,8 +678,7 @@ Widget StyDate(dt1, dt2) {
 
 Widget styleTimeDate(dt1, dt2) {
   var now = new DateTime.now();
-  String str =
-      DateTime.parse(dt1).compareTo(now) > 0 ? dt1.toString() : dt2.toString();
+  String str = dt1.compareTo(now) > 0 ? dt1.toString() : dt2.toString();
 
   //find substring
   String result = str.substring(0, 4);
@@ -748,7 +745,10 @@ Widget styleTimeDate(dt1, dt2) {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(result3.toString(),
+            Text(
+                (int.parse(result3)) > 12
+                    ? ((int.parse(result3)) - 12).toString()
+                    : (int.parse(result3)).toString(),
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -764,11 +764,11 @@ Widget styleTimeDate(dt1, dt2) {
         ),
       ),
       Container(
-          child: Text(int.parse(result3) > 12 ? "PM" : "AM",
+          child: Text(int.parse(result3) > 12 ? "PM".tr : "AM".tr,
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 12,
+                  fontSize: 8,
                   fontFamily: 'Almarai'))),
     ],
   );
