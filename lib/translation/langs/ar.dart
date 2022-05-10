@@ -46,6 +46,8 @@ const Map<String, String> ar = {
   "privacy policy": "سياسة الخصوصية",
   "You are agreeing to our terms of service and privacy plicy?":
       "أنت توافق على شروط الخدمة وسياسة الخصوصية الخاصة بنا?",
+  "You are agreeing to our terms of service": "أنت توافق على الشروط والأحكام?",
+  "and privacy plicy": "وسياسة الخصوصية?",
 
   /********************************* */
   "Total available balance": "اجمالي الرصيد المتوفر",

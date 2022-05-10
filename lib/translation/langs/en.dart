@@ -120,5 +120,8 @@ const Map<String, String> en = {
   "Notifiction": "Notifiction",
   "This is a trial version": "This is a trial version",
   "AM": "AM",
-  "PM": "PM"
+  "PM": "PM",
+  "You are agreeing to our terms of service":
+      "You are agreeing to our terms of service",
+  "and privacy plicy": "and privacy plicy"
 };

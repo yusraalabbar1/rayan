@@ -3,16 +3,10 @@ import 'package:get/get.dart';
 import 'package:rayan/model/modeApi/modelMedia/setting_social_media.dart';
 import 'package:rayan/utils/constant/color.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
-import 'package:rayan/view/other/widget/design_appbar.dart';
 
-class terms extends StatefulWidget {
-  terms({Key? key}) : super(key: key);
+class privecy extends StatelessWidget {
+  const privecy({Key? key}) : super(key: key);
 
-  @override
-  State<terms> createState() => _termsState();
-}
-
-class _termsState extends State<terms> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,10 +19,10 @@ class _termsState extends State<terms> {
         // rowAppbar(context),
         Center(
           child: Container(
-              margin: EdgeInsets.all(15),
+              margin: EdgeInsets.only(right: 15, left: 15, top: 50, bottom: 50),
               padding: EdgeInsets.all(15),
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height / 2,
+              height: MediaQuery.of(context).size.height,
               decoration: const BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
@@ -39,7 +33,7 @@ class _termsState extends State<terms> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Terms".tr,
+                    Text("privacy policy".tr,
                         style: TextStyle(
                             color: MyColors.color1,
                             fontSize: 16,
@@ -49,7 +43,7 @@ class _termsState extends State<terms> {
                       height: 20,
                     ),
                     Center(
-                      child: Text(term,
+                      child: Text(Privacy,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 12,

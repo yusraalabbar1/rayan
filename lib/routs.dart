@@ -8,6 +8,7 @@ import 'package:rayan/view/other/agentsScreens/part2agent.dart';
 import 'package:rayan/view/other/homeMainScreens/notification_page.dart';
 import 'package:rayan/view/other/homeMainScreens/question_winer.dart';
 import 'package:rayan/view/other/setting/aboutUs.dart';
+import 'package:rayan/view/other/setting/privecy.dart';
 import 'package:rayan/view/other/setting/terms.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rayan/control/homecontroller.dart';
@@ -107,6 +108,7 @@ class MyApp extends StatelessWidget {
         "agentDet": ((context) => agentDet()),
         // "UploadImageScreen": ((context) => UploadImageScreen()),
         "quistWinner": ((context) => quistWinner()),
+        "privecy": ((context) => privecy()),
       },
       // supportedLocales: [
       //   const Locale('en'),

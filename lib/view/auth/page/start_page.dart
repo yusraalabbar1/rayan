@@ -127,18 +127,36 @@ class _startPageState extends State<startPage>
             alignment: Alignment.bottomCenter,
             child: Container(
               margin: EdgeInsets.only(bottom: 20),
-              child: InkWell(
-                onTap: () {
-                  Navigator.of(context).pushNamed("terms");
-                },
-                child: Text(
-                  "You are agreeing to our terms of service and privacy plicy"
-                      .tr,
-                  style: TextStyle(
-                      fontSize: 11,
-                      color: MyColors.color3,
-                      fontFamily: 'Almarai'),
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).pushNamed("terms");
+                    },
+                    child: Text(
+                      "You are agreeing to our terms of service".tr,
+                      style: TextStyle(
+                          fontSize: 11,
+                          color: MyColors.color1,
+                          decoration: TextDecoration.underline,
+                          fontFamily: 'Almarai'),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).pushNamed("privecy");
+                    },
+                    child: Text(
+                      "and privacy plicy".tr,
+                      style: TextStyle(
+                          fontSize: 11,
+                          color: MyColors.color1,
+                          decoration: TextDecoration.underline,
+                          fontFamily: 'Almarai'),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -152,76 +170,77 @@ class _startPageState extends State<startPage>
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text("privacy policy".tr,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Almarai')),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(Privacy.toString(),
-                    style: TextStyle(
-                        color: MyColors.color2,
-                        fontSize: 13,
-                        fontFamily: 'Almarai')),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                    "You are agreeing to our terms of service and privacy plicy?"
-                        .tr,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Almarai')),
-                SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    RaisedButton(
-                      color: MyColors.color1,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
-                          side: BorderSide(color: MyColors.color1, width: 2)),
-                      child: Text("ok".tr,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 13,
-                              fontFamily: 'Almarai')),
-                      onPressed: () {
-                        Navigator.of(context).pushReplacementNamed("login");
-                      },
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    RaisedButton(
-                      color: Color.fromARGB(255, 231, 38, 64),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
-                          side: BorderSide(
-                              color: Color.fromARGB(255, 231, 38, 64),
-                              width: 2)),
-                      child: Text("cancle".tr,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 13,
-                              fontFamily: 'Almarai')),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                  ],
-                )
-              ],
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text("Terms".tr,
+                      style: TextStyle(
+                          color: MyColors.color2,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Almarai')),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(term.toString(),
+                      style: TextStyle(
+                          color: MyColors.color2,
+                          fontSize: 13,
+                          fontFamily: 'Almarai')),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text("You are agreeing to our terms of service".tr,
+                      style: TextStyle(
+                          color: MyColors.color2,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Almarai')),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      RaisedButton(
+                        color: MyColors.color1,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                            side: BorderSide(color: MyColors.color1, width: 2)),
+                        child: Text("ok".tr,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 13,
+                                fontFamily: 'Almarai')),
+                        onPressed: () {
+                          Navigator.of(context).pushReplacementNamed("login");
+                        },
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      RaisedButton(
+                        color: Color.fromARGB(255, 231, 38, 64),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                            side: BorderSide(
+                                color: Color.fromARGB(255, 231, 38, 64),
+                                width: 2)),
+                        child: Text("cancle".tr,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 13,
+                                fontFamily: 'Almarai')),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           );
         });
