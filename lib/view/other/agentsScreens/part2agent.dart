@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/modelAgent/api_all_agents.dart';
 import 'package:rayan/utils/constant/color.dart';
+import 'package:rayan/utils/constant/url.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
 import 'package:rayan/view/other/agentsScreens/widgetgallaryforagent.dart';
 import 'package:rayan/view/other/agentsScreens/widgetmediaagent.dart';
@@ -49,7 +50,8 @@ class _agentDetState extends State<agentDet> {
                             allAgent[controller.indexAgent]['imageUrl'] != null
                                 ? Image(
                                     image: CachedNetworkImageProvider(
-                                      "http://212.24.108.54/wsaAdmin/images/${allAgent[controller.indexAgent]['imageUrl']}",
+                                      baseUrlAdmin +
+                                          "/images/${allAgent[controller.indexAgent]['imageUrl']}",
                                     ),
                                     fit: BoxFit.cover,
                                   )

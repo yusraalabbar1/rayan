@@ -16,8 +16,8 @@ Future agentInfo() async {
   };
   var request = http.Request(
       'GET',
-      Uri.parse(
-          'http://212.24.108.54/wsa/api/agent/details/${allAgent[controller.indexAgent]['id']}'));
+      Uri.parse(URL_BASE +
+          '/agent/details/${allAgent[controller.indexAgent]['id']}'));
 
   request.headers.addAll(headers);
 

@@ -7,6 +7,7 @@ import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
 import 'package:rayan/model/modelJson/modelCommissionBalance.dart';
 import 'package:rayan/model/modelJson/userBalanceModel.dart';
 import 'package:rayan/model/modelJson/userBalancmodelLog.dart';
+import 'package:rayan/utils/constant/url.dart';
 
 var balancecommission;
 Future comissionBalanc() async {
@@ -15,7 +16,7 @@ Future comissionBalanc() async {
   var request = http.Request(
       'GET',
       Uri.parse(
-          'http://212.24.108.54/wsa/api/user/userCommissionBalances?UserId=${idSaveprefpref}'));
+          URL_BASE + '/user/userCommissionBalances?UserId=${idSaveprefpref}'));
   request.body = '''''';
   request.headers.addAll(headers);
   http.StreamedResponse response = await request.send();

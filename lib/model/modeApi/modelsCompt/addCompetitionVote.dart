@@ -11,6 +11,7 @@ import 'package:rayan/model/modeApi/modelMedia/setting_social_media.dart';
 import 'package:rayan/model/modeApi/modelsCompt/allMemberCompitition.dart';
 import 'package:rayan/model/modelJson/modeladdCompitationVote.dart';
 import 'package:rayan/utils/constant/color.dart';
+import 'package:rayan/utils/constant/url.dart';
 
 Future addCompitationVote(idComp, memberId, userId, context) async {
   print(idComp);
@@ -21,9 +22,7 @@ Future addCompitationVote(idComp, memberId, userId, context) async {
     'Content-Type': 'application/json'
   };
   var request = http.Request(
-      'POST',
-      Uri.parse(
-          'http://212.24.108.54/wsa/api/Competitions/addCompetitionVote'));
+      'POST', Uri.parse(URL_BASE + '/Competitions/addCompetitionVote'));
   request.body = json.encode(
       {"CompetitionId": idComp, "MemberId": memberId, "UserId": userId});
   request.headers.addAll(headers);
@@ -104,9 +103,7 @@ Future extraAddCompitationVote(idComp, memberId, userId, context) async {
     'Content-Type': 'application/json'
   };
   var request = http.Request(
-      'POST',
-      Uri.parse(
-          'http://212.24.108.54/wsa/api/Competitions/extraCompetitionVote'));
+      'POST', Uri.parse(URL_BASE + '/Competitions/extraCompetitionVote'));
   request.body = json.encode(
       {"CompetitionId": idComp, "MemberId": memberId, "UserId": userId});
   request.headers.addAll(headers);

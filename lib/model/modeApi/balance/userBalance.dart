@@ -6,15 +6,14 @@ import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
 import 'package:rayan/model/modelJson/userBalanceModel.dart';
 import 'package:rayan/model/modelJson/userBalancmodelLog.dart';
+import 'package:rayan/utils/constant/url.dart';
 
 var balanceForUser;
 Future userBalanc() async {
   homecontroller controller = Get.put(homecontroller());
   var headers = {'Authorization': "Bearer $tokenloginresult"};
-  var request = http.Request(
-      'GET',
-      Uri.parse(
-          'http://212.24.108.54/wsa/api/user/userBalances?UserId=${idSaveprefpref}'));
+  var request = http.Request('GET',
+      Uri.parse(URL_BASE + '/user/userBalances?UserId=${idSaveprefpref}'));
   request.body = '''''';
   request.headers.addAll(headers);
   http.StreamedResponse response = await request.send();

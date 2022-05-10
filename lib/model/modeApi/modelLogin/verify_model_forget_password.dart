@@ -13,8 +13,7 @@ import 'package:rayan/utils/constant/url.dart';
 
 generate() async {
   var headers = {'Content-Type': 'application/json'};
-  var request = http.Request(
-      'POST', Uri.parse('http://212.24.108.54/wsa/api/user/newOtp'));
+  var request = http.Request('POST', Uri.parse(URL_BASE + '/user/newOtp'));
   request.body = json.encode({"UserName": usernamepref});
   request.headers.addAll(headers);
 

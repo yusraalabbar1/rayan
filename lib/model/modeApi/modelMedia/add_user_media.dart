@@ -14,8 +14,8 @@ Future addUserMedia(value, id) async {
     'Accept': 'application/json',
     'Authorization': "Bearer $tokenloginresult"
   };
-  var request = http.Request(
-      'POST', Uri.parse('http://212.24.108.54/wsa/api/user/addUserMedia'));
+  var request =
+      http.Request('POST', Uri.parse(URL_BASE + '/user/addUserMedia'));
   request.body = json
       .encode({"UserId": idSaveprefpref, "MediaTypeId": id, "Value": value});
   request.headers.addAll(headers);

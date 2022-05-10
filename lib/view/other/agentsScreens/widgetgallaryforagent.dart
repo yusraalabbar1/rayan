@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/modelAgent/agents_details.dart';
 import 'package:rayan/model/modeApi/modelAgent/api_all_agents.dart';
+import 'package:rayan/utils/constant/url.dart';
 
 Widget widgetgallaryagent(context, i) {
   homecontroller controller = Get.put(homecontroller());
@@ -31,7 +32,8 @@ Widget widgetgallaryagent(context, i) {
                                     null
                                 ? Image(
                                     image: CachedNetworkImageProvider(
-                                      'http://212.24.108.54/wsaAdmin/images/agent/${controller.saveImagesAgents[index]}',
+                                      baseUrlAdmin +
+                                          '/images/agent/${controller.saveImagesAgents[index]}',
                                     ),
                                     fit: BoxFit.fill,
                                   )

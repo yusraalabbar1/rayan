@@ -22,7 +22,7 @@ getSettingRecharge() async {
   var request = http.Request(
       'GET',
       Uri.parse(
-          "http://212.24.108.54/wsa/api/setting?settingName=setting.competition.recharge.text"));
+          URL_BASE + "/setting?settingName=setting.competition.recharge.text"));
 
   http.StreamedResponse response = await request.send();
 
@@ -38,9 +38,7 @@ getSettingRecharge() async {
 
 getSettingAbout() async {
   var request = http.Request(
-      'GET',
-      Uri.parse(
-          "http://212.24.108.54/wsa/api/setting?settingName=setting.aboutus"));
+      'GET', Uri.parse(URL_BASE + "/setting?settingName=setting.aboutus"));
 
   http.StreamedResponse response = await request.send();
 
@@ -56,9 +54,7 @@ getSettingAbout() async {
 
 getSettingTerms() async {
   var request = http.Request(
-      'GET',
-      Uri.parse(
-          "http://212.24.108.54/wsa/api/setting?settingName=setting.terms"));
+      'GET', Uri.parse(URL_BASE + "/setting?settingName=setting.terms"));
 
   http.StreamedResponse response = await request.send();
 
@@ -73,10 +69,8 @@ getSettingTerms() async {
 }
 
 getSettingAmount() async {
-  var request = http.Request(
-      'GET',
-      Uri.parse(
-          "http://212.24.108.54/wsa/api/setting?settingName=setting.extra.vote.amount"));
+  var request = http.Request('GET',
+      Uri.parse(URL_BASE + "/setting?settingName=setting.extra.vote.amount"));
 
   http.StreamedResponse response = await request.send();
 
@@ -92,9 +86,7 @@ getSettingAmount() async {
 
 getSettingSpicSocialMediatwitter() async {
   var request = http.Request(
-      'GET',
-      Uri.parse(
-          "http://212.24.108.54/wsa/api/setting?settingName=setting.twitter"));
+      'GET', Uri.parse(URL_BASE + "/setting?settingName=setting.twitter"));
 
   http.StreamedResponse response = await request.send();
 
@@ -160,9 +152,7 @@ getSettingSpicSocialMediaInstagram() async {
 
 getSettingSpicSocialMediaWhatapp() async {
   var request = http.Request(
-      'GET',
-      Uri.parse(
-          'http://212.24.108.54/wsa/api/setting?settingName=setting.whatsup'));
+      'GET', Uri.parse(URL_BASE + '/setting?settingName=setting.whatsup'));
 
   http.StreamedResponse response = await request.send();
 
@@ -178,9 +168,7 @@ getSettingSpicSocialMediaWhatapp() async {
 
 getSettingSpicSocialMediaTelgram() async {
   var request = http.Request(
-      'GET',
-      Uri.parse(
-          'http://212.24.108.54/wsa/api/setting?settingName=setting.whatsup'));
+      'GET', Uri.parse(URL_BASE + '/setting?settingName=setting.whatsup'));
 
   http.StreamedResponse response = await request.send();
 
@@ -196,9 +184,7 @@ getSettingSpicSocialMediaTelgram() async {
 
 getSettingPrivasyPolicy() async {
   var request = http.Request(
-      'GET',
-      Uri.parse(
-          'http://212.24.108.54/wsa/api/setting?settingName=setting.privacy'));
+      'GET', Uri.parse(URL_BASE + '/setting?settingName=setting.privacy'));
 
   http.StreamedResponse response = await request.send();
 

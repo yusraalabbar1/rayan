@@ -7,6 +7,7 @@ import 'package:rayan/control/homecontroller.dart';
 import 'package:http/http.dart' as http;
 import 'package:rayan/model/modeApi/modelPorfile/update_user_media.dart';
 import 'package:rayan/model/modelJson/midel_getUserWithMedia.dart';
+import 'package:rayan/utils/constant/url.dart';
 
 List<Map> mediaUser = [];
 Future getUserProfilWithMedia(mediaValue, id) async {
@@ -19,7 +20,7 @@ Future getUserProfilWithMedia(mediaValue, id) async {
   var request = http.Request(
       'GET',
       Uri.parse(
-          'http://212.24.108.54/wsa/api/user/userProfileDetails?UserId=${idSaveprefpref}'));
+          URL_BASE + '/user/userProfileDetails?UserId=${idSaveprefpref}'));
   request.body = '''''';
   request.headers.addAll(headers);
 

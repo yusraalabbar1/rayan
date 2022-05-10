@@ -5,6 +5,7 @@ import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/modelsCompt/allMemberCompitition.dart';
 import 'package:rayan/model/modeApi/modelsCompt/model_compitition.dart';
 import 'package:rayan/utils/constant/color.dart';
+import 'package:rayan/utils/constant/url.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
 import 'package:rayan/view/other/competitionsScreens/widget_tow_button_compitition.dart';
 import 'package:rayan/view/other/widget/design_appbar.dart';
@@ -176,8 +177,8 @@ class _competitionsMainState extends State<competitionsMain> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
-                            image: NetworkImage(
-                                "http://212.24.108.54/wsaAdmin/images/${foundCompitition[index]['imageUrl']}"),
+                            image: NetworkImage(baseUrlAdmin +
+                                "/images/${foundCompitition[index]['imageUrl']}"),
                             fit: BoxFit.cover)),
                     //width: 500,
                     // width: 80,
@@ -483,8 +484,8 @@ class _competitionsMainState extends State<competitionsMain> {
                           ),
                           borderRadius: BorderRadius.circular(10.0),
                           image: DecorationImage(
-                              image: NetworkImage(
-                                  "http://212.24.108.54/wsaAdmin/images/${foundCompitition[index]['imageUrl']}"),
+                              image: NetworkImage(baseUrlAdmin +
+                                  "/images/${foundCompitition[index]['imageUrl']}"),
                               fit: BoxFit.cover)),
                     ),
                     Container(

@@ -6,6 +6,7 @@ import 'package:rayan/model/modeApi/modelMedia/setting_social_media.dart';
 import 'package:rayan/model/modeApi/modelsCompt/allMemberCompitition.dart';
 import 'package:rayan/model/modeApi/modelsCompt/model_compitition.dart';
 import 'package:rayan/utils/constant/color.dart';
+import 'package:rayan/utils/constant/url.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
 import 'package:rayan/view/other/widget/design_appbar.dart';
 import 'dart:async';
@@ -64,8 +65,8 @@ class _infoCompetState extends State<infoCompet> {
                     height: 123,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: NetworkImage(
-                                "http://212.24.108.54/wsaAdmin/images/${controller.saveImageComp}"),
+                            image: NetworkImage(baseUrlAdmin +
+                                "/images/${controller.saveImageComp}"),
                             fit: BoxFit.cover)),
                   ),
                   Container(

@@ -5,6 +5,7 @@ import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:platform_device_id/platform_device_id.dart';
+import 'package:rayan/utils/constant/url.dart';
 
 Future infoNotification() async {
   homecontroller controller = Get.put(homecontroller());
@@ -13,8 +14,8 @@ Future infoNotification() async {
     'Accept': 'application/json',
     'Authorization': "Bearer $tokenloginresult"
   };
-  var request = http.Request(
-      'POST', Uri.parse('http://212.24.108.54/wsa/api/user/addDeviceToken'));
+  var request =
+      http.Request('POST', Uri.parse(URL_BASE + '/user/addDeviceToken'));
   request.body =
       json.encode({"DeciveId": controller.devicIdsave, "Token": "test"});
   request.headers.addAll(headers);

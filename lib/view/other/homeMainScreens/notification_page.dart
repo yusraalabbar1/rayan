@@ -10,6 +10,7 @@ import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
 import 'package:rayan/model/modeApi/modelSetting/GetNotification.dart';
 import 'package:rayan/utils/constant/color.dart';
+import 'package:rayan/utils/constant/url.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
 
 class notificationPage extends StatefulWidget {
@@ -49,8 +50,8 @@ class _notificationPageState extends State<notificationPage>
     var headers = {'Authorization': ' Bearer $tokenloginresult'};
     var request = http.Request(
         'GET',
-        Uri.parse(
-            'http://212.24.108.54/wsa/api/notification/UpdateNotification?deviceId=${identifier}'));
+        Uri.parse(URL_BASE +
+            '/notification/UpdateNotification?deviceId=${identifier}'));
     request.body = '''''';
     request.headers.addAll(headers);
 
@@ -112,7 +113,8 @@ class _notificationPageState extends State<notificationPage>
                                           fit: BoxFit.cover,
                                         )
                                       : Image.network(
-                                          ("http://212.24.108.54/wsaAdmin/images/${notifmap[reversedIndex]["notificationImage"]}"),
+                                          (baseUrlAdmin +
+                                              "/images/${notifmap[reversedIndex]["notificationImage"]}"),
                                           fit: BoxFit.cover,
                                         )),
                               decoration: BoxDecoration(

@@ -6,6 +6,7 @@ import 'package:rayan/model/modeApi/modelAgent/agents_details.dart';
 import 'package:rayan/model/modeApi/modelAgent/api_all_agents.dart';
 import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
 import 'package:rayan/utils/constant/color.dart';
+import 'package:rayan/utils/constant/url.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
 import 'package:rayan/view/other/agentsScreens/part2agent.dart';
 import 'package:rayan/view/other/agentsScreens/widgetTowButtonagent.dart';
@@ -145,7 +146,8 @@ class _agentsMainState extends State<agentsMain> {
                                     child: foundAll[index]['imageUrl'] != null
                                         ? Image(
                                             image: CachedNetworkImageProvider(
-                                              'http://212.24.108.54/wsaAdmin/images/${foundAll[index]['imageUrl']}',
+                                              baseUrlAdmin +
+                                                  '/images/${foundAll[index]['imageUrl']}',
                                             ),
                                             fit: BoxFit.cover,
                                           )

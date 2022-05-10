@@ -11,10 +11,8 @@ import 'package:rayan/view/other/agentsScreens/agents_main.dart';
 
 Future updateNotification() async {
   var headers = {'Authorization': 'Bearer  $tokenloginresult'};
-  var request = http.Request(
-      'GET',
-      Uri.parse(
-          'http://212.24.108.54/wsa/api/notification/UpdateNotification?deviceId=test'));
+  var request = http.Request('GET',
+      Uri.parse(URL_BASE + '/notification/UpdateNotification?deviceId=test'));
   request.body = '''''';
   request.headers.addAll(headers);
 

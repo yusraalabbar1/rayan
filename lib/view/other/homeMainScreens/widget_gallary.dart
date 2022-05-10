@@ -6,6 +6,7 @@ import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/modelsCompt/model_compitition.dart';
 import 'package:rayan/utils/constant/color.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
+import 'package:rayan/utils/constant/url.dart';
 
 Widget widgetgallary(context) {
   return GetBuilder<homecontroller>(builder: (controller) {
@@ -69,8 +70,8 @@ Widget widgetgallary(context) {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               image: DecorationImage(
-                                  image: NetworkImage(
-                                      "http://212.24.108.54/wsaAdmin/images/${controller.saveMapCompitition[index]['imageUrl']}"),
+                                  image: NetworkImage(baseUrlAdmin +
+                                      "/images/${controller.saveMapCompitition[index]['imageUrl']}"),
                                   fit: BoxFit.cover)),
                           //width: 500,
                           // width: 80,

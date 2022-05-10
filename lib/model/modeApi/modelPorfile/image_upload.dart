@@ -11,6 +11,7 @@ import 'package:rayan/model/modelJson/addMember.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:async/async.dart';
 import 'package:http_parser/http_parser.dart';
+import 'package:rayan/utils/constant/url.dart';
 
 Future uploadImage(File file, fileName) async {
   Map<String, dynamic> fields = {
@@ -27,9 +28,7 @@ Future uploadImage(File file, fileName) async {
   };
   // prepare to calling api
   var uploadImageRequest = MultipartRequest(
-      'POST',
-      Uri.parse(
-          'http://212.24.108.54/wsaAdmin/api/UserImage/updateUserProfile'));
+      'POST', Uri.parse(baseUrlAdmin + '/api/UserImage/updateUserProfile'));
   // add header
   uploadImageRequest.headers.addAll(headers);
   if (file != null) {
@@ -59,8 +58,7 @@ Future uploadImage1(file, fileName) async {
     "Authorization": "Bearer ${tokenloginresult}",
     "Content-Type": "multipart/form-data"
   };
-  var postUri = Uri.parse(
-      "http://212.24.108.54/wsaAdmin/api/UserImage/updateUserProfile");
+  var postUri = Uri.parse(baseUrlAdmin + "/api/UserImage/updateUserProfile");
   var request = http.MultipartRequest("POST", postUri);
   request.headers.addAll(headers);
   request.fields['userId'] = idSaveprefpref.toString();
@@ -121,8 +119,7 @@ Upload(File imageFile, fileName) async {
     'Authorization': "Bearer ${tokenloginresult}",
     "Content-Type": "multipart/form-data"
   };
-  var uri = Uri.parse(
-      'http://212.24.108.54/wsaAdmin/api/UserImage/updateUserProfile');
+  var uri = Uri.parse(baseUrlAdmin + '/api/UserImage/updateUserProfile');
 
   var request = http.MultipartRequest("POST", uri);
   var multipartFile = http.MultipartFile('file', stream, length,

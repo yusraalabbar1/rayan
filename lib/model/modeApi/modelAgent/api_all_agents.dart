@@ -17,8 +17,8 @@ Future getAllAgents(tokenloginresult, countryIdSaveprf, cityIdSavepref) async {
   };
   var request = http.Request(
       'GET',
-      Uri.parse(
-          "http://212.24.108.54/wsa/api/agent/filter-agent?countryId=${countryIdSaveprf}&cityId=${cityIdSavepref}"));
+      Uri.parse(URL_BASE +
+          "/agent/filter-agent?countryId=${countryIdSaveprf}&cityId=${cityIdSavepref}"));
 
   request.headers.addAll(headers);
 

@@ -7,6 +7,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:rayan/model/modelJson/modelPostQuistionWinner.dart';
 import 'package:rayan/utils/constant/color.dart';
+import 'package:rayan/utils/constant/url.dart';
 
 Future postQuistionWiner(compmemId, ans1, ans2, context) async {
   var headers = {
@@ -14,9 +15,7 @@ Future postQuistionWiner(compmemId, ans1, ans2, context) async {
     'Content-Type': 'application/json'
   };
   var request = http.Request(
-      'POST',
-      Uri.parse(
-          'http://212.24.108.54/wsa/api/Competitions/addCompetitionWinnerAnswer'));
+      'POST', Uri.parse(URL_BASE + '/Competitions/addCompetitionWinnerAnswer'));
   request.body = json.encode([
     {"CompetitionMemberId": compmemId, "WinnerQuestionId": 1, "Answer": ans1},
     {"CompetitionMemberId": compmemId, "WinnerQuestionId": 2, "Answer": ans2}

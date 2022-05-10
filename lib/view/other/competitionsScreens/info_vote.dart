@@ -13,6 +13,7 @@ import 'package:rayan/model/modeApi/modelsCompt/getWinnerQuestion.dart';
 import 'package:rayan/model/modeApi/modelsCompt/get_winner_answer.dart';
 import 'package:rayan/model/modeApi/modelsCompt/model_compitition.dart';
 import 'package:rayan/utils/constant/color.dart';
+import 'package:rayan/utils/constant/url.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
 import 'package:rayan/view/other/widget/design_appbar.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -70,8 +71,8 @@ class _infoVoteState extends State<infoVote> {
                     height: 123,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: NetworkImage(
-                                "http://212.24.108.54/wsaAdmin/images/${controller.saveImageComp}"),
+                            image: NetworkImage(baseUrlAdmin +
+                                "/images/${controller.saveImageComp}"),
                             fit: BoxFit.cover)),
                   ),
                   Container(
@@ -569,8 +570,8 @@ class _infoVoteState extends State<infoVote> {
                                         null
                                     ? NetworkImage(
                                         "https://media.istockphoto.com/vectors/avatar-person-user-icon-blue-color-vector-id1216255389?k=20&m=1216255389&s=170667a&w=0&h=uklU-WnkSAvUCtqrB4vxbga1hfYfBWRcQQlEYKhhrdQ=")
-                                    : NetworkImage(
-                                        "http://212.24.108.54/wsaAdmin/images/${controller.savememberInCompt[index]['memberImageUrl']}"),
+                                    : NetworkImage(baseUrlAdmin +
+                                        "/images/${controller.savememberInCompt[index]['memberImageUrl']}"),
                                 fit: BoxFit.cover,
                               )),
                         ),

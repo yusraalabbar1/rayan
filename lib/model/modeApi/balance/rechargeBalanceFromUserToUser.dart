@@ -8,13 +8,15 @@ import 'package:rayan/model/modelJson/rechargeBalanceFromUserToUserModel.dart';
 import 'package:rayan/utils/constant/color.dart';
 import 'dart:async';
 
+import 'package:rayan/utils/constant/url.dart';
+
 Future rechargeBalanceFromUserToUser(context, unique, balanc) async {
   var headers = {
     'Authorization': "Bearer $tokenloginresult",
     'Content-Type': 'application/json'
   };
-  var request = http.Request(
-      'POST', Uri.parse('http://212.24.108.54/wsa/api/user/rechargeToUser'));
+  var request =
+      http.Request('POST', Uri.parse(URL_BASE + '/user/rechargeToUser'));
   request.body = json.encode(
       {"UserId": idSaveprefpref, "ToUniqueCode": unique, "Balance": balanc});
   request.headers.addAll(headers);

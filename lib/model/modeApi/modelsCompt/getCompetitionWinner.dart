@@ -14,7 +14,7 @@ Future getComptWinner(tokenloginresult, idcopmtition) async {
   var request = http.Request(
       'GET',
       Uri.parse(
-          'http://212.24.108.54/wsa/api/Competitions/getCompetitionWinner/${idcopmtition}'));
+          URL_BASE + '/Competitions/getCompetitionWinner/${idcopmtition}'));
   request.body = '''''';
   request.headers.addAll(headers);
 

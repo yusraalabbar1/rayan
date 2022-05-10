@@ -17,9 +17,7 @@ Future allMemberCompitition(id) async {
   homecontroller controller = Get.put(homecontroller());
   var headers = {'Authorization': "Bearer $tokenloginresult"};
   var request = http.Request(
-      'GET',
-      Uri.parse(
-          'http://212.24.108.54/wsa/api/Competitions/competitionMember/$id'));
+      'GET', Uri.parse(URL_BASE + '/Competitions/competitionMember/$id'));
   request.body = '''''';
   request.headers.addAll(headers);
   http.StreamedResponse response = await request.send();

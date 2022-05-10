@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
 import 'package:rayan/model/modelJson/userBalancmodelLog.dart';
+import 'package:rayan/utils/constant/url.dart';
 
 List<Map> register = [];
 List<Map> recived = [];
@@ -17,7 +18,7 @@ Future userBalancLog() async {
   var request = http.Request(
       'GET',
       Uri.parse(
-          'http://212.24.108.54/wsa/api/user/getUserBalanceLogs?UserId=${idSaveprefpref}'));
+          URL_BASE + '/user/getUserBalanceLogs?UserId=${idSaveprefpref}'));
   request.body = '''''';
   request.headers.addAll(headers);
   http.StreamedResponse response = await request.send();

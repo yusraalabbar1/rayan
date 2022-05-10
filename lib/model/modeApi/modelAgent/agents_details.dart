@@ -19,8 +19,7 @@ Future agentDetails(id) async {
     'Accept': 'application/json',
     'Authorization': "Bearer $tokenloginresult"
   };
-  var request = http.Request(
-      'GET', Uri.parse('http://212.24.108.54/wsa/api/agent/details/$id'));
+  var request = http.Request('GET', Uri.parse(URL_BASE + '/agent/details/$id'));
 
   request.headers.addAll(headers);
 

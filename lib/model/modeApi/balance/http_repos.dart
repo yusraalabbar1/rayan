@@ -12,7 +12,7 @@ class HttpRequest {
       String contentType = Headers.jsonContentType}) async {
     Response? response;
 
-    const String baseUrl = "http://212.24.108.54/wsa/api/";
+    const String baseUrl = "http://94.127.214.222/WsaAPI/api/";
 
     final dioClient = Dio()
       ..options = BaseOptions(

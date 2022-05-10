@@ -5,13 +5,14 @@ import 'package:rayan/control/homecontroller.dart';
 import 'package:http/http.dart' as http;
 import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
 import 'package:rayan/model/modelJson/modelquestinWinner.dart';
+import 'package:rayan/utils/constant/url.dart';
 
 List<Map> winnerQustion = [];
 Future getWinnerQustion() async {
   homecontroller controller = Get.put(homecontroller());
   var headers = {'Authorization': "Bearer $tokenloginresult"};
-  var request = http.Request('GET',
-      Uri.parse('http://212.24.108.54/wsa/api/commonQuestion/winnerQuestion'));
+  var request = http.Request(
+      'GET', Uri.parse(URL_BASE + '/commonQuestion/winnerQuestion'));
   request.body = '''''';
   request.headers.addAll(headers);
 

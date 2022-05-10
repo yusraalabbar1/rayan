@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:get/get.dart';
 import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
+import 'package:rayan/utils/constant/url.dart';
 
 Widget widetWinner(context) {
   homecontroller controller = Get.put(homecontroller());
@@ -73,7 +74,8 @@ Widget widetWinner(context) {
                                               MainAxisAlignment.center,
                                           children: [
                                             Image.network(
-                                              "http://212.24.108.54/wsaAdmin/images/${controller.saveListWinner[index]['countryFlag']}",
+                                              baseUrlAdmin +
+                                                  "/images/${controller.saveListWinner[index]['countryFlag']}",
                                               width: 20,
                                               height: 20,
                                             ),
@@ -145,7 +147,8 @@ Widget widetWinner(context) {
                                                         ['imageProfile'] ==
                                                     null
                                                 ? "https://media.istockphoto.com/vectors/avatar-person-user-icon-blue-color-vector-id1216255389?k=20&m=1216255389&s=170667a&w=0&h=uklU-WnkSAvUCtqrB4vxbga1hfYfBWRcQQlEYKhhrdQ="
-                                                : "http://212.24.108.54/wsaAdmin/images/${controller.saveListWinner[index]['imageProfile']}"),
+                                                : baseUrlAdmin +
+                                                    "/images/${controller.saveListWinner[index]['imageProfile']}"),
                                             fit: BoxFit.cover,
                                           )),
                                     ),

@@ -14,10 +14,8 @@ Future getWinnerAnswer(id) async {
 
   /**************************** */
   var headers = {'Authorization': "Bearer $tokenloginresult"};
-  var request = http.Request(
-      'GET',
-      Uri.parse(
-          'http://212.24.108.54/wsa/api/Competitions/getCompetitionWinnerAnswer/$id'));
+  var request = http.Request('GET',
+      Uri.parse(URL_BASE + '/Competitions/getCompetitionWinnerAnswer/$id'));
   request.body = '''''';
   request.headers.addAll(headers);
   http.StreamedResponse response = await request.send();

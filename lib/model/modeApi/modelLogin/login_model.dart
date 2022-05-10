@@ -93,8 +93,7 @@ getpreflog() async {
     print("imageProfileSavepref");
     print("2");
     print(imageProfileSavepref);
-    controller.SavePathImage(
-        "http://212.24.108.54/wsaAdmin/images/" + imageProfileSavepref);
+    controller.SavePathImage(baseUrlAdmin + "/images/" + imageProfileSavepref);
   }
   var identifier;
   final DeviceInfoPlugin deviceInfoPlugin = new DeviceInfoPlugin();
@@ -192,8 +191,8 @@ sendIpToken(tokenloginresult) async {
     'Authorization': 'Bearer $tokenloginresult',
     'Content-Type': 'application/json'
   };
-  var request = http.Request(
-      'POST', Uri.parse('http://212.24.108.54/wsa/api/user/addDeviceToken'));
+  var request =
+      http.Request('POST', Uri.parse(URL_BASE + '/user/addDeviceToken'));
   request.body = json.encode({"DeciveId": identifier, "Token": token});
   request.headers.addAll(headers);
 
@@ -306,7 +305,7 @@ Future send_inf_login(email, password, context) async {
           'imageProfile', dataloginresult["imageProfile"]);
       imageProfileSavepref = presimageProfile.getString('imageProfile');
       controller.SavePathImage(
-          "http://212.24.108.54/wsaAdmin/images/" + imageProfileSavepref);
+          baseUrlAdmin + "/images/" + imageProfileSavepref);
       /////////////////////////////////
       SharedPreferences presMarket = await SharedPreferences.getInstance();
       presMarket.setString('marketingCode', dataloginresult["marketingCode"]);
@@ -477,7 +476,7 @@ Future send_inf_loginupdate(usernamepref, passPref) async {
           'imageProfile', dataloginresult["imageProfile"]);
       imageProfileSavepref = presimageProfile.getString('imageProfile');
       controller.SavePathImage(
-          "http://212.24.108.54/wsaAdmin/images/" + imageProfileSavepref);
+          baseUrlAdmin + "/images/" + imageProfileSavepref);
       /////////////////////////////////
       SharedPreferences presMarket = await SharedPreferences.getInstance();
       presMarket.setString('marketingCode', dataloginresult["marketingCode"]);

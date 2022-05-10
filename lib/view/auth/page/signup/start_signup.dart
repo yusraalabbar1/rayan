@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:rayan/model/modeApi/modelSetting/getcountery.dart';
 import 'package:rayan/model/modelJson/Country_model.dart';
 import 'package:rayan/utils/constant/color.dart';
+import 'package:rayan/utils/constant/url.dart';
 import 'package:rayan/view/auth/widget/linkS_social_media.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
 import 'package:dropdown_search/dropdown_search.dart';
@@ -147,7 +148,8 @@ class _loginState extends State<login> {
                                             children: <Widget>[
                                               Container(
                                                   child: Image.network(
-                                                "http://212.24.108.54/wsaAdmin/images/" +
+                                                baseUrlAdmin +
+                                                    "/images/" +
                                                     map["countryFlag"],
                                                 height: 20,
                                                 width: 20,

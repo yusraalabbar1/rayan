@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:rayan/utils/constant/url.dart';
 
 Future updateUser(first, mid, last) async {
   homecontroller controller = Get.put(homecontroller());
@@ -12,8 +13,8 @@ Future updateUser(first, mid, last) async {
     'Accept': 'application/json',
     'Authorization': "Bearer $tokenloginresult"
   };
-  var request = http.Request(
-      'POST', Uri.parse('http://212.24.108.54/wsa/api/user/updateUserInfo'));
+  var request =
+      http.Request('POST', Uri.parse(URL_BASE + '/user/updateUserInfo'));
   request.body = json.encode({
     "UserId": idSaveprefpref,
     "FirstName": first,

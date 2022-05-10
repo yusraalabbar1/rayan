@@ -19,9 +19,7 @@ Future addMemberCompitition(context, nick) async {
     'Authorization': "Bearer $tokenloginresult"
   };
   var request = http.Request(
-      'POST',
-      Uri.parse(
-          'http://212.24.108.54/wsa/api/Competitions/addCompetitionMember'));
+      'POST', Uri.parse(URL_BASE + '/Competitions/addCompetitionMember'));
   request.body = json.encode({
     "CompetitionId": controller.saveidComp,
     "UserId": idSaveprefpref,

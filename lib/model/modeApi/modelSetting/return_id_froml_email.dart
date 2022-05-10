@@ -7,14 +7,14 @@ import 'package:http/http.dart' as http;
 import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/model/modelJson/model_id_from_email.dart';
 import 'package:rayan/utils/constant/color.dart';
+import 'package:rayan/utils/constant/url.dart';
 
 var idUserFromEmail;
 homecontroller controller = Get.put(homecontroller());
 Future getUserIdFromEmail(email, context) async {
   homecontroller controller = Get.put(homecontroller());
   var headers = {'Content-Type': 'application/json'};
-  var request = http.Request(
-      'POST', Uri.parse('http://212.24.108.54/wsa/api/user/newOtp'));
+  var request = http.Request('POST', Uri.parse(URL_BASE + '/user/newOtp'));
   request.body = json.encode({"UserName": email});
   request.headers.addAll(headers);
   http.StreamedResponse response = await request.send();
