@@ -6,25 +6,7 @@ abstract class CustomTheme {
     return ThemeData(
         fontFamily: 'Mukta',
         primaryColor: Colors.white,
-// buttonTheme: const ButtonThemeData(
-//       buttonColor: Colors.deepPurple,     //  <-- dark color
-//       textTheme: ButtonTextTheme.primary, //  <-- this auto selects the right color
-//     ),
-        /////////////////////////////////////
-        // appBarTheme: const AppBarTheme(
-        //   backgroundColor: Colors.white,
-        //   elevation: 5.2,
-        //   centerTitle: true,
-        //   titleTextStyle: TextStyle(
-        //       color: Color(0xff21C49D),
-        //       fontSize: 20,
-        //       fontWeight: FontWeight.bold),
-        // ),
-        ///////////////////////////////////
-
         inputDecorationTheme: InputDecorationTheme(
-          // iconColor: const Color(0xff6268F1),
-
           hintStyle: const TextStyle(
             color: Color(0xff707070),
           ),

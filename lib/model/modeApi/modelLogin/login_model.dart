@@ -10,12 +10,9 @@ import 'package:get/get.dart';
 import 'package:rayan/model/modeApi/modelAgent/agents_details.dart';
 import 'package:rayan/model/modeApi/modelMedia/setting_social_media.dart';
 import 'package:rayan/model/modeApi/modelSetting/GetNotification.dart';
-import 'package:rayan/model/modeApi/modelsCompt/getWinnerQuestion.dart';
-import 'package:rayan/model/modeApi/modelsCompt/model_compitition.dart';
 import 'package:rayan/model/modeApi/modelAgent/api_all_agents.dart';
 import 'package:rayan/model/modeApi/balance/commissionBalance.dart';
-import 'package:rayan/model/modeApi/modelsCompt/common_questions.dart';
-import 'package:rayan/model/modeApi/modelsCompt/getWinner.dart';
+import 'package:rayan/model/modeApi/modelSetting/common_questions.dart';
 import 'package:rayan/model/modeApi/balance/userBalancLog.dart';
 import 'package:rayan/model/modeApi/balance/userBalance.dart';
 import 'package:rayan/model/modelJson/model_all_notifications.dart';
@@ -50,10 +47,7 @@ getpreflog() async {
   recived = [];
   notifmap = [];
   question = [];
-  MyCompitition = [];
   allAgent = [];
-  winner = [];
-  winnerQustion = [];
   mediaAgents = [];
   SharedPreferences pres = await SharedPreferences.getInstance();
   idSaveprefpref = pres.getInt('id');
@@ -130,14 +124,6 @@ getpreflog() async {
   print(tokenloginresult);
   controller.SaveUserToken(idSaveprefpref);
   fullName = firstNamepref + " " + midNamepref + " " + lastNamepref;
-  //fullName = "gad man hadi";
-  print(fullName);
-  // await getAllAgents(tokenloginresult, countryIdSaveprf, cityIdSavepref);
-  // await getWinner(tokenloginresult);
-
-  // await userBalanc();
-  // await userBalancLog();
-  // await comissionBalanc();
 
   getSettingAbout();
   getSettingTerms();
@@ -151,16 +137,7 @@ getpreflog() async {
   GetNotification(identifier);
 
   commonQuestionsapi();
-
-  allCompititionapi();
   getSettingAmount();
-
-  getWinnerQustion();
-
-  // getWinner(tokenloginresult);
-  // userBalanc();
-  // userBalancLog();
-  // comissionBalanc();
 }
 
 FocusNode myFocusNode = new FocusNode();

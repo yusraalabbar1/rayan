@@ -1,23 +1,14 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rayan/model/modeApi/balance/commissionBalance.dart';
-import 'package:rayan/model/modeApi/balance/userBalancLog.dart';
-import 'package:rayan/model/modeApi/balance/userBalance.dart';
-import 'package:rayan/model/modeApi/modelAgent/api_all_agents.dart';
-import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
 import 'package:rayan/model/modeApi/modelSetting/model_numberNoti.dart';
-import 'package:rayan/model/modeApi/modelsCompt/getWinner.dart';
 import 'package:rayan/utils/constant/color.dart';
 import 'package:rayan/control/homecontroller.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
 import 'package:rayan/view/other/homeMainScreens/widget_balance.dart';
-import 'package:rayan/view/other/homeMainScreens/widget_gallary.dart';
-import 'package:rayan/view/other/homeMainScreens/widget_winner.dart';
 
 class homeMain extends StatefulWidget {
   homeMain({Key? key}) : super(key: key);
@@ -193,116 +184,9 @@ class _homeMainState extends State<homeMain>
               ],
             ),
             widgetBalance(context),
-            Container(
-              margin: EdgeInsets.only(right: 20, left: 20),
-              child: Text(
-                "Competitions".tr,
-                style: TextStyle(
-                    color: Colors.white, fontSize: 17, fontFamily: 'Almarai'),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            widgetgallary(context),
-            Container(
-              margin: EdgeInsets.all(20),
-              child: Text(
-                "Winners".tr,
-                style: TextStyle(
-                    color: Colors.white, fontSize: 17, fontFamily: 'Almarai'),
-              ),
-            ),
-            widetWinner(context),
-            SizedBox(
-              height: 30,
-            )
           ],
         )
       ],
     ));
   }
 }
-
-// DropdownButtonHideUnderline(
-//                         child: DropdownButton2<String>(
-//                           dropdownWidth: 193,
-//                           dropdownMaxHeight: 190,
-//                           dropdownDecoration: BoxDecoration(
-//                             borderRadius: BorderRadius.circular(5),
-//                             color: Color(0xff1C2948),
-//                             boxShadow: [
-//                               BoxShadow(spreadRadius: 0.8),
-//                             ],
-//                           ),
-//                           customButton: Stack(
-//                             alignment: Alignment.center,
-//                             children: [
-//                               IconButton(
-//                                 onPressed: () {
-//                                   updateNotif();
-//                                   // GetNotification();
-//                                 },
-//                                 icon: Icon(
-//                                   Icons.notifications,
-//                                   color: Colors.white,
-//                                   size: 30,
-//                                 ),
-//                               ),
-//                               Visibility(
-//                                   visible:
-//                                       (numberOfNotification > 0 ? true : false),
-//                                   child: Positioned(
-//                                     top: 5,
-//                                     right: 2,
-//                                     child: Container(
-//                                       padding: EdgeInsets.symmetric(
-//                                           horizontal: 6, vertical: 2),
-//                                       decoration: BoxDecoration(
-//                                           shape: BoxShape.circle,
-//                                           color: Colors.red),
-//                                       alignment: Alignment.center,
-//                                       child: Text(
-//                                         '${numberOfNotification.toString()}',
-//                                         style: TextStyle(color: Colors.white),
-//                                       ),
-//                                     ),
-//                                   ))
-//                             ],
-//                           ),
-//                           items: controller.saveListNotifications.reversed
-//                               .map((Map map) {
-//                             return DropdownMenuItem<String>(
-//                               value: map["id"].toString(),
-//                               child: Column(
-//                                 children: [
-//                                   Text(
-//                                     map["title"].toString(),
-//                                     style: TextStyle(
-//                                         color: Colors.white,
-//                                         fontSize: 11,
-//                                         fontFamily: 'Almarai'),
-//                                     maxLines: 1,
-//                                   ),
-//                                   Text(
-//                                     map["body"].toString(),
-//                                     style: TextStyle(
-//                                         color: Colors.white,
-//                                         fontSize: 7,
-//                                         fontFamily: 'Almarai'),
-//                                     maxLines: 1,
-//                                   ),
-
-//                                   SizedBox(
-//                                     height: 3,
-//                                   ),
-//                                   Divider(
-//                                     color: Colors.white,
-//                                   )
-//                                 ],
-//                               ),
-//                             );
-//                           }).toList(),
-//                           onChanged: (_) {},
-//                         ),
-//                       ),

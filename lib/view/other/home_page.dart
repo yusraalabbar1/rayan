@@ -1,32 +1,21 @@
 import 'dart:io';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rayan/model/modeApi/modelAgent/api_all_agents.dart';
 import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
 import 'package:rayan/model/modeApi/modelSetting/model_numberNoti.dart';
-import 'package:rayan/model/modeApi/modelsCompt/getWinner.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:rayan/view/other/folderEmpty/file_empty.dart';
 import 'package:rayan/control/homecontroller.dart';
-import 'package:rayan/model/modeApi/modelsCompt/allMemberCompitition.dart';
 import 'package:rayan/model/modeApi/balance/commissionBalance.dart';
-import 'package:rayan/model/modeApi/modelsCompt/common_questions.dart';
-import 'package:rayan/model/modeApi/modelMedia/get_all_social.dart';
-import 'package:rayan/model/modeApi/modelMedia/get_user_profile_withmedia.dart';
-import 'package:rayan/model/modeApi/modelsCompt/model_compitition.dart';
 import 'package:rayan/model/modeApi/balance/userBalancLog.dart';
 import 'package:rayan/model/modeApi/balance/userBalance.dart';
-import 'package:rayan/utils/constant/url.dart';
 import 'package:rayan/view/other/agentsScreens/agents_main.dart';
-import 'package:rayan/view/other/competitionsScreens/competitions_main.dart';
 import 'package:rayan/view/other/drawer_main.dart';
 import 'package:rayan/view/other/homeMainScreens/home_main.dart';
 import 'package:rayan/view/other/register1Screens/register1_main.dart';
-import 'package:rayan/view/other/register2Screens/register2_main.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:rayan/view/other/widget/design_appbar.dart';
 
 class homePage extends StatefulWidget {
   homePage({Key? key}) : super(key: key);
@@ -38,7 +27,7 @@ class homePage extends StatefulWidget {
 homecontroller controller = Get.put(homecontroller());
 final List<Widget> widgetOptions = <Widget>[
   agentsMain(),
-  competitionsMain(),
+  pageEmpty(),
   register1Main(),
   homeMain(),
 ];
@@ -73,13 +62,9 @@ class _homePageState extends State<homePage>
 
   Future sta() async {
     allAgent = [];
-    winner = [];
     await send_inf_loginupdate(usernamepref, passPref);
     await getpreflog();
-
     await getAllAgents(tokenloginresult, countryIdSaveprf, cityIdSavepref);
-    await getWinner(tokenloginresult);
-
     await userBalanc();
     await userBalancLog();
     await comissionBalanc();
@@ -155,12 +140,12 @@ class _homePageState extends State<homePage>
       body: RefreshIndicator(
         onRefresh: () async {
           allAgent = [];
-          winner = [];
+          //winner = [];
           await send_inf_loginupdate(usernamepref, passPref);
           await getpreflog();
           await getAllAgents(
               tokenloginresult, countryIdSaveprf, cityIdSavepref);
-          await getWinner(tokenloginresult);
+          //await getWinner(tokenloginresult);
 
           await userBalanc();
           await userBalancLog();

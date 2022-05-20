@@ -4,7 +4,6 @@ import 'package:rayan/model/modeApi/balance/userBalancLog.dart';
 import 'package:rayan/model/modeApi/balance/userBalance.dart';
 import 'package:rayan/model/modeApi/modelAgent/api_all_agents.dart';
 import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
-import 'package:rayan/model/modeApi/modelsCompt/getWinner.dart';
 import 'package:rayan/utils/constant/color.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
 
@@ -20,12 +19,9 @@ class _welcomState extends State<welcom> with AutomaticKeepAliveClientMixin {
   bool get wantKeepAlive => true;
   Future sta() async {
     allAgent = [];
-    winner = [];
     await send_inf_loginupdate(usernamepref, passPref);
     await getpreflog();
     await getAllAgents(tokenloginresult, countryIdSaveprf, cityIdSavepref);
-    //await getWinner(tokenloginresult);
-
     await userBalanc();
     await userBalancLog();
     await comissionBalanc();

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rayan/model/modeApi/modelsCompt/common_questions.dart';
+import 'package:rayan/model/modeApi/modelSetting/common_questions.dart';
 import 'package:rayan/utils/constant/color.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
 import 'package:rayan/view/other/widget/design_appbar.dart';

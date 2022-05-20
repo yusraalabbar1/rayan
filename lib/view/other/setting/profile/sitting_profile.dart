@@ -12,7 +12,6 @@ import 'package:rayan/model/modeApi/modelPorfile/image_upload.dart';
 import 'package:rayan/model/modeApi/modelLogin/login_model.dart';
 import 'package:rayan/utils/constant/color.dart';
 import 'package:rayan/view/auth/widget/themeWst.dart';
-import 'package:rayan/view/other/homeMainScreens/widget_winner.dart';
 import 'package:rayan/view/other/setting/profile/dialog_edit.dart';
 import 'package:rayan/view/other/setting/profile/widgetRowForProfil.dart';
 import 'package:rayan/view/other/setting/profile/widgetrowOfLinkSocialMedia.dart';
