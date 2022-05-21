@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:rayan/view/other/homeMainScreens/widget_home.dart';
 
 Widget widgetBalanceGaust(context) {
@@ -20,7 +21,7 @@ Widget widgetBalanceGaust(context) {
           children: [
             Container(
               child: Text(
-                "اجمالي الرصيد المتوفر",
+                "Total available balance".tr,
                 style: TextStyle(
                     color: Colors.white, fontSize: 14, fontFamily: 'Almarai'),
               ),
@@ -67,7 +68,7 @@ Widget widgetBalanceGaust(context) {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(25.0))),
                 label: Text(
-                  "ارسال",
+                  "send".tr,
                   style: TextStyle(
                       color: Colors.white, fontSize: 14, fontFamily: 'Almarai'),
                 ),

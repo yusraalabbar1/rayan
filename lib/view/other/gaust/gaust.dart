@@ -12,14 +12,13 @@ class gaust extends StatefulWidget {
 
 class _gaustState extends State<gaust> {
   final List<Widget> widgetOptions = <Widget>[
-    page1Gaust(),
-    page1Gaust(),
     HomeGaust(),
+    page1Gaust(),
     page1Gaust(),
   ];
   int _page = 0;
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
-  int _selectedIndex = 2;
+  int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -39,23 +38,9 @@ class _gaustState extends State<gaust> {
       extendBody: true,
       bottomNavigationBar: CurvedNavigationBar(
         key: _bottomNavigationKey,
-        index: 2,
+        index: 0,
         height: 60.0,
         items: <Widget>[
-          InkWell(
-            child: Image.asset(
-              "assets/images/agents.png",
-              width: 28,
-              height: 28,
-            ),
-          ),
-          InkWell(
-            child: Image.asset(
-              "assets/images/winningcup.png",
-              width: 28,
-              height: 28,
-            ),
-          ),
           InkWell(
             child: Image.asset(
               "assets/images/home.png",
@@ -70,6 +55,20 @@ class _gaustState extends State<gaust> {
               height: 28,
             ),
           ),
+          InkWell(
+            child: Image.asset(
+              "assets/images/agents.png",
+              width: 28,
+              height: 28,
+            ),
+          ),
+          // InkWell(
+          //   child: Image.asset(
+          //     "assets/images/winningcup.png",
+          //     width: 28,
+          //     height: 28,
+          //   ),
+          // ),
         ],
         color: Color(0xff1C2948),
         backgroundColor: Colors.transparent,

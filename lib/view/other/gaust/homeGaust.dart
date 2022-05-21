@@ -32,49 +32,6 @@ class _HomeGaustState extends State<HomeGaust> {
           children: [
             rowAppbarGaust(context),
             widgetBalanceGaust(context),
-            Container(
-              margin: EdgeInsets.only(right: 20, left: 20),
-              child: Text(
-                "المسابقات",
-                style: TextStyle(
-                    color: Colors.white, fontSize: 17, fontFamily: 'Almarai'),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              margin: EdgeInsets.only(right: 20, left: 20),
-              child: Text(
-                "لا يمكن عرض مسابقات",
-                style: TextStyle(
-                    color: Colors.white, fontSize: 12, fontFamily: 'Almarai'),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            // widgetgallary(context),
-            Container(
-              margin: EdgeInsets.all(20),
-              child: Text(
-                "الرابحين",
-                style: TextStyle(
-                    color: Colors.white, fontSize: 17, fontFamily: 'Almarai'),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(right: 20, left: 20),
-              child: Text(
-                "لا يمكن عرض رابحيين",
-                style: TextStyle(
-                    color: Colors.white, fontSize: 12, fontFamily: 'Almarai'),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            // widetWinner(context)
           ],
         )
       ],
